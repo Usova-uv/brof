@@ -1,128 +1,238 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>БРОФ "Твардовского, 2" — Поддержка тех, кто служит и служил Отечеству</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
-        .hero-slider { position: relative; height: 80vh; min-height: 500px; overflow: hidden; }
-        .slider-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; }
-        .slide.active { opacity: 1; }
-        .slider-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: white; top: 50%; transform: translateY(-50%); padding: 0 20px; }
-        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero-content p { font-size: 1.2rem; }
-        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo a { font-size: 1.5rem; font-weight: bold; color: #1e3c72; text-decoration: none; }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; }
-        .nav-menu a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
-        .nav-menu a:hover, .nav-menu a.active { color: #1e3c72; }
-        main { max-width: 1200px; margin: 0 auto; padding: 3rem 20px; }
-        section { margin-bottom: 4rem; }
-        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; text-align: center; margin: 3rem 0; }
-        .stat-card { flex: 1; min-width: 200px; padding: 2rem; background: #f5f5f5; border-radius: 10px; }
-        .stat-number { font-size: 3rem; font-weight: bold; color: #1e3c72; }
-        .directions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .direction-card { padding: 1.5rem; background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
-        .direction-card h3 { margin-bottom: 1rem; color: #1e3c72; }
-        .leadership { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .leader-card { text-align: center; padding: 1.5rem; background: #f9f9f9; border-radius: 10px; }
-        .leader-name { font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0; }
-        .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .review-card { background: #f9f9f9; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #1e3c72; }
-        .review-author { margin-top: 1rem; font-weight: bold; color: #1e3c72; }
-        .btn { display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background: #1e3c72; color: white; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
-        .btn:hover { background: #0a2a4a; }
-        footer { background: #1e3c72; color: white; text-align: center; padding: 2rem; margin-top: 2rem; }
-        @media (max-width: 768px) { .hero-content h1 { font-size: 2rem; } nav { flex-direction: column; gap: 1rem; } .nav-menu { gap: 1rem; flex-wrap: wrap; justify-content: center; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БРОФ «Твардовского, 2» — Благотворительный фонд</title>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
+.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;gap:1.5rem}
+.topbar a{color:rgba(255,255,255,.85);font-size:.72rem;text-decoration:none}
+.topbar a:hover{color:#fff}
+nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
+.nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.logo-img{width:44px;height:44px;object-fit:contain;flex-shrink:0}
+.logo-name{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;font-weight:700;white-space:nowrap;line-height:1.2}
+.logo-sub{color:#8b0000;font-size:.56rem;font-family:'PT Sans',sans-serif;font-weight:400;line-height:1.3;margin-top:1px;white-space:nowrap}
+.nav-links{display:flex;list-style:none;flex-shrink:0;position:relative}
+.nav-links > li{position:relative}
+.nav-links > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
+.nav-links > li:first-child > a{border-left:none}
+.nav-links > li > a:hover{color:#8b0000;background:#fafafa}
+.nav-links > li > a.has-sub::after{content:'▾';margin-left:.3rem;font-size:.6rem}
+.dropdown{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:200px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.nav-links > li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
+.dropdown a:hover{color:#8b0000;background:#fdf5f5}
+.nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-family:'PT Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center}
+.nbtn:hover{background:#a00000}
+.hero{background:#1a1a2e;display:grid;grid-template-columns:1fr 280px}
+.hero-text{padding:3rem 2rem 2.5rem 2rem;position:relative}
+.hero-text::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#8b0000}
+.hero-eyebrow{color:rgba(255,255,255,.5);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem}
+.hero h1{color:#fff;font-family:'PT Serif',serif;font-size:2rem;line-height:1.3;margin-bottom:1rem;font-weight:700}
+.hero p{color:rgba(255,255,255,.8);font-size:.92rem;line-height:1.75;margin-bottom:1.8rem}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hbp{background:#8b0000;color:#fff;border:2px solid #8b0000;padding:.65rem 1.5rem;font-family:'PT Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
+.hbp:hover{background:#a50000}
+.hbo{background:transparent;color:#fff;border:2px solid #8b0000;padding:.65rem 1.5rem;font-family:'PT Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
+.hbo:hover{background:rgba(139,0,0,.2)}
+.hero-aside{background:#111128;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem}
+.hero-stat{text-align:center;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.08);width:100%}
+.hero-stat:last-child{border-bottom:none}
+.hs-n{color:#fff;font-family:'PT Serif',serif;font-size:2rem;font-weight:700}
+.hs-l{color:rgba(255,255,255,.45);font-size:.68rem;margin-top:.15rem}
+.nav-tiles{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #e8e8e8;border-left:1px solid #e8e8e8}
+.nav-tile{padding:.9rem .5rem;text-align:center;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;cursor:pointer;transition:.15s;text-decoration:none;display:block;background:#fff}
+.nav-tile:hover{background:#fdf5f5}
+.nav-tile:hover .nt-title{color:#8b0000}
+.nav-tile:hover svg{stroke:#8b0000}
+.nt-ic{display:flex;align-items:center;justify-content:center;height:30px;margin-bottom:.35rem}
+.nt-ic svg{width:20px;height:20px;stroke:#1a1a1a;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
+.nt-title{font-size:.66rem;color:#1a1a1a;font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:1.3;transition:.2s}
+.content-wrap{padding:2rem 2rem;background:#fff;max-width:1200px;margin:0 auto}
+.main-grid{display:grid;grid-template-columns:1fr 270px;gap:2rem}
+.sec-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.2rem}
+.sec-header h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#1a1a1a;font-weight:700}
+.sec-header a{font-size:.78rem;color:#8b0000;text-decoration:none}
+.sec-header a:hover{text-decoration:underline}
+.sec-rule{height:2px;background:#8b0000;margin-bottom:1.2rem}
+.news-list{display:flex;flex-direction:column}
+.news-item{display:grid;grid-template-columns:110px 1fr;gap:.85rem;padding:.9rem 0;border-bottom:1px solid #ebebeb}
+.news-item:first-child{padding-top:0}
+.news-ph{width:110px;height:74px;background:#dde3ee;object-fit:cover;display:block}
+.news-date{font-size:.66rem;color:#8b0000;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.06em}
+.news-title{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;line-height:1.45;font-weight:700;text-decoration:none;display:block}
+.news-title:hover{color:#8b0000}
+.sidebar-block{margin-bottom:1.6rem}
+.sidebar-block h3{font-family:'PT Serif',serif;font-size:1rem;color:#1a1a1a;font-weight:700;margin-bottom:.2rem}
+.sb-rule{height:2px;background:#8b0000;margin-bottom:.85rem}
+.sb-item{padding:.55rem 0;border-bottom:1px solid #ebebeb;font-size:.8rem;color:#1a1a1a;line-height:1.4;cursor:pointer;text-decoration:none;display:block}
+.sb-item:hover{color:#8b0000}
+.sb-date{font-size:.65rem;color:#999;margin-top:.12rem}
+.about-strip{background:#f7f7f7;border-top:2px solid #8b0000;padding:1.8rem 2rem}
+.about-strip .sec-header h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#1a1a1a;font-weight:700}
+.about-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;margin-top:1rem}
+.about-cell{background:#f7f7f7;padding:1.2rem 1rem}
+.ac-icon{width:34px;height:34px;background:#8b0000;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem}
+.ac-icon svg{width:18px;height:18px;stroke:#fff;stroke-width:1.6;fill:none}
+.ac-title{font-family:'PT Serif',serif;font-size:.9rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
+.ac-text{font-size:.78rem;color:#666;line-height:1.6}
+.testi{background:#1a1a2e;padding:2rem}
+.testi .sec-header h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#fff;font-weight:700}
+.testi .sec-rule{background:#8b0000}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.tc{background:rgba(255,255,255,.06);padding:1.3rem;border-left:3px solid #8b0000}
+.tt{font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:.9rem}
+.ta{font-size:.8rem;font-weight:700;color:#fff}
+.tr{font-size:.74rem;color:rgba(255,255,255,.4);margin-top:.15rem}
+.reports-section{background:#fff;padding:2rem;border-top:1px solid #ebebeb}
+.reports-section .sec-header h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#1a1a1a;font-weight:700}
+.reports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem}
+.report-card{background:#f7f7f7;padding:1.5rem;text-align:center;border-radius:8px;transition:all .2s}
+.report-card:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.1)}
+.report-card h3{font-family:'PT Serif',serif;font-size:1.1rem;color:#8b0000;margin-bottom:.5rem}
+.report-card p{font-size:.8rem;color:#666;margin-bottom:1rem}
+.download-btn{display:inline-block;background:#8b0000;color:#fff;padding:.6rem 1.2rem;text-decoration:none;font-weight:700;font-size:.8rem;border-radius:4px;transition:background .2s}
+.download-btn:hover{background:#a00000}
+footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
+footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.7rem}
+footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
+footer a:hover{color:rgba(255,255,255,.85)}
+.footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
+.footer-logo img{width:40px;height:40px;object-fit:contain}
+.footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;line-height:1.3;font-weight:700}
+.fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot button:hover{background:#a00000}
+@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-aside{display:none}.about-inner{grid-template-columns:repeat(2,1fr)}.testi-grid{grid-template-columns:1fr}.reports-grid{grid-template-columns:1fr}footer{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto;padding:.8rem}.nav-links{flex-wrap:wrap;justify-content:center}.nav-links > li > a{padding:0 .5rem;height:44px}.main-grid{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}.reports-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"><a href="/">БРОФ "Твардовского, 2"</a></div>
-            <ul class="nav-menu">
-                <li><a href="/" class="active">Главная</a></li>
-                <li><a href="/projects.html">Проекты</a></li>
-                <li><a href="/news.html">Новости</a></li>
-                <li><a href="/reports.html">Отчеты</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="hero-slider">
-        <div class="slider-container">
-            <div class="slide active" style="background-image: url('images/slide-1.jpg');"></div>
-            <div class="slide" style="background-image: url('images/slide-2.jpg');"></div>
-            <div class="slide" style="background-image: url('images/slide-3.jpg');"></div>
-            <div class="slide" style="background-image: url('images/slide-4.jpg');"></div>
-            <div class="slide" style="background-image: url('images/slide-5.jpg');"></div>
-        </div>
-        <div class="slider-overlay"></div>
-        <div class="hero-content">
-            <h1>Поддержка тех, кто служит и служил Отечеству</h1>
-            <p>Москва · Основан в августе 1995 года</p>
-        </div>
+<div class="topbar">
+  <a href="#">Для СМИ</a>
+  <a href="#">Хочу помочь</a>
+  <a href="#">Контакты</a>
+  <a href="#">Поиск</a>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <img class="logo-img" src="logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/44x44?text=LOGO'">
+      <div>
+        <div class="logo-name">БРОФ «Твардовского, 2»</div>
+        <div class="logo-sub">Благотворительный фонд социальных программ</div>
+      </div>
     </div>
-
-    <main>
-        <section>
-            <h2>Благотворительный региональный общественный Фонд социальных программ «Твардовского, 2»</h2>
-            <p style="margin-top: 1rem;">С февраля 2016 года у Фонда новое название — «Благотворительный региональный общественный Фонд социальных программ «Твардовского, 2».</p>
-            <p style="margin-top: 0.5rem;">Основной целью деятельности Фонда является:<br>— привлечение добровольных имущественных взносов (пожертвований) для реализации благотворительных, социальных, культурных целей;<br>— организация благотворительных мероприятий;<br>— адресная помощь сотрудникам отряда и их семьям, ветеранам отряда и ВОВ, многодетным семьям и семьям, воспитывающим детей-инвалидов.</p>
-            <p style="margin-top: 0.5rem;">Финансово-хозяйственная деятельность Фонда находится под постоянным контролем налоговых и банковских органов. Кроме того, по просьбе командования Отряда и руководства Фонда, осуществляются аудиторские проверки.</p>
-            <p style="margin-top: 0.5rem;"><strong>Региональный общественный благотворительный фонд поддержки Отряда милиции особого назначения при ГУВД г. Москвы. Фонд основан в августе 1995 года.</strong></p>
-        </section>
-
-        <div class="stats">
-            <div class="stat-card"><div class="stat-number">30</div><div>лет работы</div></div>
-            <div class="stat-card"><div class="stat-number">1995</div><div>год основания</div></div>
-            <div class="stat-card"><div class="stat-number">ОМОН</div><div>«Авангард»</div></div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="has-sub">О фонде</a>
+        <div class="dropdown">
+          <a href="#">История отряда</a>
+          <a href="#">Наша география</a>
+          <a href="#">Навечно в строю</a>
+          <a href="#">Подопечные фонда</a>
+          <a href="#">Ветераны</a>
         </div>
+      </li>
+      <li><a href="#">Деятельность фонда</a></li>
+      <li><a href="/reports.html">Документы</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+    <button class="nbtn" onclick="window.location='#'">Хочу помочь</button>
+  </div>
+</nav>
 
-        <section>
-            <h2>Направления помощи</h2>
-            <div class="directions-grid">
-                <div class="direction-card"><h3>Помогаем детям</h3><p>Многодетные семьи и семьи с детьми-инвалидами</p></div>
-                <div class="direction-card"><h3>Помогаем сотрудникам</h3><p>Материальная и социальная поддержка нуждающихся</p></div>
-                <div class="direction-card"><h3>Мероприятия</h3><p>Праздники, памятные события, спортивные турниры</p></div>
-                <div class="direction-card"><h3>Помогаем ветеранам</h3><p>Адресная помощь ветеранам боевых действий и ВОВ</p></div>
-            </div>
-        </section>
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Москва · Основан в августе 1995 года</div>
+    <h1>Поддержка тех, кто служит и служил Отечеству</h1>
+    <p>Адресная помощь сотрудникам ОМОН, ветеранам и их семьям. Благотворительные программы для детей и многодетных семей.</p>
+    <div class="hero-btns">
+      <button class="hbp" onclick="window.location='#'">Хочу помочь фонду</button>
+      <button class="hbo" onclick="window.location='#'">Узнать больше</button>
+    </div>
+  </div>
+  <div class="hero-aside">
+    <div class="hero-stat"><div class="hs-n">30</div><div class="hs-l">лет работы</div></div>
+    <div class="hero-stat"><div class="hs-n">1995</div><div class="hs-l">год основания</div></div>
+    <div class="hero-stat"><div class="hs-n">ОМОН</div><div class="hs-l">«Авангард»</div></div>
+  </div>
+</div>
 
-        <section>
-            <h2>Руководство фонда</h2>
-            <div class="leadership">
-                <div class="leader-card"><div class="leader-name">Смирнов Геннадий Иванович</div><div>Председатель совета Фонда</div></div>
-                <div class="leader-card"><div class="leader-name">Веселов Виктор Валентинович</div><div>Заместитель председателя совета Фонда, член попечительного совета МПКУ им. М.А. Шолохова</div></div>
-                <div class="leader-card"><div class="leader-name">Усов Сергей Федорович</div><div>Исполнительный директор Фонда</div></div>
-            </div>
-        </section>
+<div class="nav-tiles">
+  <a class="nav-tile" href="#"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="nt-title">История отряда</div></a>
+  <a class="nav-tile" href="#"><div class="nt-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="nt-title">Наша география</div></a>
+  <a class="nav-tile" href="#"><div class="nt-ic"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="nt-title">Навечно в строю</div></a>
+  <a class="nav-tile" href="#"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="nt-title">Подопечные фонда</div></a>
+  <a class="nav-tile" href="#"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="nt-title">Ветераны</div></a>
+</div>
 
-        <section>
-            <h2>Отзывы о нашей работе</h2>
-            <div class="reviews">
-                <div class="review-card"><p>«Командование ОМОН ГУ Росгвардии по г. Москве находится в постоянном контакте с Благотворительным Фондом «Твардовского, 2». Не раз оказывали поддержку друг другу, помогали в сложных ситуациях. Высоко ценим профессионализм сотрудников Фонда, их преданность делу и готовность прийти на помощь в решении любых социальных проблем Отряда.»</p><div class="review-author">Оржиховский А.Н.</div><div>Зам. командира ОМОН ГУ Росгвардии по г. Москве, полковник полиции</div></div>
-                <div class="review-card"><p>«От семьи Ермолаевых хочу выразить благодарность руководству и всем сотрудникам Фонда. Спасибо вам за доброту и помощь, которую вы оказываете нашей семье уже несколько лет. Иногда выбор подарка для необычных детей даже родителей ставит в тупик, но волшебники Фонда умеют воплощать мечты в реальность. Ваша помощь неоценима — бесконечно благодарны вам.»</p><div class="review-author">Ермолаева Наталья</div><div>Подопечная фонда</div></div>
-                <div class="review-card"><p>«Уважаемый ГЕННАДИЙ ИВАНОВИЧ! Совет Ветеранов ОМОН ГУ Росгвардии по г. Москве выражает благодарность Благотворительному региональному общественному фонду «Твардовского,2» за оказанную помощь и активное содействие в проведении мероприятия, посвященного 32-ой годовщине создания Московского ОМОН.»</p><div class="review-author">Совет Ветеранов ОМОН</div></div>
-            </div>
-        </section>
-    </main>
+<div style="background:#fff">
+  <div class="content-wrap">
+    <div class="main-grid">
+      <div>
+        <div class="sec-header"><h2>Деятельность фонда</h2><a href="#">Все события →</a></div>
+        <div class="sec-rule"></div>
+        <div class="news-list">
+          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">07 марта 2026</div><a class="news-title" href="#">В преддверии 8 Марта сотрудники ОМОН «Авангард» встретились с вдовами и матерями погибших бойцов</a></div></div>
+          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">01 марта 2026</div><a class="news-title" href="#">В столичном главке Росгвардии состоялся детско-юношеский турнир по самбо</a></div></div>
+          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">23 февраля 2026</div><a class="news-title" href="#">Сотрудники ОМОН «Авангард» приняли участие в мероприятии ко Дню защитника Отечества</a></div></div>
+          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">22 февраля 2026</div><a class="news-title" href="#">Поздравление ветеранов ВОВ и отцов погибших боевых товарищей с Днём защитника Отечества</a></div></div>
+          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">16 февраля 2026</div><a class="news-title" href="#">Поздравление вдов сотрудников, погибших при исполнении служебного долга, с днём рождения</a></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sidebar-block"><h3>Новости фонда</h3><div class="sb-rule"></div><a class="sb-item" href="#">БРОФ подвёл итоги работы за 2025 год<div class="sb-date">19 января 2026</div></a><a class="sb-item" href="#">БРОФ «Твардовского, 2» отметил 30-летний юбилей<div class="sb-date">03 октября 2025</div></a><a class="sb-item" href="#">Итоги служебно-боевой деятельности ОМОН за 2024 год<div class="sb-date">28 января 2025</div></a><a class="sb-item" href="#">Круглый стол по спортивным мероприятиям ветеранской организации<div class="sb-date">22 января 2025</div></a></div>
+        <div class="sidebar-block"><h3>Контакты</h3><div class="sb-rule"></div><div style="font-size:.8rem;color:#333;line-height:1.9"><p>г. Москва, ул. Николоямская, д. 40, стр. 1</p><a href="tel:74959682311" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 968-23-11</a><a href="tel:74952236598" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 223-65-98</a><a href="tel:74959429451" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 942-94-51</a><a href="mailto:info@fond-omon.com" style="color:#8b0000;text-decoration:none;display:block;margin-top:.3rem">info@fond-omon.com</a></div></div>
+        <div class="sidebar-block"><h3>Хочу помочь</h3><div class="sb-rule"></div><p style="font-size:.8rem;color:#555;line-height:1.7;margin-bottom:.8rem">Вы можете поддержать деятельность фонда, сделав добровольное пожертвование.</p><a href="#" style="display:inline-block;background:#8b0000;color:#fff;padding:.5rem 1.2rem;font-size:.8rem;font-weight:700;text-decoration:none">Сделать пожертвование →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <footer>
-        <p>© 2025 БРОФ "Твардовского, 2". Все права защищены.</p>
-    </footer>
+<div class="about-strip">
+  <div class="sec-header"><h2>Направления помощи</h2></div>
+  <div class="sec-rule"></div>
+  <div class="about-inner">
+    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ac-title">Помогаем детям</div><div class="ac-text">Многодетные семьи и семьи с детьми-инвалидами</div></div>
+    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="ac-title">Помогаем сотрудникам</div><div class="ac-text">Материальная и социальная поддержка нуждающихся</div></div>
+    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="ac-title">Мероприятия</div><div class="ac-text">Праздники, памятные события, спортивные турниры</div></div>
+    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ac-title">Помогаем ветеранам</div><div class="ac-text">Адресная помощь ветеранам боевых действий и ВОВ</div></div>
+  </div>
+    
+</div><div class="testi">
+  <div class="sec-header"><h2>Отзывы о нашей работе</h2></div>
+  <div class="sec-rule"></div>
+  <div class="testi-grid">
+    <div class="tc"><div class="tt">«Командование ОМОН ГУ Росгвардии по г. Москве находится в постоянном контакте с Благотворительным Фондом «Твардовского, 2». Высоко ценим профессионализм сотрудников Фонда, их преданность делу и готовность прийти на помощь в решении любых социальных проблем Отряда.»</div><div class="ta">Оржиховский А.Н.</div><div class="tr">Зам. командира ОМОН ГУ Росгвардии по г. Москве, полковник полиции</div></div>
+    <div class="tc"><div class="tt">«От семьи Ермолаевых хочу выразить благодарность руководству и всем сотрудникам Фонда. Спасибо вам за доброту и помощь, которую вы оказываете нашей семье уже несколько лет. Ваша помощь неоценима — бесконечно благодарны вам.»</div><div class="ta">Ермолаева Наталья</div><div class="tr">Подопечная фонда</div></div>
+    <div class="tc"><div class="tt">«Совет Ветеранов ОМОН ГУ Росгвардии по г. Москве выражает благодарность Благотворительному региональному общественному фонду «Твардовского,2» за оказанную помощь и активное содействие в проведении мероприятия, посвященного 32-ой годовщине создания Московского ОМОН.»</div><div class="ta">Совет Ветеранов ОМОН</div><div class="tr">Ветеранская организация</div></div>
+  </div>
+</div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        function nextSlide() { slides[currentSlide].classList.remove('active'); currentSlide = (currentSlide + 1) % totalSlides; slides[currentSlide].classList.add('active'); }
-        setInterval(nextSlide, 5000);
-    </script>
-</body>
-</html>
+<div style="background:#fff;padding:2rem;border-top:1px solid #ebebeb">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.2rem"><h2 style="font-family:'PT Serif',serif;font-size:1.25rem;color:#1a1a1a;font-weight:700">Руководство фонда</h2></div>
+    <div style="height:2px;background:#8b0000;margin-bottom:1.5rem"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+      <div style="text-align:center;padding:1.5rem;border:1px solid #ebebeb"><div style="width:90px;height:90px;border-radius:50%;background:#dde3ee;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#aab"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="font-size:.75rem;color:#8b0000;margin-bottom:.3rem">Председатель совета Фонда</div><div style="font-family:'PT Serif',serif;font-size:.95rem;font-weight:700">Смирнов Геннадий Иванович</div></div>
+      <div style="text-align:center;padding:1.5rem;border:1px solid #ebebeb"><div style="width:90px;height:90px;border-radius:50%;background:#dde3ee;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#aab"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="font-size:.75rem;color:#8b0000;margin-bottom:.3rem">Заместитель председателя совета Фонда</div><div style="font-family:'PT Serif',serif;font-size:.95rem;font-weight:700">Веселов Виктор Валентинович</div></div>
+      <div style="text-align:center;padding:1.5rem;border:1px solid #ebebeb"><div style="width:90px;height:90px;border-radius:50%;background:#dde3ee;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#aab"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div style="font-size:.75rem;color:#8b0000;margin-bottom:.3rem">Исполнительный директор Фонда</div><div style="font-family:'PT Serif',serif;font-size:.95rem;font-weight:700">Усов Сергей Федорович</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="reports-section">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="sec-header"><h2>Финансовые отчеты</h2></div>
+    <div class="sec-rule"></div>
+    <div class="reports-grid">
+      <div class="report-card"><h3>Отчет за 2023 год
