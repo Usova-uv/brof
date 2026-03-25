@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Помощь детям — БРОФ «Твардовского, 2»</title>
+<title>Навечно в строю — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -149,31 +149,31 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Помощь детям</h1>
-    <p>Мероприятия и помощь, организованная фондом для детей сотрудников ОМОН «Авангард».</p>
+    <h1>Навечно в строю</h1>
+    <p>Память о погибших сотрудниках и мероприятия, посвящённые их подвигу. Ниже — хроника событий (по материалам с сайта фонда). Фотографии к материалам можно добавить по мере переноса архива.</p>
   </div>
-  <p class="mem-intro">На карточке — дата, название и одно главное фото-превью; в модальном окне — галерея снимков мероприятия (до 15 фото, сейчас по 3–5 заглушек). Клик по карточке открывает галерею; стрелки листают фото. Крестик или клик по затемнённому фону — закрыть; клавиши ← → — фото, Escape — закрыть.</p>
-  <div id="pchGrid" class="mem-grid" aria-live="polite"></div>
+  <p class="mem-intro">На карточке — дата, название и одно главное фото-превью; в модальном окне — галерея снимков события (до 15 фото, сейчас по 3–5 заглушек). Клик по карточке открывает галерею; стрелки листают фото. Крестик или клик по затемнённому фону — закрыть; клавиши ← → — фото, Escape — закрыть.</p>
+  <div id="memGrid" class="mem-grid" aria-live="polite"></div>
 </div>
 
-<div id="pchGalleryModal" class="mem-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="pchGalleryTitle" hidden>
+<div id="memGalleryModal" class="mem-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="memGalleryTitle" hidden>
   <div class="mem-gallery-inner">
-    <button type="button" class="mem-gallery-close" id="pchGalleryClose" aria-label="Закрыть">×</button>
+    <button type="button" class="mem-gallery-close" id="memGalleryClose" aria-label="Закрыть">×</button>
     <div class="mem-gallery-head">
-      <div class="mg-date" id="pchGalleryDate"></div>
-      <div class="mg-title" id="pchGalleryTitle"></div>
+      <div class="mg-date" id="memGalleryDate"></div>
+      <div class="mg-title" id="memGalleryTitle"></div>
     </div>
     <div class="mem-gallery-stage">
-      <button type="button" class="mg-nav mg-prev" id="pchPhotoPrev" aria-label="Предыдущее фото">‹</button>
-      <img class="mem-gallery-img" id="pchGalleryImg" src="" alt="">
-      <button type="button" class="mg-nav mg-next" id="pchPhotoNext" aria-label="Следующее фото">›</button>
+      <button type="button" class="mg-nav mg-prev" id="memPhotoPrev" aria-label="Предыдущее фото">‹</button>
+      <img class="mem-gallery-img" id="memGalleryImg" src="" alt="">
+      <button type="button" class="mg-nav mg-next" id="memPhotoNext" aria-label="Следующее фото">›</button>
     </div>
     <div class="mem-gallery-foot">
-      <div class="mem-photo-counter" id="pchPhotoCounter"></div>
-      <div class="mem-event-counter" id="pchEventCounter"></div>
+      <div class="mem-photo-counter" id="memPhotoCounter"></div>
+      <div class="mem-event-counter" id="memEventCounter"></div>
       <div class="mem-gallery-events">
-        <button type="button" id="pchPrevEvt">← Предыдущее мероприятие</button>
-        <button type="button" id="pchNextEvt">Следующее мероприятие →</button>
+        <button type="button" id="memPrevEvt">← Предыдущее событие</button>
+        <button type="button" id="memNextEvt">Следующее событие →</button>
       </div>
     </div>
   </div>
@@ -230,47 +230,54 @@ footer a:hover{color:rgba(255,255,255,.85)}
     var count=[5,4,3][evIdx%3];
     var out=[];
     for(var p=1;p<=count;p++){
-      out.push('https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Помощь детям '+String(evIdx+1)+' · '+p+'/'+count));
+      out.push('https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Навечно '+String(evIdx+1)+' · '+p+'/'+count));
     }
     return out;
   }
-  var PCH_EVENTS=[
-    {d:'20.03.2026',t:'БРОФ «Твардовского, 2» организовал для детей сотрудников ОМОН «Авангард» посещение развлекательного центра'},
-    {d:'23.12.2025',t:'Новогодний праздник для детей росгвардейцев прошёл в Москве'},
-    {d:'07.12.2025',t:'Сотрудники ОМОН «Авангард» организовали для детей экскурсию в парк «Патриот»'},
-    {d:'01.11.2025',t:'Экскурсия на фабрику мороженого «Чистая линия» для детей сотрудников ОМОН «Авангард»'},
-    {d:'11.10.2025',t:'БРОФ «Твардовского, 2» организовал экскурсию для детей сотрудников ОМОН «Авангард»'},
-    {d:'31.08.2025',t:'Сотрудники ОМОН «Авангард» поздравили будущих первоклассников с Днём знаний'},
-    {d:'01.06.2025',t:'Столичные спецназовцы организовали праздник в честь Дня защиты детей'},
-    {d:'17.04.2025',t:'БРОФ «Твардовского, 2» оказал благотворительную помощь детскому боксерскому клубу «Ахиллес»'},
-    {d:'04.03.2025',t:'В столице прошёл детско-юношеский турнир по самбо, посвящённый 80-летию Победы в Великой Отечественной войне'},
-    {d:'13.01.2025',t:'Дети сотрудников столичного главка Росгвардии стали лауреатами I степени Национальной премии «Щелкунчик»'},
-    {d:'28.12.2024',t:'Новогодний праздник для детей росгвардейцев прошёл в Москве'},
-    {d:'01.09.2024',t:'Сотрудники столичного ОМОН «Авангард» поздравили будущих первоклассников с Днём знаний'},
-    {d:'12.08.2024',t:'В Парке кованых фигур города Донецка открыли новую детскую площадку'},
-    {d:'31.05.2024',t:'В ОМОН «Авангард» отпраздновали День защиты детей'},
-    {d:'27.02.2024',t:'Детско-юношеский турнир по самбо прошёл в столичном главке Росгвардии'},
-    {d:'30.12.2023',t:'Сотрудники ОМОН «Авангард» и БРОФ «Твардовского, 2» поздравили воспитанников детского сада, Курячевской общеобразовательной школы и Бондаревской гимназии в ЛНР с наступающим Новым годом'},
-    {d:'30.12.2023',t:'В столичном ОМОН «Авангард» состоялась Новогодняя ёлка для детей сотрудников спецподразделения'},
-    {d:'31.08.2023',t:'Праздничное мероприятие ко Дню знаний в ОМОН «Авангард»'},
-    {d:'01.06.2023',t:'В столичном ОМОН «Авангард» прошли торжественные мероприятия в честь Международного дня защиты детей'},
-    {d:'28.12.2022',t:'Вручение новогодних подарков для детей сотрудников ОМОН «Авангард» Главного управления Росгвардии по г. Москве'}
+  var MEM_ITEMS=[
+    {d:'17.12.2025',t:'В московском ОМОН «Авангард» почтили память первого командира'},
+    {d:'16.12.2025',t:'Сотрудники столичного ОМОН «Авангард» почтили память боевого товарища во Владимирской области'},
+    {d:'09.12.2025',t:'В День Героев Отечества в ОМОН «Авангард» состоялось памятное мероприятие'},
+    {d:'08.11.2025',t:'Столичные спецподразделения Росгвардии провели церемонии возложения цветов в память о погибших товарищах'},
+    {d:'17.05.2025',t:'Сотрудники московского ОМОН почтили боевых товарищей в Саду памяти'},
+    {d:'07.04.2025',t:'В столичном ОМОН «Авангард» почтили память погибших боевых товарищей'},
+    {d:'19.12.2024',t:'В московском ОМОН «Авангард» почтили память первого командира отряда'},
+    {d:'11.12.2024',t:'Сотрудники столичного ОМОН «Авангард» почтили память погибшего на Северном Кавказе сотрудника Александра Князева'},
+    {d:'11.10.2024',t:'Росгвардейцы почтили память героя Московского ОМОН «Авангард» Владимира Никифорова'},
+    {d:'11.10.2024',t:'Сотрудники ОМОН «Авангард» почтили память Героя России Александра Маврина'},
+    {d:'07.10.2024',t:'В день образования ОМОН, сотрудники столичного спецподразделения встретились с родственниками погибших сотрудников'},
+    {d:'26.06.2024',t:'Сотрудники ОМОН «Авангард» при поддержке БРОФ «Твардовского, 2» привели в порядок место захоронения погибшего боевого товарища'},
+    {d:'07.05.2024',t:'Сотрудники столичного ОМОН «Авангард» почтили память погибших боевых товарищей'},
+    {d:'27.04.2024',t:'В столичном ОМОН «Авангард» открыли Уголок памяти сотрудников, погибших при выполнении служебного долга'},
+    {d:'07.04.2024',t:'В ОМОН «Авангард» состоялись мероприятия, посвящённые памяти сотрудников, погибших при выполнении служебного долга'},
+    {d:'06.04.2024',t:'В столичном ОМОН «Авангард» открыли «Уголок памяти» сотрудников, погибших при выполнении служебного долга'},
+    {d:'06.03.2024',t:'В преддверии Международного женского дня сотрудники ОМОН «Авангард» встретились со вдовами и матерями погибших бойцов Отряда'},
+    {d:'12.12.2023',t:'Сотрудники столичного ОМОН «Авангард» почтили память погибшего на Северном Кавказе сотрудника Александра Князева'},
+    {d:'10.10.2023',t:'Сотрудники ОМОН «Авангард» почтили память героя отряда'},
+    {d:'04.10.2023',t:'Сотрудники ОМОН «Авангард» почтили память Героя России Маврина Александра Ивановича'},
+    {d:'30.09.2023',t:'Торжественное открытие мемориального памятного знака, посвящённого памяти сотрудников ОМОНа, погибших при исполнении служебных обязанностей'},
+    {d:'12.05.2023',t:'Сотрудники столичного ОМОН «Авангард» почтили память погибших боевых товарищей'},
+    {d:'07.04.2023',t:'Открытие Аллеи Славы в ОМОН «Авангард»'},
+    {d:'12.05.2021',t:'Фруктовый сад в память о сотрудниках погибших при исполнении служебно-боевых задач'},
+    {d:'19.09.2020',t:'Во Владимирской области открыли памятную стелу майору полиции московского ОМОНа Александру Князеву'},
+    {d:'07.04.2020',t:'Вечная память погибшим при проведении специальной операции в чеченском селе Самашки'},
+    {d:'09.12.2019',t:'В Оренбурге открыли мемориальную доску Игорю Сапрыкину'}
   ];
-  PCH_EVENTS.forEach(function(it,i){it.photos=placeholderPhotos(i);});
+  MEM_ITEMS.forEach(function(it,i){it.photos=placeholderPhotos(i);});
 
   var evtIdx=0;
   var photoIdx=0;
-  var grid=document.getElementById('pchGrid');
-  var modal=document.getElementById('pchGalleryModal');
-  var imgEl=document.getElementById('pchGalleryImg');
-  var titleEl=document.getElementById('pchGalleryTitle');
-  var dateEl=document.getElementById('pchGalleryDate');
-  var photoCounterEl=document.getElementById('pchPhotoCounter');
-  var eventCounterEl=document.getElementById('pchEventCounter');
-  var btnPhotoPrev=document.getElementById('pchPhotoPrev');
-  var btnPhotoNext=document.getElementById('pchPhotoNext');
+  var grid=document.getElementById('memGrid');
+  var modal=document.getElementById('memGalleryModal');
+  var imgEl=document.getElementById('memGalleryImg');
+  var titleEl=document.getElementById('memGalleryTitle');
+  var dateEl=document.getElementById('memGalleryDate');
+  var photoCounterEl=document.getElementById('memPhotoCounter');
+  var eventCounterEl=document.getElementById('memEventCounter');
+  var btnPhotoPrev=document.getElementById('memPhotoPrev');
+  var btnPhotoNext=document.getElementById('memPhotoNext');
 
-  PCH_EVENTS.forEach(function(it,n){
+  MEM_ITEMS.forEach(function(it,n){
     var art=document.createElement('article');
     art.className='mem-card';
     art.setAttribute('tabindex','0');
@@ -296,7 +303,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
   });
 
   function syncGalleryView(){
-    var it=PCH_EVENTS[evtIdx];
+    var it=MEM_ITEMS[evtIdx];
     var photos=it.photos;
     if(photoIdx<0)photoIdx=0;
     if(photoIdx>=photos.length)photoIdx=photos.length-1;
@@ -305,7 +312,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     titleEl.textContent=it.t;
     dateEl.textContent=it.d;
     photoCounterEl.textContent='Фото '+(photoIdx+1)+' из '+photos.length;
-    eventCounterEl.textContent='Мероприятие '+(evtIdx+1)+' из '+PCH_EVENTS.length;
+    eventCounterEl.textContent='Событие '+(evtIdx+1)+' из '+MEM_ITEMS.length;
     var one=photos.length<=1;
     btnPhotoPrev.disabled=one;
     btnPhotoNext.disabled=one;
@@ -323,20 +330,20 @@ footer a:hover{color:rgba(255,255,255,.85)}
     imgEl.src='';
   }
   function stepPhoto(d){
-    var photos=PCH_EVENTS[evtIdx].photos;
+    var photos=MEM_ITEMS[evtIdx].photos;
     photoIdx=(photoIdx+d+photos.length)%photos.length;
     syncGalleryView();
   }
   function stepEvent(d){
-    evtIdx=(evtIdx+d+PCH_EVENTS.length)%PCH_EVENTS.length;
+    evtIdx=(evtIdx+d+MEM_ITEMS.length)%MEM_ITEMS.length;
     photoIdx=0;
     syncGalleryView();
   }
-  document.getElementById('pchGalleryClose').addEventListener('click',closeM);
+  document.getElementById('memGalleryClose').addEventListener('click',closeM);
   btnPhotoPrev.addEventListener('click',function(e){e.stopPropagation();stepPhoto(-1);});
   btnPhotoNext.addEventListener('click',function(e){e.stopPropagation();stepPhoto(1);});
-  document.getElementById('pchPrevEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(-1);});
-  document.getElementById('pchNextEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(1);});
+  document.getElementById('memPrevEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(-1);});
+  document.getElementById('memNextEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(1);});
   modal.addEventListener('click',function(e){if(e.target===modal)closeM();});
   document.addEventListener('keydown',function(e){
     if(!modal.classList.contains('open'))return;

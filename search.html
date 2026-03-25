@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Руководство фонда - БРОФ «Твардовского, 2»</title>
+<title>Поиск по сайту — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,18 +38,21 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .dropdown a:hover{color:#8b0000;background:#fdf5f5}
 .nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-size:.78rem;font-weight:700;cursor:pointer}
 .nbtn:hover{background:#a00000}
-.content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
-.page-header{margin-bottom:2rem}
+.content-wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
+.page-header{margin-bottom:1.5rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
-.page-header p{color:#666;font-size:.9rem}
-.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-.leader-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:2rem;text-align:center;transition:transform .2s}
-.leader-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.leader-photo{width:150px;height:150px;border-radius:50%;margin:0 auto 1.2rem;background:#dde3ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.leader-photo img{width:100%;height:100%;object-fit:cover}
-.leader-position{font-size:.75rem;color:#8b0000;text-transform:uppercase;margin-bottom:.5rem}
-.leader-name{font-family:'PT Serif',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
-.leader-desc{font-size:.78rem;color:#666;margin-top:.5rem;line-height:1.5}
+.search-page-form{display:flex;gap:.5rem;margin:1rem 0 2rem;flex-wrap:wrap}
+.search-page-form input{flex:1;min-width:200px;padding:.65rem .85rem;border:1px solid #ccc;border-radius:8px;font-size:1rem;font-family:'PT Sans',sans-serif}
+.search-page-form button{background:#8b0000;color:#fff;border:none;padding:.65rem 1.25rem;border-radius:8px;font-weight:700;cursor:pointer;font-family:'PT Sans',sans-serif}
+.search-page-form button:hover{background:#a00000}
+.search-hint{font-size:.88rem;color:#666;margin-bottom:1rem}
+.result-list{list-style:none}
+.result-list li{border-bottom:1px solid #eee;padding:1rem 0}
+.result-list li:first-child{padding-top:0}
+.result-list a{font-family:'PT Serif',serif;font-size:1.1rem;color:#8b0000;font-weight:700;text-decoration:none}
+.result-list a:hover{text-decoration:underline}
+.result-snippet{font-size:.88rem;color:#555;margin-top:.35rem;line-height:1.5}
+.no-results{color:#666;font-size:.95rem;padding:1rem 0}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -59,7 +62,10 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
 .fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
 .fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-@media(max-width:768px){.leadership-grid{grid-template-columns:1fr}.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot button:hover{background:#a00000}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}footer{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){footer{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -110,44 +116,22 @@ footer a:hover{color:rgba(255,255,255,.85)}
       <li><a href="requisites.html">Реквизиты</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <button class="nbtn" onclick="location.href='help.html'">Хочу помочь</button>
+    <button class="nbtn" type="button" onclick="location.href='help.html'">Хочу помочь</button>
   </div>
 </nav>
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Руководство фонда</h1>
-    <p>Команда БРОФ «Твардовского, 2» — люди, которые ежедневно помогают тем, кто служит и служил Отечеству</p>
+    <h1>Поиск по сайту</h1>
+    <p class="search-hint">Поиск по разделам статического сайта: введите слово из названия страницы или ключевые темы (ветераны, отчёты, реквизиты…).</p>
+    <form class="search-page-form" action="search.html" method="get" role="search">
+      <input type="search" name="q" id="mainSearchInput" placeholder="Например: подопечные, отчёты, документы" aria-label="Поиск" value="">
+      <button type="submit">Найти</button>
+    </form>
   </div>
-
-  <div class="leadership-grid">
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/smirnov.jpg" alt="Смирнов Г.И." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Председатель совета Фонда</div>
-      <div class="leader-name">Смирнов Геннадий Иванович</div>
-      <div class="leader-desc">Руководит деятельностью фонда с момента основания. Под его руководством фонд оказывает помощь сотням семей сотрудников и ветеранов ОМОН.</div>
-    </div>
-
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/veselov.jpg" alt="Веселов В.В." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Заместитель председателя совета Фонда</div>
-      <div class="leader-name">Веселов Виктор Валентинович</div>
-      <div class="leader-desc">Член попечительного совета МПКУ им. М.А. Шолохова. Курирует образовательные и социальные программы фонда.</div>
-    </div>
-
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/usov.jpg" alt="Усов С.Ф." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Исполнительный директор Фонда</div>
-      <div class="leader-name">Усов Сергей Федорович</div>
-      <div class="leader-desc">Отвечает за операционную деятельность фонда, координацию благотворительных программ и адресную помощь подопечным.</div>
-    </div>
-  </div>
+  <p id="searchQueryLine" class="search-hint" style="margin-bottom:1rem"></p>
+  <ul class="result-list" id="searchResults"></ul>
+  <p class="no-results" id="searchEmpty" hidden></p>
 </div>
 
 <footer>
@@ -194,7 +178,69 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
 </div>
-
 <script src="js/topbar.js" defer></script>
+<script>
+(function(){
+  var SITE=[
+    {title:'Главная',url:'index.html',snippet:'Благотворительный фонд, новости, направления помощи.',kw:'главная фонд броф омон'},
+    {title:'История отряда',url:'history.html',snippet:'История московского ОМОН и фонда.',kw:'история отряд'},
+    {title:'Наша география',url:'geography.html',snippet:'География деятельности фонда.',kw:'география регионы'},
+    {title:'Руководство фонда',url:'management.html',snippet:'Руководство БРОФ.',kw:'руководство руководители'},
+    {title:'Навечно в строю',url:'memory.html',snippet:'Память о погибших сотрудниках.',kw:'память погибшие'},
+    {title:'Подопечные фонда',url:'wards.html',snippet:'Дети под опекой фонда.',kw:'подопечные дети помощь'},
+    {title:'Ветераны',url:'veterans.html',snippet:'Ветераны отряда и Великой Отечественной войны.',kw:'ветераны вов омон'},
+    {title:'Финансовые отчёты',url:'reports.html',snippet:'Отчёты и открытость фонда.',kw:'отчёты финансы'},
+    {title:'Отзывы и благодарности',url:'reviews.html',snippet:'Благодарности, грамоты, отзывы.',kw:'отзывы благодарности грамоты'},
+    {title:'Деятельность фонда',url:'projects.html',snippet:'Программы и проекты фонда.',kw:'проекты деятельность программы'},
+    {title:'Документы',url:'documents.html',snippet:'Устав, документы фонда.',kw:'документы устав'},
+    {title:'Реквизиты',url:'requisites.html',snippet:'Банковские реквизиты, ИНН, адрес.',kw:'реквизиты счёт банк пожертвование'},
+    {title:'Контакты',url:'contacts.html',snippet:'Телефоны, email, адреса, карта.',kw:'контакты телефон адрес карта'},
+    {title:'Новости',url:'news.html',snippet:'Новости фонда.',kw:'новости'},
+    {title:'Хочу помочь',url:'help.html',snippet:'Пожертвования, реквизиты, форма связи.',kw:'помочь пожертвование donation'},
+    {title:'Для СМИ',url:'media.html',snippet:'Пресс-релизы, логотипы, контакты для журналистов.',kw:'сми пресса пресс пресс-релиз'},
+    {title:'Проект: дети',url:'project-children.html',snippet:'Программа поддержки детей.',kw:'дети проект'},
+    {title:'Проект: сотрудники',url:'project-employees.html',snippet:'Помощь сотрудникам.',kw:'сотрудники проект'},
+    {title:'Проект: ветераны',url:'project-veterans.html',snippet:'Поддержка ветеранов.',kw:'ветераны проект'},
+    {title:'Проект: мероприятия',url:'project-events.html',snippet:'Мероприятия фонда.',kw:'мероприятия проект'},
+    {title:'Поиск по сайту',url:'search.html',snippet:'Поиск по сайту.',kw:'поиск'}
+  ];
+  var params=new URLSearchParams(window.location.search);
+  var q=(params.get('q')||'').trim();
+  var input=document.getElementById('mainSearchInput');
+  var line=document.getElementById('searchQueryLine');
+  var list=document.getElementById('searchResults');
+  var empty=document.getElementById('searchEmpty');
+  if(input)input.value=q;
+  if(!q){
+    line.textContent='Введите запрос и нажмите «Найти».';
+    empty.hidden=false;
+    empty.textContent='';
+    return;
+  }
+  line.textContent='Результаты по запросу: «'+q+'»';
+  var ql=q.toLowerCase();
+  var words=ql.split(/\s+/).filter(Boolean);
+  var scored=SITE.map(function(p){
+    var hay=(p.title+' '+p.snippet+' '+p.kw).toLowerCase();
+    var score=0;
+    words.forEach(function(w){
+      if(hay.indexOf(w)!==-1)score+=2;
+    });
+    if(hay.indexOf(ql)!==-1)score+=5;
+    return {p:p,score:score};
+  }).filter(function(x){return x.score>0;}).sort(function(a,b){return b.score-a.score;});
+  if(scored.length===0){
+    empty.hidden=false;
+    empty.textContent='Ничего не найдено. Попробуйте другие слова или сократите запрос.';
+    return;
+  }
+  empty.hidden=true;
+  scored.forEach(function(x){
+    var li=document.createElement('li');
+    li.innerHTML='<a href="'+x.p.url+'">'+x.p.title+'</a><div class="result-snippet">'+x.p.snippet+'</div>';
+    list.appendChild(li);
+  });
+})();
+</script>
 </body>
 </html>

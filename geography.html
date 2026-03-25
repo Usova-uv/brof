@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Руководство фонда - БРОФ «Твардовского, 2»</title>
+<title>Наша география — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -42,14 +42,43 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .page-header{margin-bottom:2rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
 .page-header p{color:#666;font-size:.9rem}
-.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-.leader-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:2rem;text-align:center;transition:transform .2s}
-.leader-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.leader-photo{width:150px;height:150px;border-radius:50%;margin:0 auto 1.2rem;background:#dde3ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.leader-photo img{width:100%;height:100%;object-fit:cover}
-.leader-position{font-size:.75rem;color:#8b0000;text-transform:uppercase;margin-bottom:.5rem}
-.leader-name{font-family:'PT Serif',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
-.leader-desc{font-size:.78rem;color:#666;margin-top:.5rem;line-height:1.5}
+.project-content{font-size:.95rem;line-height:1.75;color:#333}
+.project-content p{margin-bottom:1rem}
+.project-content h3{font-family:'PT Serif',serif;font-size:1.2rem;color:#8b0000;margin:1.5rem 0 .75rem}
+.project-content ul{margin:0 0 1rem 1.5rem}
+.project-content li{margin-bottom:.4rem}
+.back-link{display:inline-block;margin-bottom:1.5rem;color:#8b0000;text-decoration:none;font-size:.85rem;font-weight:700}
+.back-link:hover{text-decoration:underline}
+.regions-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:1.75rem}
+.regions-section{margin-top:.5rem;width:100%;min-width:0}
+.regions-section h2{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:0 0 1.25rem;padding-bottom:.45rem;border-bottom:2px solid rgba(139,0,0,.2)}
+/* Сетка: мобильный 1 колонка → планшет 2 → десктоп 3 (3+2 карточки) */
+.regions-grid{
+  display:grid;
+  width:100%;
+  min-width:0;
+  gap:1.35rem;
+  grid-template-columns:1fr;
+  align-items:stretch;
+}
+.region-card{
+  background:#fff;border:1px solid #ebebeb;border-radius:14px;padding:1.35rem 1.25rem 1.25rem;
+  box-shadow:0 4px 18px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;
+  display:flex;flex-direction:column;min-width:0;height:100%;
+}
+.region-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.1)}
+.region-logo-wrap{height:88px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;background:#f7f5f5;border-radius:10px;border:1px dashed #ddd;flex-shrink:0}
+.region-logo{width:72px;height:72px;object-fit:contain}
+.region-title{font-family:'PT Serif',serif;font-size:1.08rem;color:#1a1a1a;font-weight:700;margin:0 0 .65rem;line-height:1.35}
+.region-desc{font-size:.84rem;color:#555;line-height:1.6;margin-bottom:1.1rem;flex:1;min-height:0}
+.region-more{display:inline-block;align-self:flex-start;background:#8b0000;color:#fff!important;text-decoration:none;font-size:.8rem;font-weight:700;padding:.5rem 1.15rem;border-radius:6px;transition:background .2s;margin-top:auto;flex-shrink:0}
+.region-more:hover{background:#a00000}
+@media(min-width:641px){
+  .regions-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:1025px){
+  .regions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -59,7 +88,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
 .fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
 .fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-@media(max-width:768px){.leadership-grid{grid-template-columns:1fr}.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot button:hover{background:#a00000}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
@@ -116,37 +147,58 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Руководство фонда</h1>
-    <p>Команда БРОФ «Твардовского, 2» — люди, которые ежедневно помогают тем, кто служит и служил Отечеству</p>
+    <h1>Наша география</h1>
+    <p>Регионы постоянной благотворительной деятельности БРОФ «Твардовского, 2».</p>
   </div>
 
-  <div class="leadership-grid">
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/smirnov.jpg" alt="Смирнов Г.И." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Председатель совета Фонда</div>
-      <div class="leader-name">Смирнов Геннадий Иванович</div>
-      <div class="leader-desc">Руководит деятельностью фонда с момента основания. Под его руководством фонд оказывает помощь сотням семей сотрудников и ветеранов ОМОН.</div>
-    </div>
+  <div class="project-content">
+    <p class="regions-intro">БРОФ «Твардовского, 2» занимается благотворительной деятельностью в различных регионах России. В данный момент Фонд на постоянной основе ведёт свою деятельность в следующих регионах:</p>
 
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/veselov.jpg" alt="Веселов В.В." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
+    <section class="regions-section" aria-labelledby="regions-heading">
+      <h2 id="regions-heading">Регионы работы</h2>
+      <div class="regions-grid">
+        <article class="region-card">
+          <div class="region-logo-wrap">
+            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0" alt="Логотип региона (заглушка)">
+          </div>
+          <h3 class="region-title">г. Москва</h3>
+          <p class="region-desc">Координация программ фонда, работа с подопечными и партнёрами, проведение мероприятий и адресная помощь на территории столицы.</p>
+          <a class="region-more" href="#">Подробнее</a>
+        </article>
+        <article class="region-card">
+          <div class="region-logo-wrap">
+            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9C%D0%9E" alt="">
+          </div>
+          <h3 class="region-title">Московская область</h3>
+          <p class="region-desc">Поддержка семей сотрудников и ветеранов, социальные и образовательные инициативы в городах и районах области.</p>
+          <a class="region-more" href="#">Подробнее</a>
+        </article>
+        <article class="region-card">
+          <div class="region-logo-wrap">
+            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%AF%D0%9E" alt="">
+          </div>
+          <h3 class="region-title">Ярославская область</h3>
+          <p class="region-desc">Развитие региональных контактов и оказание помощи в рамках согласованных направлений благотворительных программ.</p>
+          <a class="region-more" href="#">Подробнее</a>
+        </article>
+        <article class="region-card">
+          <div class="region-logo-wrap">
+            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9B%D0%9D%D0%A0" alt="">
+          </div>
+          <h3 class="region-title">Луганская Народная Республика</h3>
+          <p class="region-desc">Участие в гуманитарных и социальных проектах по согласованию с партнёрами; текст уточняется при публикации материалов.</p>
+          <a class="region-more" href="#">Подробнее</a>
+        </article>
+        <article class="region-card">
+          <div class="region-logo-wrap">
+            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%94%D0%9D%D0%A0" alt="">
+          </div>
+          <h3 class="region-title">Донецкая Народная Республика</h3>
+          <p class="region-desc">Поддержка инициатив фонда на территории республики; подробности будут добавлены по мере размещения контента на сайте.</p>
+          <a class="region-more" href="#">Подробнее</a>
+        </article>
       </div>
-      <div class="leader-position">Заместитель председателя совета Фонда</div>
-      <div class="leader-name">Веселов Виктор Валентинович</div>
-      <div class="leader-desc">Член попечительного совета МПКУ им. М.А. Шолохова. Курирует образовательные и социальные программы фонда.</div>
-    </div>
-
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/usov.jpg" alt="Усов С.Ф." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Исполнительный директор Фонда</div>
-      <div class="leader-name">Усов Сергей Федорович</div>
-      <div class="leader-desc">Отвечает за операционную деятельность фонда, координацию благотворительных программ и адресную помощь подопечным.</div>
-    </div>
+    </section>
   </div>
 </div>
 

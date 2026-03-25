@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Руководство фонда - БРОФ «Твардовского, 2»</title>
+<title>Документы — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -41,15 +41,14 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
 .page-header{margin-bottom:2rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
-.page-header p{color:#666;font-size:.9rem}
-.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-.leader-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:2rem;text-align:center;transition:transform .2s}
-.leader-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.leader-photo{width:150px;height:150px;border-radius:50%;margin:0 auto 1.2rem;background:#dde3ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.leader-photo img{width:100%;height:100%;object-fit:cover}
-.leader-position{font-size:.75rem;color:#8b0000;text-transform:uppercase;margin-bottom:.5rem}
-.leader-name{font-family:'PT Serif',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
-.leader-desc{font-size:.78rem;color:#666;margin-top:.5rem;line-height:1.5}
+.page-header p{color:#666;font-size:.95rem;line-height:1.6}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.doc-card{background:#f7f7f7;padding:2rem;border-radius:12px;border:1px solid #ebebeb;transition:all .2s;display:flex;flex-direction:column;text-align:left}
+.doc-card:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.1)}
+.doc-card h3{font-family:'PT Serif',serif;font-size:1.15rem;color:#8b0000;margin-bottom:.65rem}
+.doc-card p{font-size:.85rem;color:#666;line-height:1.65;margin-bottom:1.25rem;flex:1}
+.download-btn{display:inline-block;align-self:flex-start;background:#8b0000;color:#fff;padding:.65rem 1.5rem;text-decoration:none;font-weight:700;font-size:.85rem;border-radius:4px;transition:background .2s}
+.download-btn:hover{background:#a00000}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -59,7 +58,10 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
 .fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
 .fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-@media(max-width:768px){.leadership-grid{grid-template-columns:1fr}.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot button:hover{background:#a00000}
+@media(max-width:900px){.doc-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
@@ -116,36 +118,25 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Руководство фонда</h1>
-    <p>Команда БРОФ «Твардовского, 2» — люди, которые ежедневно помогают тем, кто служит и служил Отечеству</p>
+    <h1>Документы</h1>
+    <p>Официальные документы БРОФ «Твардовского, 2»: устав, регистрация, политика обработки персональных данных. Ссылки на PDF временные — замените на актуальные файлы при публикации.</p>
   </div>
 
-  <div class="leadership-grid">
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/smirnov.jpg" alt="Смирнов Г.И." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Председатель совета Фонда</div>
-      <div class="leader-name">Смирнов Геннадий Иванович</div>
-      <div class="leader-desc">Руководит деятельностью фонда с момента основания. Под его руководством фонд оказывает помощь сотням семей сотрудников и ветеранов ОМОН.</div>
+  <div class="doc-grid">
+    <div class="doc-card">
+      <h3>Устав фонда</h3>
+      <p>Учредительный документ, определяющий цели, задачи и порядок деятельности благотворительного фонда.</p>
+      <a href="documents/ustav.pdf" class="download-btn" download>Скачать PDF</a>
     </div>
-
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/veselov.jpg" alt="Веселов В.В." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Заместитель председателя совета Фонда</div>
-      <div class="leader-name">Веселов Виктор Валентинович</div>
-      <div class="leader-desc">Член попечительного совета МПКУ им. М.А. Шолохова. Курирует образовательные и социальные программы фонда.</div>
+    <div class="doc-card">
+      <h3>Свидетельство о регистрации</h3>
+      <p>Свидетельство о государственной регистрации некоммерческой организации (заглушка — подставьте реальный файл).</p>
+      <a href="documents/svidetelstvo.pdf" class="download-btn" download>Скачать PDF</a>
     </div>
-
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/usov.jpg" alt="Усов С.Ф." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Исполнительный директор Фонда</div>
-      <div class="leader-name">Усов Сергей Федорович</div>
-      <div class="leader-desc">Отвечает за операционную деятельность фонда, координацию благотворительных программ и адресную помощь подопечным.</div>
+    <div class="doc-card">
+      <h3>Политика конфиденциальности</h3>
+      <p>Политика в отношении обработки персональных данных посетителей сайта и обратившихся в фонд (заглушка).</p>
+      <a href="documents/privacy.pdf" class="download-btn" download>Скачать PDF</a>
     </div>
   </div>
 </div>

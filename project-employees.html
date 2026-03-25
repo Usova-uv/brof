@@ -8,9 +8,18 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
-.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;gap:1.5rem}
+.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
 .topbar a{color:rgba(255,255,255,.85);font-size:.72rem;text-decoration:none}
 .topbar a:hover{color:#fff}
+.topbar-search{position:relative;display:inline-flex;align-items:center}
+.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);font-size:.72rem;cursor:pointer;font-family:'PT Sans',sans-serif;padding:0}
+.topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
+.search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
+.search-panel[hidden]{display:none!important}
+.search-form{display:flex;gap:.35rem;align-items:center}
+.search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
+.search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
+.search-form button:hover{background:#a00000}
 nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
 .nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
@@ -40,6 +49,15 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .project-content li{margin-bottom:.4rem}
 .back-link{display:inline-block;margin-bottom:1.5rem;color:#8b0000;text-decoration:none;font-size:.85rem;font-weight:700}
 .back-link:hover{text-decoration:underline}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;margin-top:1.25rem}
+.pc-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;overflow:hidden;transition:.2s}
+.pc-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:#dcc}
+.pc-img{width:100%;height:170px;object-fit:cover;background:#e8edf5;display:block}
+.pc-body{padding:1rem}
+.pc-date{font-size:.68rem;color:#8b0000;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
+.pc-title{font-family:'PT Serif',serif;font-size:1.02rem;color:#1a1a1a;font-weight:700;margin:0 0 .4rem;line-height:1.35}
+.pc-desc{font-size:.78rem;color:#666;line-height:1.55;margin:0}
+.grid-section-title{font-family:'PT Serif',serif;font-size:1.15rem;color:#8b0000;margin:1.75rem 0 .5rem}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -57,16 +75,24 @@ footer a:hover{color:rgba(255,255,255,.85)}
 <body>
 
 <div class="topbar">
-  <a href="#">Для СМИ</a>
-  <a href="#">Хочу помочь</a>
-  <a href="#">Контакты</a>
-  <a href="#">Поиск</a>
+  <a href="media.html">Для СМИ</a>
+  <a href="help.html">Хочу помочь</a>
+  <a href="contacts.html">Контакты</a>
+  <div class="topbar-search">
+    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel">Поиск</button>
+    <div class="search-panel" id="topbarSearchPanel" hidden>
+      <form class="search-form" action="search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Поиск по сайту…" autocomplete="off" aria-label="Запрос">
+        <button type="submit">Найти</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <nav>
   <div class="nav-inner">
     <div class="nav-left">
-      <a href="/" style="text-decoration:none; display:flex; align-items:center; gap:.7rem;">
+      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:.7rem;">
         <img class="logo-img" src="images/logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/44x44?text=LOGO'">
         <div>
           <div class="logo-name">БРОФ «Твардовского, 2»</div>
@@ -75,80 +101,93 @@ footer a:hover{color:rgba(255,255,255,.85)}
       </a>
     </div>
     <ul class="nav-links">
-      <li><a href="/">Главная</a></li>
+      <li><a href="index.html">Главная</a></li>
       <li>
         <a href="#" class="has-sub">О фонде</a>
         <div class="dropdown">
-          <a href="#">История отряда</a>
-          <a href="#">Наша география</a>
-          <a href="/management.html">Руководство фонда</a>
-          <a href="#">Навечно в строю</a>
-          <a href="#">Подопечные фонда</a>
-          <a href="#">Ветераны</a>
+          <a href="history.html">История отряда</a>
+          <a href="geography.html">Наша география</a>
+          <a href="management.html">Руководство фонда</a>
+          <a href="memory.html">Навечно в строю</a>
+          <a href="wards.html">Подопечные фонда</a>
+          <a href="veterans.html">Ветераны</a>
+          <a href="reports.html">Финансовые отчеты</a>
+          <a href="reviews.html">Отзывы и благодарности</a>
         </div>
       </li>
-      <li><a href="/projects.html">Деятельность фонда</a></li>
-      <li><a href="/reports.html">Документы</a></li>
-      <li><a href="#">Контакты</a></li>
+      <li><a href="projects.html">Деятельность фонда</a></li>
+      <li><a href="documents.html">Документы</a></li>
+      <li><a href="requisites.html">Реквизиты</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <button class="nbtn" onclick="window.location='#'">Хочу помочь</button>
+    <button class="nbtn" onclick="location.href='help.html'">Хочу помочь</button>
   </div>
 </nav>
 
 <div class="content-wrap">
-  <a href="/projects.html" class="back-link">← Все проекты</a>
+  <a href="projects.html" class="back-link">← Все проекты</a>
   <div class="page-header">
     <h1>Поддержка сотрудников</h1>
     <p>Материальная и социальная поддержка сотрудников ОМОН</p>
   </div>
 
   <div class="project-content">
-    <p>Программа «Поддержка сотрудников» направлена на оказание материальной и социальной помощи действующим сотрудникам ОМОН «Авангард» и их семьям, оказавшимся в сложной жизненной ситуации.</p>
+    <p class="section-lead">Программа «Поддержка сотрудников» — материальная и социальная помощь действующим сотрудникам ОМОН и их семьям. Ниже — карточки материалов (заглушки для WordPress / CMS).</p>
 
-    <h3>Материальная помощь</h3>
-    <p>Фонд оказывает адресную финансовую помощь сотрудникам при возникновении чрезвычайных обстоятельств: тяжёлая болезнь, потеря имущества, необходимость дорогостоящего лечения членов семьи. Размер и форма помощи определяются индивидуально решением совета фонда.</p>
-
-    <h3>Социальная поддержка</h3>
-    <p>Сотрудникам и их семьям предоставляется информационная и организационная поддержка при оформлении документов, получении льгот, устройстве детей в образовательные учреждения. Фонд содействует в решении жилищных и бытовых вопросов.</p>
-
-    <h3>Помощь семьям</h3>
-    <p>Особое внимание уделяется семьям сотрудников, пострадавших при исполнении служебного долга. Вдовы и дети погибших получают регулярную поддержку, приглашаются на памятные мероприятия, обеспечиваются путёвками в санатории и детские лагеря.</p>
-
-    <h3>Условия оказания помощи</h3>
-    <p>Обратиться в фонд могут сотрудники ОМОН ГУ Росгвардии по г. Москве и члены их семей. Необходимо предоставить заявление с описанием ситуации и подтверждающие документы. Заявки рассматриваются в порядке очереди с учётом степени нуждаемости.</p>
+    <h3 class="grid-section-title">Материалы и новости</h3>
+    <div class="cards-grid">
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">3 февраля 2026</div><h3 class="pc-title">Адресная финансовая помощь</h3><p class="pc-desc">Заглушка: описание заявки и решения совета фонда (без персональных данных).</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">19 ноября 2025</div><h3 class="pc-title">Помощь при лечении</h3><p class="pc-desc">Краткий текст о поддержке при дорогостоящем лечении — заменить в CMS.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">7 октября 2025</div><h3 class="pc-title">Социальное сопровождение</h3><p class="pc-desc">Информационная помощь при оформлении документов и льгот.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">14 сентября 2025</div><h3 class="pc-title">Жилищный вопрос</h3><p class="pc-desc">Заглушка под консультацию и сопровождение по жилью.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">22 июля 2025</div><h3 class="pc-title">Путёвки для семей</h3><p class="pc-desc">Санаторий и лагеря для детей — фото и детали позже.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">11 июня 2025</div><h3 class="pc-title">Юридический семинар</h3><p class="pc-desc">Заглушка: анонс встречи для сотрудников и родственников.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">4 мая 2025</div><h3 class="pc-title">Поддержка вдов и детей</h3><p class="pc-desc">Памятные мероприятия и адресная помощь — краткое описание.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">28 марта 2025</div><h3 class="pc-title">Материальная помощь при ЧС</h3><p class="pc-desc">Текст-заглушка под экстренные ситуации.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">16 января 2026</div><h3 class="pc-title">Итоги года программы</h3><p class="pc-desc">Сводка для отчёта — заполнить в админке.</p></div></article>
+      <article class="pc-card"><img class="pc-img" src="https://via.placeholder.com/520x340/e8edf5/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE" alt=""><div class="pc-body"><div class="pc-date">9 декабря 2025</div><h3 class="pc-title">Как подать заявку</h3><p class="pc-desc">Инструкция и перечень документов — черновик для публикации.</p></div></article>
+    </div>
   </div>
 </div>
 
 <footer>
   <div>
     <div class="footer-logo">
-      <img src="images/logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/40x40?text=LOGO'">
-      <span>БРОФ «Твардовского, 2»</span>
+      <a href="index.html" style="display:flex;align-items:center;gap:.7rem;text-decoration:none;color:inherit">
+        <img src="images/logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/40x40?text=LOGO'">
+        <span>БРОФ «Твардовского, 2»</span>
+      </a>
     </div>
     <p>Благотворительный региональный общественный фонд социальных программ</p>
     <p style="margin-top:.4rem;font-size:.67rem">© 1995 — 2026</p>
   </div>
   <div>
     <h4>О фонде</h4>
-    <a href="#">История отряда</a>
-    <a href="#">Наша география</a>
-    <a href="/management.html">Руководство фонда</a>
-    <a href="#">Навечно в строю</a>
-    <a href="#">Подопечные фонда</a>
+    <a href="history.html">История отряда</a>
+    <a href="geography.html">Наша география</a>
+    <a href="management.html">Руководство фонда</a>
+    <a href="memory.html">Навечно в строю</a>
+    <a href="wards.html">Подопечные фонда</a>
+    <a href="veterans.html">Ветераны</a>
+    <a href="reports.html">Финансовые отчеты</a>
+    <a href="reviews.html">Отзывы и благодарности</a>
   </div>
   <div>
     <h4>Разделы</h4>
-    <a href="/projects.html">Деятельность фонда</a>
-    <a href="/reports.html">Документы</a>
-    <a href="#">Хочу помочь</a>
-    <a href="#">Контакты</a>
+    <a href="projects.html">Деятельность фонда</a>
+    <a href="documents.html">Документы</a>
+    <a href="requisites.html">Реквизиты</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="help.html">Хочу помочь</a>
   </div>
   <div>
     <h4>Контакты</h4>
     <p>г. Москва, ул. Николоямская, д. 40, стр. 1</p>
-    <a href="tel:74959682311">+7 (495) 968-23-11</a>
-    <a href="tel:74952236598">+7 (495) 223-65-98</a>
+    <a href="tel:74959682311">(495) 968-23-11</a>
+    <a href="tel:74952236598">(495) 223-65-98</a>
+    <a href="tel:74959429451">(495) 942-94-51</a>
     <a href="mailto:info@fond-omon.com">info@fond-omon.com</a>
+    <a href="mailto:fond-omon@mail.ru">fond-omon@mail.ru</a>
   </div>
 </footer>
 <div class="fbot">
@@ -156,5 +195,6 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
 </div>
 
+<script src="js/topbar.js" defer></script>
 </body>
 </html>

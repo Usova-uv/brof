@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Руководство фонда - БРОФ «Твардовского, 2»</title>
+<title>Реквизиты — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,18 +38,23 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .dropdown a:hover{color:#8b0000;background:#fdf5f5}
 .nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-size:.78rem;font-weight:700;cursor:pointer}
 .nbtn:hover{background:#a00000}
-.content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
-.page-header{margin-bottom:2rem}
+.content-wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
+.page-header{margin-bottom:2.5rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
-.page-header p{color:#666;font-size:.9rem}
-.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem}
-.leader-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:2rem;text-align:center;transition:transform .2s}
-.leader-card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.1)}
-.leader-photo{width:150px;height:150px;border-radius:50%;margin:0 auto 1.2rem;background:#dde3ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.leader-photo img{width:100%;height:100%;object-fit:cover}
-.leader-position{font-size:.75rem;color:#8b0000;text-transform:uppercase;margin-bottom:.5rem}
-.leader-name{font-family:'PT Serif',serif;font-size:1.2rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
-.leader-desc{font-size:.78rem;color:#666;margin-top:.5rem;line-height:1.5}
+.page-header p{color:#666;font-size:.95rem}
+.req-section{margin-bottom:2.25rem}
+.req-section h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#8b0000;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid #8b0000}
+.req-table{width:100%;border-collapse:collapse;font-size:.9rem;line-height:1.65}
+.req-table th,.req-table td{text-align:left;padding:.65rem .85rem;vertical-align:top;border:1px solid #e8e0e0}
+.req-table th{width:38%;background:#faf7f7;color:#444;font-weight:600;font-size:.82rem}
+.req-table td{color:#222}
+.req-card{background:#faf7f7;border:1px solid #ebe0e0;border-radius:12px;padding:1.5rem;margin-bottom:1.25rem}
+.req-card h3{font-family:'PT Serif',serif;font-size:1.05rem;color:#8b0000;margin-bottom:.9rem}
+.req-row{display:grid;grid-template-columns:160px 1fr;gap:.5rem 1rem;font-size:.88rem;line-height:1.6;margin-bottom:.55rem}
+.req-row:last-child{margin-bottom:0}
+.req-row dt{color:#666;font-weight:600}
+.req-row dd{color:#1a1a1a;word-break:break-word}
+@media(max-width:640px){.req-row{grid-template-columns:1fr}.req-table th,.req-table td{display:block;width:100%}.req-table th{border-bottom:none;padding-bottom:.2rem}.req-table td{padding-top:.2rem}}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -59,7 +64,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
 .fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
 .fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-@media(max-width:768px){.leadership-grid{grid-template-columns:1fr}.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot button:hover{background:#a00000}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}footer{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -116,36 +123,38 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Руководство фонда</h1>
-    <p>Команда БРОФ «Твардовского, 2» — люди, которые ежедневно помогают тем, кто служит и служил Отечеству</p>
+    <h1>Реквизиты</h1>
+    <p>Банковские реквизиты для перечисления добровольных пожертвований и официальная информация о фонде.</p>
   </div>
 
-  <div class="leadership-grid">
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/smirnov.jpg" alt="Смирнов Г.И." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Председатель совета Фонда</div>
-      <div class="leader-name">Смирнов Геннадий Иванович</div>
-      <div class="leader-desc">Руководит деятельностью фонда с момента основания. Под его руководством фонд оказывает помощь сотням семей сотрудников и ветеранов ОМОН.</div>
-    </div>
+  <div class="req-section">
+    <h2>Общие сведения</h2>
+    <table class="req-table">
+      <tr><th>Полное наименование</th><td>Благотворительный региональный общественный Фонд социальных программ «Твардовского, 2»</td></tr>
+      <tr><th>Краткое наименование</th><td>БРОФ социальных программ «Твардовского, 2»</td></tr>
+      <tr><th>Юридический адрес</th><td>123060, г. Москва, ул. Берзарина, д. 36, корп. 10</td></tr>
+      <tr><th>Почтовый адрес</th><td>109004, г. Москва, ул. Николоямская, д. 40, стр. 1</td></tr>
+      <tr><th>ИНН / КПП</th><td>7734115907 / 773401001</td></tr>
+    </table>
+  </div>
 
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/veselov.jpg" alt="Веселов В.В." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Заместитель председателя совета Фонда</div>
-      <div class="leader-name">Веселов Виктор Валентинович</div>
-      <div class="leader-desc">Член попечительного совета МПКУ им. М.А. Шолохова. Курирует образовательные и социальные программы фонда.</div>
+  <div class="req-section">
+    <h2>Сбербанк</h2>
+    <div class="req-card">
+      <dl class="req-row"><dt>Расчётный счёт</dt><dd>40703810638200100204</dd></dl>
+      <dl class="req-row"><dt>Корр. счёт</dt><dd>30101810400000000225</dd></dl>
+      <dl class="req-row"><dt>БИК</dt><dd>044525225</dd></dl>
+      <dl class="req-row"><dt>Банк</dt><dd>Сбербанк России ПАО, г. Москва</dd></dl>
     </div>
+  </div>
 
-    <div class="leader-card">
-      <div class="leader-photo">
-        <img src="images/usov.jpg" alt="Усов С.Ф." onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#e8edf5\'><svg width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#aaa\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg></div>'">
-      </div>
-      <div class="leader-position">Исполнительный директор Фонда</div>
-      <div class="leader-name">Усов Сергей Федорович</div>
-      <div class="leader-desc">Отвечает за операционную деятельность фонда, координацию благотворительных программ и адресную помощь подопечным.</div>
+  <div class="req-section">
+    <h2>Совкомбанк</h2>
+    <div class="req-card">
+      <dl class="req-row"><dt>Расчётный счёт</dt><dd>40703810312010791974</dd></dl>
+      <dl class="req-row"><dt>Корр. счёт</dt><dd>30101810445250000360</dd></dl>
+      <dl class="req-row"><dt>БИК</dt><dd>044525360</dd></dl>
+      <dl class="req-row"><dt>Банк</dt><dd>Филиал «Корпоративный» ПАО «Совкомбанк», г. Москва</dd></dl>
     </div>
   </div>
 </div>

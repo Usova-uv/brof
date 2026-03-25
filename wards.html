@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Помощь детям — БРОФ «Твардовского, 2»</title>
+<title>Подопечные фонда — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -42,45 +42,48 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .page-header{margin-bottom:2rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
 .page-header p{color:#666;font-size:.9rem}
-.mem-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:1.15rem;max-width:52rem}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;margin-bottom:.5rem}
-@media(max-width:1024px){.mem-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.mem-grid{grid-template-columns:1fr}}
-.mem-card{background:#fff;border:1px solid #ebebeb;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:box-shadow .2s,transform .2s,border-color .2s;text-align:left;padding-top:0}
-.mem-card:hover{box-shadow:0 10px 28px rgba(139,0,0,.14);transform:translateY(-3px);border-color:rgba(139,0,0,.15)}
-.mem-card:focus-visible{outline:2px solid #8b0000;outline-offset:2px}
-.mem-main-photo{width:100%;height:200px;overflow:hidden;background:linear-gradient(145deg,#e8e0e0,#d4cccc);flex-shrink:0}
-.mem-main-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.mem-body{padding:1rem 1.05rem 1.15rem}
-.mem-date{font-size:.8rem;color:#8b0000;font-weight:700;margin-bottom:.4rem;line-height:1.35}
-.mem-title{font-family:'PT Serif',serif;font-size:.88rem;font-weight:700;color:#1a1a1a;line-height:1.45;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-.mem-gallery-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:1rem;padding-top:3rem;background:rgba(0,0,0,.88);z-index:600;overflow:auto}
-.mem-gallery-modal.open{display:flex}
-.mem-gallery-inner{position:relative;width:100%;max-width:min(96vw,1100px);max-height:96vh;display:flex;flex-direction:column;align-items:stretch;gap:0}
-.mem-gallery-close{position:absolute;top:-2.5rem;right:0;width:44px;height:44px;border:none;border-radius:50%;background:#fff;color:#333;font-size:1.35rem;line-height:1;cursor:pointer;z-index:5;box-shadow:0 4px 20px rgba(0,0,0,.25)}
-.mem-gallery-close:hover{color:#8b0000}
-.mem-gallery-head{padding:0 3.5rem 1rem 0;color:#fff}
-.mem-gallery-head .mg-date{font-size:.75rem;opacity:.85;letter-spacing:.06em;margin-bottom:.35rem}
-.mem-gallery-head .mg-title{font-family:'PT Serif',serif;font-size:clamp(1rem,2.5vw,1.35rem);line-height:1.35;font-weight:700}
-.mem-gallery-stage{position:relative;flex:1;min-height:min(78vh,720px);display:flex;align-items:center;justify-content:center;background:#0a0a0a;border-radius:12px;overflow:hidden}
-.mem-gallery-img{max-width:100%;max-height:min(78vh,720px);width:auto;height:auto;object-fit:contain;display:block}
-.mg-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:none;border-radius:50%;background:#fff;color:#1a1a1a;font-size:1.35rem;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,.25);border:1px solid #e8e8e8}
-.mg-nav:hover{background:#fff;color:#8b0000}
-.mg-nav:disabled{opacity:.35;cursor:default}
-.mg-nav.mg-prev{left:.75rem}
-.mg-nav.mg-next{right:.75rem}
-.mem-gallery-foot{margin-top:1rem;text-align:center;color:rgba(255,255,255,.92)}
-.mem-photo-counter{font-size:.95rem;font-weight:700;font-family:'PT Serif',serif}
-.mem-event-counter{font-size:.82rem;color:rgba(255,255,255,.65);margin-top:.35rem}
-.mem-gallery-events{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.85rem}
-.mem-gallery-events button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:.4rem .85rem;border-radius:8px;font-size:.78rem;font-family:'PT Sans',sans-serif;cursor:pointer}
-.mem-gallery-events button:hover{background:rgba(255,255,255,.22)}
-@media(max-width:768px){
-  .mg-nav{width:42px;height:42px;font-size:1.2rem}
-  .mg-nav.mg-prev{left:.4rem}
-  .mg-nav.mg-next{right:.4rem}
-  .mem-gallery-close{top:-2rem;right:.25rem}
-}
+.ward-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:2rem}
+.sec-title{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:2rem 0 1rem;padding-bottom:.4rem;border-bottom:2px solid rgba(139,0,0,.2)}
+.table-wrap{overflow-x:auto;margin-bottom:2.5rem;border:1px solid #e8e8e8;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.data-table{width:100%;border-collapse:collapse;font-size:.86rem}
+.data-table th,.data-table td{padding:.65rem .85rem;text-align:left;border-bottom:1px solid #eee}
+.data-table th{background:#faf7f7;color:#8b0000;font-weight:700;font-family:'PT Serif',serif}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tbody tr:hover{background:#fdf9f9}
+.table-note{font-size:.78rem;color:#777;margin-top:.5rem}
+.kid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;margin-bottom:.5rem}
+@media(max-width:1024px){.kid-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.kid-grid{grid-template-columns:1fr}}
+.kid-card{background:#fff;border:1px solid #ebebeb;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:box-shadow .2s,transform .2s;text-align:left;padding-top:0}
+.kid-card:hover{box-shadow:0 10px 28px rgba(139,0,0,.14);transform:translateY(-3px);border-color:rgba(139,0,0,.15)}
+.kid-card:focus-visible{outline:2px solid #8b0000;outline-offset:2px}
+.kid-main-photo{width:100%;height:200px;overflow:hidden;background:linear-gradient(145deg,#e0e0e0,#cfcfcf);flex-shrink:0}
+.kid-main-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.kid-body{padding:1rem 1.05rem 1.15rem}
+.kid-date{font-size:.72rem;color:#8b0000;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.4rem}
+.kid-title{font-family:'PT Serif',serif;font-size:.88rem;font-weight:700;color:#1a1a1a;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.kid-gallery-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:1rem;padding-top:3rem;background:rgba(0,0,0,.88);z-index:600;overflow:auto}
+.kid-gallery-modal.open{display:flex}
+.kid-gallery-inner{position:relative;width:100%;max-width:min(96vw,1100px);max-height:96vh;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.kid-gallery-close{position:absolute;top:-2.5rem;right:0;width:44px;height:44px;border:none;border-radius:50%;background:#fff;color:#333;font-size:1.35rem;line-height:1;cursor:pointer;z-index:5;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.kid-gallery-close:hover{color:#8b0000}
+.kid-gallery-head{padding:0 3.5rem 1rem 0;color:#fff}
+.kid-gallery-head .kg-date{font-size:.75rem;opacity:.85;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
+.kid-gallery-head .kg-title{font-family:'PT Serif',serif;font-size:clamp(1rem,2.5vw,1.35rem);line-height:1.35;font-weight:700}
+.kid-gallery-stage{position:relative;flex:1;min-height:min(78vh,720px);display:flex;align-items:center;justify-content:center;background:#0a0a0a;border-radius:12px;overflow:hidden}
+.kid-gallery-img{max-width:100%;max-height:min(78vh,720px);width:auto;height:auto;object-fit:contain;display:block}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:none;border-radius:50%;background:#fff;color:#1a1a1a;font-size:1.35rem;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,.25);border:1px solid #e8e8e8}
+.gallery-nav:hover{background:#fff;color:#8b0000}
+.gallery-nav:disabled{opacity:.35;cursor:default}
+.gallery-nav.photo-prev{left:.75rem}
+.gallery-nav.photo-next{right:.75rem}
+.kid-gallery-foot{margin-top:1rem;text-align:center;color:rgba(255,255,255,.92)}
+.kid-gallery-counter{font-size:.95rem;font-weight:700;font-family:'PT Serif',serif}
+.kid-gallery-sub{font-size:.82rem;color:rgba(255,255,255,.65);margin-top:.35rem}
+.kid-gallery-text{font-size:.88rem;color:rgba(255,255,255,.78);line-height:1.55;margin-top:.75rem;max-width:52rem;margin-left:auto;margin-right:auto;text-align:left}
+.kid-gallery-events{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.85rem}
+.kid-gallery-events button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:.4rem .85rem;border-radius:8px;font-size:.78rem;font-family:'PT Sans',sans-serif;cursor:pointer}
+.kid-gallery-events button:hover{background:rgba(255,255,255,.22)}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -92,7 +95,13 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
 .fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
 .fbot button:hover{background:#a00000}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+@media(max-width:768px){
+  .nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}
+  .gallery-nav{width:42px;height:42px;font-size:1.2rem}
+  .gallery-nav.photo-prev{left:.4rem}
+  .gallery-nav.photo-next{right:.4rem}
+  .kid-gallery-close{top:-2rem;right:.25rem}
+}
 </style>
 </head>
 <body>
@@ -149,31 +158,47 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>Помощь детям</h1>
-    <p>Мероприятия и помощь, организованная фондом для детей сотрудников ОМОН «Авангард».</p>
+    <h1>Подопечные фонда</h1>
+    <p>Семьи и лица, находящиеся под опекой и попечительством БРОФ «Твардовского, 2».</p>
   </div>
-  <p class="mem-intro">На карточке — дата, название и одно главное фото-превью; в модальном окне — галерея снимков мероприятия (до 15 фото, сейчас по 3–5 заглушек). Клик по карточке открывает галерею; стрелки листают фото. Крестик или клик по затемнённому фону — закрыть; клавиши ← → — фото, Escape — закрыть.</p>
-  <div id="pchGrid" class="mem-grid" aria-live="polite"></div>
+
+  <p class="ward-intro">На сегодняшний день под опекой и попечительством Фонда находятся: 25 членов семей сотрудников, погибших при исполнении служебных обязанностей, 107 сотрудников, получивших ранения и увечья при выполнении боевых задач, 3 ветерана Великой Отечественной войны, 69 многодетных семей и 35 семей, воспитывающих детей-инвалидов.</p>
+
+  <h2 class="sec-title">Дети под опекой Фонда</h2>
+  <div class="table-wrap">
+    <table class="data-table" id="childrenTable">
+      <thead>
+        <tr><th>№ п/п</th><th>Ф.И.О. ребёнка</th><th>Год рождения</th></tr>
+      </thead>
+      <tbody id="childrenTbody"></tbody>
+    </table>
+  </div>
+  <p class="table-note">Перечень детей под опекой БРОФ «Твардовского, 2».</p>
+
+  <h2 class="sec-title">Мероприятия для детей</h2>
+  <p style="font-size:.9rem;color:#555;margin-bottom:1.15rem;line-height:1.6">Совместные акции фонда и подразделений для детей сотрудников. На карточке — одно главное фото-превью; полный набор снимков (до 15) открывается в модальном окне. Сейчас в галерее по 3–5 заглушек на мероприятие. Клик по карточке открывает галерею; белые стрелки листают фото, внизу — переход к другому мероприятию. Клавиши ← → — фото, Escape — закрыть.</p>
+  <div id="kidEventsGrid" class="kid-grid" aria-live="polite"></div>
 </div>
 
-<div id="pchGalleryModal" class="mem-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="pchGalleryTitle" hidden>
-  <div class="mem-gallery-inner">
-    <button type="button" class="mem-gallery-close" id="pchGalleryClose" aria-label="Закрыть">×</button>
-    <div class="mem-gallery-head">
-      <div class="mg-date" id="pchGalleryDate"></div>
-      <div class="mg-title" id="pchGalleryTitle"></div>
+<div id="kidEventModal" class="kid-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="kidGalleryTitle" hidden>
+  <div class="kid-gallery-inner">
+    <button type="button" class="kid-gallery-close" id="kidClose" aria-label="Закрыть">×</button>
+    <div class="kid-gallery-head">
+      <div class="kg-date" id="kidGalleryDate"></div>
+      <div class="kg-title" id="kidGalleryTitle"></div>
     </div>
-    <div class="mem-gallery-stage">
-      <button type="button" class="mg-nav mg-prev" id="pchPhotoPrev" aria-label="Предыдущее фото">‹</button>
-      <img class="mem-gallery-img" id="pchGalleryImg" src="" alt="">
-      <button type="button" class="mg-nav mg-next" id="pchPhotoNext" aria-label="Следующее фото">›</button>
+    <div class="kid-gallery-stage">
+      <button type="button" class="gallery-nav photo-prev" id="kidPhotoPrev" aria-label="Предыдущее фото">‹</button>
+      <img class="kid-gallery-img" id="kidGalleryImg" src="" alt="">
+      <button type="button" class="gallery-nav photo-next" id="kidPhotoNext" aria-label="Следующее фото">›</button>
     </div>
-    <div class="mem-gallery-foot">
-      <div class="mem-photo-counter" id="pchPhotoCounter"></div>
-      <div class="mem-event-counter" id="pchEventCounter"></div>
-      <div class="mem-gallery-events">
-        <button type="button" id="pchPrevEvt">← Предыдущее мероприятие</button>
-        <button type="button" id="pchNextEvt">Следующее мероприятие →</button>
+    <div class="kid-gallery-foot">
+      <div class="kid-gallery-counter" id="kidPhotoCounter"></div>
+      <div class="kid-gallery-sub" id="kidEventCounter"></div>
+      <div class="kid-gallery-text" id="kidGalleryDesc"></div>
+      <div class="kid-gallery-events">
+        <button type="button" id="kidPrevEvt">← Предыдущее мероприятие</button>
+        <button type="button" id="kidNextEvt">Следующее мероприятие →</button>
       </div>
     </div>
   </div>
@@ -226,15 +251,60 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <script>
 (function(){
+  var tbody=document.getElementById('childrenTbody');
+  var rows=[
+    [1,'Акжигитов Тагир Ринатович','2017'],
+    [2,'Бедирханов Амир Руслан-оглы','2018'],
+    [3,'Бикмухаметова Зарина Ильгизовна','2012'],
+    [4,'Бровина Василиса Денисовна','2020'],
+    [5,'Губарева Арина Антоновна','2018'],
+    [6,'Гусятников Максим Евгеньевич','2020'],
+    [7,'Давыдова Александра Андреевна','2011'],
+    [8,'Дашин Максим Викторович','2017'],
+    [9,'Демина Софья Дмитриевна','2019'],
+    [10,'Евсеева Полина Алексеевна','2016'],
+    [11,'Еременко Никита Сергеевич','2003'],
+    [12,'Ермолаева Татьяна Петровна','2006'],
+    [13,'Жигулина Алена Павловна','2021'],
+    [14,'Жидовленков Илья Александрович','2012'],
+    [15,'Зорина Елизавета Андреевна','2017'],
+    [16,'Копцев Максим Андреевич','2013'],
+    [17,'Кулдошина Елизавета Владимировна','2014'],
+    [18,'Малыгина Злата Сергеевна','2014'],
+    [19,'Манджиева Юлия Сергеевна','2021'],
+    [20,'Маринина Валерия Владимировна','2016'],
+    [21,'Монасыпов Роман Денисович','2020'],
+    [22,'Монасыпов Данила Денисович','2021'],
+    [23,'Оржиховская Мария Андреевна','2005'],
+    [24,'Осетров Ярослав Андреевич','2010'],
+    [25,'Очкан Дан Александрович','2017'],
+    [26,'Парамонова Виктория Александровна','2018'],
+    [27,'Погуляева Аглая Алексеевна','2025'],
+    [28,'Самохин Родион Юрьевич','2016'],
+    [29,'Семенихина Дарья Сергеевна','2005'],
+    [30,'Смольянов Максим Дмитриевич','2017'],
+    [31,'Таратунина Мария Николаевна','2011'],
+    [32,'Фокин Артем Сергеевич','2013'],
+    [33,'Чеботаев Дмитрий Павлович','2013'],
+    [34,'Шевченко Анастасия Сергеевна','2012'],
+    [35,'Щербаков Савелий Артемович','2016'],
+    [36,'Шестунова Варвара Алексеевна','2015']
+  ];
+  rows.forEach(function(row){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>'+row[0]+'</td><td>'+row[1]+'</td><td>'+row[2]+'</td>';
+    tbody.appendChild(tr);
+  });
+
   function placeholderPhotos(evIdx){
     var count=[5,4,3][evIdx%3];
     var out=[];
     for(var p=1;p<=count;p++){
-      out.push('https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Помощь детям '+String(evIdx+1)+' · '+p+'/'+count));
+      out.push('https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Меропр. '+(evIdx+1)+' · '+p+'/'+count));
     }
     return out;
   }
-  var PCH_EVENTS=[
+  var KID_EVENTS=[
     {d:'20.03.2026',t:'БРОФ «Твардовского, 2» организовал для детей сотрудников ОМОН «Авангард» посещение развлекательного центра'},
     {d:'23.12.2025',t:'Новогодний праздник для детей росгвардейцев прошёл в Москве'},
     {d:'07.12.2025',t:'Сотрудники ОМОН «Авангард» организовали для детей экскурсию в парк «Патриот»'},
@@ -256,91 +326,93 @@ footer a:hover{color:rgba(255,255,255,.85)}
     {d:'01.06.2023',t:'В столичном ОМОН «Авангард» прошли торжественные мероприятия в честь Международного дня защиты детей'},
     {d:'28.12.2022',t:'Вручение новогодних подарков для детей сотрудников ОМОН «Авангард» Главного управления Росгвардии по г. Москве'}
   ];
-  PCH_EVENTS.forEach(function(it,i){it.photos=placeholderPhotos(i);});
-
-  var evtIdx=0;
+  KID_EVENTS.forEach(function(it,i){it.photos=placeholderPhotos(i);});
+  function kidFullHtml(it){
+    return it.t+' В массиве photos для мероприятия можно указать до 15 ссылок на фото; первое используется как превью на карточке.';
+  }
+  var kidIdx=0;
   var photoIdx=0;
-  var grid=document.getElementById('pchGrid');
-  var modal=document.getElementById('pchGalleryModal');
-  var imgEl=document.getElementById('pchGalleryImg');
-  var titleEl=document.getElementById('pchGalleryTitle');
-  var dateEl=document.getElementById('pchGalleryDate');
-  var photoCounterEl=document.getElementById('pchPhotoCounter');
-  var eventCounterEl=document.getElementById('pchEventCounter');
-  var btnPhotoPrev=document.getElementById('pchPhotoPrev');
-  var btnPhotoNext=document.getElementById('pchPhotoNext');
-
-  PCH_EVENTS.forEach(function(it,n){
+  var kidGrid=document.getElementById('kidEventsGrid');
+  var kidModal=document.getElementById('kidEventModal');
+  var kidImgEl=document.getElementById('kidGalleryImg');
+  var kidTitleEl=document.getElementById('kidGalleryTitle');
+  var kidDateEl=document.getElementById('kidGalleryDate');
+  var kidDescEl=document.getElementById('kidGalleryDesc');
+  var kidPhotoCounterEl=document.getElementById('kidPhotoCounter');
+  var kidEventCounterEl=document.getElementById('kidEventCounter');
+  var kidPhotoPrev=document.getElementById('kidPhotoPrev');
+  var kidPhotoNext=document.getElementById('kidPhotoNext');
+  KID_EVENTS.forEach(function(it,n){
     var art=document.createElement('article');
-    art.className='mem-card';
+    art.className='kid-card';
     art.setAttribute('tabindex','0');
     art.setAttribute('role','button');
     art.setAttribute('aria-label',it.d+'. '+it.t+' — открыть галерею');
     var mainPh=document.createElement('div');
-    mainPh.className='mem-main-photo';
+    mainPh.className='kid-main-photo';
     var img=document.createElement('img');
     img.src=it.photos[0];
     img.alt='Превью: '+it.d;
     img.loading='lazy';
     mainPh.appendChild(img);
     var body=document.createElement('div');
-    body.className='mem-body';
-    body.innerHTML='<div class="mem-date"></div><div class="mem-title"></div>';
-    body.querySelector('.mem-date').textContent=it.d;
-    body.querySelector('.mem-title').textContent=it.t;
+    body.className='kid-body';
+    body.innerHTML='<div class="kid-date"></div><div class="kid-title"></div>';
+    body.querySelector('.kid-date').textContent=it.d;
+    body.querySelector('.kid-title').textContent=it.t;
     art.appendChild(mainPh);
     art.appendChild(body);
-    art.addEventListener('click',function(){evtIdx=n;photoIdx=0;openM();});
-    art.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();evtIdx=n;photoIdx=0;openM();}});
-    grid.appendChild(art);
+    art.addEventListener('click',function(){kidIdx=n;photoIdx=0;openKidM();});
+    art.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();kidIdx=n;photoIdx=0;openKidM();}});
+    kidGrid.appendChild(art);
   });
-
   function syncGalleryView(){
-    var it=PCH_EVENTS[evtIdx];
+    var it=KID_EVENTS[kidIdx];
     var photos=it.photos;
     if(photoIdx<0)photoIdx=0;
     if(photoIdx>=photos.length)photoIdx=photos.length-1;
-    imgEl.src=photos[photoIdx];
-    imgEl.alt=it.d+' — '+it.t;
-    titleEl.textContent=it.t;
-    dateEl.textContent=it.d;
-    photoCounterEl.textContent='Фото '+(photoIdx+1)+' из '+photos.length;
-    eventCounterEl.textContent='Мероприятие '+(evtIdx+1)+' из '+PCH_EVENTS.length;
+    kidImgEl.src=photos[photoIdx];
+    kidImgEl.alt=it.d+' — '+it.t;
+    kidTitleEl.textContent=it.t;
+    kidDateEl.textContent=it.d;
+    kidDescEl.textContent=kidFullHtml(it);
+    kidPhotoCounterEl.textContent='Фото '+(photoIdx+1)+' из '+photos.length;
+    kidEventCounterEl.textContent='Мероприятие '+(kidIdx+1)+' из '+KID_EVENTS.length;
     var one=photos.length<=1;
-    btnPhotoPrev.disabled=one;
-    btnPhotoNext.disabled=one;
+    kidPhotoPrev.disabled=one;
+    kidPhotoNext.disabled=one;
   }
-  function openM(){
+  function openKidM(){
     syncGalleryView();
-    modal.hidden=false;
-    modal.classList.add('open');
+    kidModal.hidden=false;
+    kidModal.classList.add('open');
     document.body.style.overflow='hidden';
   }
-  function closeM(){
-    modal.classList.remove('open');
-    modal.hidden=true;
+  function closeKidM(){
+    kidModal.classList.remove('open');
+    kidModal.hidden=true;
     document.body.style.overflow='';
-    imgEl.src='';
+    kidImgEl.src='';
   }
   function stepPhoto(d){
-    var photos=PCH_EVENTS[evtIdx].photos;
+    var photos=KID_EVENTS[kidIdx].photos;
     photoIdx=(photoIdx+d+photos.length)%photos.length;
     syncGalleryView();
   }
   function stepEvent(d){
-    evtIdx=(evtIdx+d+PCH_EVENTS.length)%PCH_EVENTS.length;
+    kidIdx=(kidIdx+d+KID_EVENTS.length)%KID_EVENTS.length;
     photoIdx=0;
     syncGalleryView();
   }
-  document.getElementById('pchGalleryClose').addEventListener('click',closeM);
-  btnPhotoPrev.addEventListener('click',function(e){e.stopPropagation();stepPhoto(-1);});
-  btnPhotoNext.addEventListener('click',function(e){e.stopPropagation();stepPhoto(1);});
-  document.getElementById('pchPrevEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(-1);});
-  document.getElementById('pchNextEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(1);});
-  modal.addEventListener('click',function(e){if(e.target===modal)closeM();});
+  document.getElementById('kidClose').addEventListener('click',closeKidM);
+  kidPhotoPrev.addEventListener('click',function(e){e.stopPropagation();stepPhoto(-1);});
+  kidPhotoNext.addEventListener('click',function(e){e.stopPropagation();stepPhoto(1);});
+  document.getElementById('kidPrevEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(-1);});
+  document.getElementById('kidNextEvt').addEventListener('click',function(e){e.stopPropagation();stepEvent(1);});
+  kidModal.addEventListener('click',function(e){if(e.target===kidModal)closeKidM();});
   document.addEventListener('keydown',function(e){
-    if(!modal.classList.contains('open'))return;
-    if(e.key==='Escape')closeM();
+    if(!kidModal.classList.contains('open'))return;
+    if(e.key==='Escape')closeKidM();
     if(e.key==='ArrowLeft')stepPhoto(-1);
     if(e.key==='ArrowRight')stepPhoto(1);
   });
