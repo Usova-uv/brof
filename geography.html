@@ -6,14 +6,14 @@
 <title>Наша география — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
+html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
 .topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
-.topbar a{color:rgba(255,255,255,.85);font-size:.72rem;text-decoration:none}
-.topbar a:hover{color:#fff}
 .topbar-search{position:relative;display:inline-flex;align-items:center}
-.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);font-size:.72rem;cursor:pointer;font-family:'PT Sans',sans-serif;padding:0}
+.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
 .topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
+.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
 .search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
 .search-panel[hidden]{display:none!important}
 .search-form{display:flex;gap:.35rem;align-items:center}
@@ -86,21 +86,24 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
 .footer-logo img{width:40px;height:40px;object-fit:contain}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
-.fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
-.fbot button:hover{background:#a00000}
+.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
+.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
+.fbot-nav a:hover{color:rgba(255,255,255,.85)}
+.fbot-row{display:flex;justify-content:space-between;align-items:center}
+.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot-row button:hover{background:#a00000}
 @media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <a href="media.html">Для СМИ</a>
-  <a href="help.html">Хочу помочь</a>
-  <a href="contacts.html">Контакты</a>
   <div class="topbar-search">
-    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel">Поиск</button>
+    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel" aria-label="Поиск по сайту">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
     <div class="search-panel" id="topbarSearchPanel" hidden>
       <form class="search-form" action="search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Поиск по сайту…" autocomplete="off" aria-label="Запрос">
@@ -126,22 +129,18 @@ footer a:hover{color:rgba(255,255,255,.85)}
       <li>
         <a href="#" class="has-sub">О фонде</a>
         <div class="dropdown">
-          <a href="history.html">История отряда</a>
-          <a href="geography.html">Наша география</a>
-          <a href="management.html">Руководство фонда</a>
-          <a href="memory.html">Навечно в строю</a>
-          <a href="wards.html">Подопечные фонда</a>
-          <a href="veterans.html">Ветераны</a>
-          <a href="reports.html">Финансовые отчеты</a>
-          <a href="reviews.html">Отзывы и благодарности</a>
+          <a href="history.html">История фонда</a>
+          <a href="geography.html">География деятельности</a>
+          <a href="management.html">Руководство</a>
+          <a href="documents.html">Документы</a>
         </div>
       </li>
       <li><a href="projects.html">Деятельность фонда</a></li>
-      <li><a href="documents.html">Документы</a></li>
-      <li><a href="requisites.html">Реквизиты</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="media.html">Для СМИ</a></li>
+      <li><a href="requisites.html">Реквизиты для юрлиц</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <button class="nbtn" onclick="location.href='help.html'">Хочу помочь</button>
   </div>
 </nav>
 
@@ -214,7 +213,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <p style="margin-top:.4rem;font-size:.67rem">© 1995 — 2026</p>
   </div>
   <div>
-    <h4>О фонде</h4>
+    <h4><a href="index.html" style="color:inherit;text-decoration:none">О фонде</a></h4>
     <a href="history.html">История отряда</a>
     <a href="geography.html">Наша география</a>
     <a href="management.html">Руководство фонда</a>
@@ -228,9 +227,8 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <h4>Разделы</h4>
     <a href="projects.html">Деятельность фонда</a>
     <a href="documents.html">Документы</a>
-    <a href="requisites.html">Реквизиты</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
     <a href="contacts.html">Контакты</a>
-    <a href="help.html">Хочу помочь</a>
   </div>
   <div>
     <h4>Контакты</h4>
@@ -243,8 +241,22 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 </footer>
 <div class="fbot">
-  <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  <nav class="fbot-nav" aria-label="Основное меню в подвале">
+    <a href="index.html">Главная</a>
+    <a href="history.html">История фонда</a>
+    <a href="geography.html">География деятельности</a>
+    <a href="management.html">Руководство</a>
+    <a href="documents.html">Документы</a>
+    <a href="projects.html">Деятельность фонда</a>
+    <a href="news.html">Новости</a>
+    <a href="media.html">Для СМИ</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <div class="fbot-row">
+    <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
+    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  </div>
 </div>
 
 <script src="js/topbar.js" defer></script>

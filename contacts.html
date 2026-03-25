@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Контакты — БРОФ «Твардовского, 2»</title>
+<meta name="description" content="Контакты благотворительного фонда БРОФ «Твардовского, 2» в г. Москва: телефоны, email, адрес на ул. Николоямская и карта.">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
+html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
 .topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
-.topbar a{color:rgba(255,255,255,.85);font-size:.72rem;text-decoration:none}
-.topbar a:hover{color:#fff}
 .topbar-search{position:relative;display:inline-flex;align-items:center}
-.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);font-size:.72rem;cursor:pointer;font-family:'PT Sans',sans-serif;padding:0}
+.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
 .topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
+.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
 .search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
 .search-panel[hidden]{display:none!important}
 .search-form{display:flex;gap:.35rem;align-items:center}
@@ -49,7 +50,7 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .contact-block .tel a{color:#8b0000;text-decoration:none;font-weight:700}
 .contact-block .tel a:hover{text-decoration:underline}
 .map-wrap{margin-top:1rem;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.map-wrap iframe{display:block;width:100%;height:420px;border:0}
+.map-wrap #contactsYandexMap{display:block;width:100%;height:420px;border:0}
 .map-legend{font-size:.82rem;color:#555;margin-top:.65rem;line-height:1.55}
 .map-legend span{display:inline-block;margin-right:1rem}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.35rem;vertical-align:middle}
@@ -70,21 +71,24 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
 .footer-logo img{width:40px;height:40px;object-fit:contain}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
-.fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
-.fbot button:hover{background:#a00000}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}footer{grid-template-columns:1fr 1fr}.map-wrap iframe{height:320px}}
+.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
+.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
+.fbot-nav a:hover{color:rgba(255,255,255,.85)}
+.fbot-row{display:flex;justify-content:space-between;align-items:center}
+.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot-row button:hover{background:#a00000}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}footer{grid-template-columns:1fr 1fr}.map-wrap #contactsYandexMap{height:320px}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <a href="media.html">Для СМИ</a>
-  <a href="help.html">Хочу помочь</a>
-  <a href="contacts.html">Контакты</a>
   <div class="topbar-search">
-    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel">Поиск</button>
+    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel" aria-label="Поиск по сайту">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
     <div class="search-panel" id="topbarSearchPanel" hidden>
       <form class="search-form" action="search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Поиск по сайту…" autocomplete="off" aria-label="Запрос">
@@ -110,29 +114,25 @@ footer a:hover{color:rgba(255,255,255,.85)}
       <li>
         <a href="#" class="has-sub">О фонде</a>
         <div class="dropdown">
-          <a href="history.html">История отряда</a>
-          <a href="geography.html">Наша география</a>
-          <a href="management.html">Руководство фонда</a>
-          <a href="memory.html">Навечно в строю</a>
-          <a href="wards.html">Подопечные фонда</a>
-          <a href="veterans.html">Ветераны</a>
-          <a href="reports.html">Финансовые отчеты</a>
-          <a href="reviews.html">Отзывы и благодарности</a>
+          <a href="history.html">История фонда</a>
+          <a href="geography.html">География деятельности</a>
+          <a href="management.html">Руководство</a>
+          <a href="documents.html">Документы</a>
         </div>
       </li>
       <li><a href="projects.html">Деятельность фонда</a></li>
-      <li><a href="documents.html">Документы</a></li>
-      <li><a href="requisites.html">Реквизиты</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="media.html">Для СМИ</a></li>
+      <li><a href="requisites.html">Реквизиты для юрлиц</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
-    <button class="nbtn" type="button" onclick="location.href='help.html'">Хочу помочь</button>
   </div>
 </nav>
 
 <div class="content-wrap">
   <div class="page-header">
     <h1>Контакты</h1>
-    <p>Благотворительный региональный общественный фонд социальных программ «Твардовского, 2». Свяжитесь с нами по телефону, электронной почте или посетите офис по адресу ниже.</p>
+    <p>Благотворительный региональный общественный фонд социальных программ «Твардовского, 2» расположен в <strong>г.&nbsp;Москва</strong>. Свяжитесь с нами по телефону, электронной почте или посетите офис по адресу ниже.</p>
   </div>
 
   <div class="phones-box">
@@ -148,15 +148,15 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
   <div class="hours-box">
     <h3>Режим работы</h3>
-    <p><strong>Приём и офис фонда</strong> (ул. Николоямская, 40, стр. 1): пн–пт 10:00–18:00, перерыв 13:00–14:00. Визит — по предварительной договорённости по телефону.</p>
+    <p><strong>Приём и офис фонда</strong> (г.&nbsp;Москва, ул.&nbsp;Николоямская, д.&nbsp;40, стр.&nbsp;1): пн–пт 10:00–18:00, перерыв 13:00–14:00. Визит — по предварительной договорённости по телефону.</p>
     <p><strong>Обращения по телефону и email</strong> — в рабочие дни (по московскому времени).</p>
   </div>
 
   <div class="contact-block">
     <h2>Карта: адреса фонда и ОМОН</h2>
-    <p class="sub">На карте: <span class="dot dot--fond"></span>офис БРОФ «Твардовского, 2» (ул. Николоямская, 40, стр. 1) и <span class="dot dot--omon"></span>дислокация Московского ОМОН (ул. Твардовского, 2).</p>
+    <p class="sub">На карте: <span class="dot dot--fond"></span>офис БРОФ «Твардовского, 2» (г.&nbsp;Москва, ул.&nbsp;Николоямская, д.&nbsp;40, стр.&nbsp;1) и <span class="dot dot--omon"></span>дислокация Московского ОМОН (г.&nbsp;Москва, ул.&nbsp;Твардовского, д.&nbsp;2).</p>
     <div class="map-wrap">
-      <iframe src="https://yandex.ru/map-widget/v1/?ll=37.581749%2C55.771374&amp;z=11&amp;pt=37.652078%2C55.741180%2Cpm2rdm~37.511420%2C55.801650%2Cpm2blm" title="Карта: офис фонда и ОМОН" allowfullscreen></iframe>
+      <div id="contactsYandexMap" role="application" aria-label="Интерактивная карта: офис БРОФ и дислокация ОМОН"></div>
     </div>
     <p class="map-legend"><span><span class="dot dot--fond"></span>г. Москва, ул. Николоямская, д. 40, стр. 1 — БРОФ «Твардовского, 2»</span><br><span><span class="dot dot--omon"></span>г. Москва, ул. Твардовского, д. 2 — Московский ОМОН</span></p>
   </div>
@@ -187,7 +187,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <p style="margin-top:.4rem;font-size:.67rem">© 1995 — 2026</p>
   </div>
   <div>
-    <h4>О фонде</h4>
+    <h4><a href="index.html" style="color:inherit;text-decoration:none">О фонде</a></h4>
     <a href="history.html">История отряда</a>
     <a href="geography.html">Наша география</a>
     <a href="management.html">Руководство фонда</a>
@@ -201,9 +201,8 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <h4>Разделы</h4>
     <a href="projects.html">Деятельность фонда</a>
     <a href="documents.html">Документы</a>
-    <a href="requisites.html">Реквизиты</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
     <a href="contacts.html">Контакты</a>
-    <a href="help.html">Хочу помочь</a>
   </div>
   <div>
     <h4>Контакты</h4>
@@ -216,9 +215,60 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 </footer>
 <div class="fbot">
-  <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  <nav class="fbot-nav" aria-label="Основное меню в подвале">
+    <a href="index.html">Главная</a>
+    <a href="history.html">История фонда</a>
+    <a href="geography.html">География деятельности</a>
+    <a href="management.html">Руководство</a>
+    <a href="documents.html">Документы</a>
+    <a href="projects.html">Деятельность фонда</a>
+    <a href="news.html">Новости</a>
+    <a href="media.html">Для СМИ</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <div class="fbot-row">
+    <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
+    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  </div>
 </div>
 <script src="js/topbar.js" defer></script>
+<!-- Яндекс.Карты API 2.1: подставьте ключ вместо YOUR_YANDEX_MAPS_API_KEY (https://developer.tech.yandex.ru/services/) -->
+<script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_YANDEX_MAPS_API_KEY&lang=ru_RU"></script>
+<script>
+(function () {
+  var ADDR_BR = 'г. Москва, ул. Николоямская, д. 40, стр. 1';
+  var ADDR_OMON = 'г. Москва, ул. Твардовского, д. 2';
+  /* Координаты [широта, долгота]: Николоямская 40 стр. 1; ул. Твардовского, 2 (комплекс в Строгино) */
+  var COORD_BR = [55.7470376, 37.6594920];
+  var COORD_OMON = [55.7974986, 37.3882570];
+
+  ymaps.ready(function () {
+    var map = new ymaps.Map('contactsYandexMap', {
+      center: [55.772, 37.524],
+      zoom: 10,
+      controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
+    }, { suppressMapOpenBlock: true });
+
+    var placemarkBr = new ymaps.Placemark(COORD_BR, {
+      balloonContentHeader: 'Офис БРОФ «Твардовского, 2»',
+      balloonContentBody: ADDR_BR,
+      hintContent: 'Офис БРОФ «Твардовского, 2»'
+    }, { preset: 'islands#redCircleDotIcon' });
+
+    var placemarkOmon = new ymaps.Placemark(COORD_OMON, {
+      balloonContentHeader: 'Дислокация Московского ОМОН «Авангард»',
+      balloonContentBody: ADDR_OMON,
+      hintContent: 'Дислокация Московского ОМОН «Авангард»'
+    }, { preset: 'islands#blueCircleDotIcon' });
+
+    map.geoObjects.add(placemarkBr).add(placemarkOmon);
+    map.setBounds(map.geoObjects.getBounds(), {
+      checkZoomRange: true,
+      zoomMargin: [48, 48, 48, 48]
+    });
+  });
+})();
+</script>
 </body>
 </html>
