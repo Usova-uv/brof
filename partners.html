@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>История фонда — БРОФ «Твардовского, 2»</title>
+<title>Партнёры фонда — БРОФ «Твардовского, 2»</title>
+<meta name="description" content="Организации-партнёры, оказывающие поддержку БРОФ «Твардовского, 2». Логотипы компаний.">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <style>
 html{scroll-behavior:smooth}
@@ -42,18 +43,14 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .page-header{margin-bottom:2rem}
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
 .page-header p{color:#666;font-size:.9rem}
-.project-content{font-size:.95rem;line-height:1.75;color:#333}
-.project-content p{margin-bottom:1rem}
-.project-content h2{font-family:'PT Serif',serif;font-size:1.35rem;color:#8b0000;margin:2.25rem 0 .85rem;padding-bottom:.5rem;border-bottom:2px solid rgba(139,0,0,.22)}
-.project-content h2:first-child{margin-top:0}
-.project-content h3{font-family:'PT Serif',serif;font-size:1.2rem;color:#8b0000;margin:1.5rem 0 .75rem}
-.history-figure{max-width:720px;margin:1rem auto 1.5rem}
-.history-illus{width:100%;height:auto;display:block;border-radius:10px;border:1px solid #e8e8e8;object-fit:cover;max-height:320px;background:#f0f0f0}
-.history-cap{font-size:.72rem;color:#777;text-align:center;margin-top:.4rem;line-height:1.4}
-.project-content ul{margin:0 0 1rem 1.5rem}
-.project-content li{margin-bottom:.4rem}
-.back-link{display:inline-block;margin-bottom:1.5rem;color:#8b0000;text-decoration:none;font-size:.85rem;font-weight:700}
-.back-link:hover{text-decoration:underline}
+.partners-lead{font-size:.95rem;line-height:1.75;color:#444;margin-bottom:1.5rem;max-width:48rem}
+.partners-note{font-size:.82rem;color:#777;margin-bottom:1.75rem;line-height:1.6}
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.75rem 1.5rem;align-items:center;margin-top:1rem}
+.partner-cell{display:flex;align-items:center;justify-content:center;min-height:100px;padding:1.25rem 1rem;background:#fafafa;border:1px solid #ebebeb;border-radius:12px;transition:box-shadow .2s,border-color .2s}
+.partner-cell:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:rgba(139,0,0,.2)}
+.partner-cell a{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none}
+.partner-cell img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain;filter:grayscale(0)}
+@media(max-width:768px){.partners-grid{grid-template-columns:repeat(2,1fr);gap:1rem}}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -121,43 +118,29 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <div class="content-wrap">
   <div class="page-header">
-    <h1>История фонда</h1>
-    <p>Краткий исторический обзор предшествующих подразделений, создания ОМОН, реорганизаций и современной служебной деятельности московского отряда.</p>
+    <h1>Партнёры фонда</h1>
+    <p>Организации, оказывающие благотворительную и поддерживающую помощь фонду.</p>
   </div>
+  <p class="partners-lead">Благодарим компании и партнёров за доверие и сотрудничество. Здесь размещаются логотипы организаций — при добавлении файлов положите их в папку <strong>images/partners/</strong> (PNG или SVG с прозрачным фоном, пример имён: <code>partner-1.png</code> … <code>partner-15.png</code>).</p>
+  <p class="partners-note">WordPress: выводите логотипы через медиатеку (цикл по записям или ACF), замените блок <code>.partners-grid</code> на шаблонный.</p>
 
-  <div class="project-content">
-    <div class="history-figure">
-      <img class="history-illus" src="https://via.placeholder.com/720x280/f5f0f0/8b0000?text=%D0%98%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F+%D0%BE%D1%82%D1%80%D1%8F%D0%B4%D0%B0+%28%D0%B7%D0%B0%D0%B3%D0%BB%D1%83%D1%88%D0%BA%D0%B0%29" alt="Иллюстрация к разделу истории">
-      <p class="history-cap">Иллюстрация: временная заглушка; позже можно заменить на архивные фото подразделения.</p>
-    </div>
-
-    <h2>1945–1987. Предыстория</h2>
-    <p>Первым подразделением-предшественником современного ОМОН является рота, созданная в 1945 году для охраны мировых лидеров на Ялтинской конференции. По окончании конференции рота вернулась в Москву и поступила в подчинение НКВД СССР. На базе роты был создан Резервный полк милиции, который дислоцировался в Ивантеевке.</p>
-    <p>В 1948 году, именно на базе этого подразделения был создан Стационарный учебный пункт для личного состава московской милиции. Центр подготовки в Ивантеевке действует и сегодня.</p>
-    <p>В 1954 году Резервный полк был переименован в Оперативный полк милиции, в который в 1958 году вошёл кавалерийский дивизион. Полк обеспечивал безопасность на Фестивале молодёжи и студентов 1957 года, а также на XXII Олимпийских играх 1980 года.</p>
-    <p>В 1981 году Оперполк милиции переименован во 2-й полк патрульно-постовой службы милиции.</p>
-
-    <div class="history-figure">
-      <img class="history-illus" src="https://via.placeholder.com/720x280/f5f0f0/8b0000?text=%D0%A4%D0%BE%D1%82%D0%BE+%D0%B7%D0%B0%D0%B3%D0%BB%D1%83%D1%88%D0%BA%D0%B0" alt="">
-      <p class="history-cap">Заглушка под архивный снимок периода 1945–1987 гг.</p>
-    </div>
-
-    <h2>1987. Создание ОМОН</h2>
-    <p>23 октября 1987 года приказом МВД СССР № 0119 на базе 2-го полка патрульно-постовой службы милиции был создан Отряд милиции специального назначения ГУВД г. Москвы, который и был переименован в ОМОН приказом МВД СССР от 03.10.1988 года № 0206.</p>
-
-    <h2>2011–2016. Реорганизация</h2>
-    <p>Весной 2011 года московский ОМОН был объединён с ОМСН в единую структуру — Центр специального назначения сил оперативного реагирования и авиации МВД России. Летом 2011 года подразделения ОМОН были официально включены в единую систему комплектования и взаимодействия внутри ЦСН; далее организация службы и подготовки личного состава неоднократно уточнялась в соответствии с задачами МВД России вплоть до передачи ряда функций в систему войск национальной гвардии.</p>
-
-    <h2>2016. В составе Росгвардии</h2>
-    <p>Создание Федеральной службы войск национальной гвардии Российской Федерации (Росгвардия) и принятие соответствующего законодательства предусмотрели передачу отдельных подразделений, ранее входивших в систему МВД России, в состав Росгвардии. Московский ОМОН вошёл в структуру новой службы и продолжает выполнять задачи по охране общественного порядка, обеспечению безопасности и участию в контртеррористической защите.</p>
-
-    <div class="history-figure">
-      <img class="history-illus" src="https://via.placeholder.com/720x280/f5f0f0/8b0000?text=%D0%A0%D0%BE%D1%81%D0%B3%D0%B2%D0%B0%D1%80%D0%B4%D0%B8%D1%8F+%28%D0%B7%D0%B0%D0%B3%D0%BB%D1%83%D1%88%D0%BA%D0%B0%29" alt="">
-      <p class="history-cap">Заглушка под фото современного состава или символики подразделения.</p>
-    </div>
-
-    <h2>Наши дни. Служебные командировки</h2>
-    <p>Рассказывая о деятельности подразделения, особое внимание стоит уделить служебным командировкам. Личный состав Отряда мобильного особого назначения ГУ МВД России по г. Москве регулярно выезжает в командировки на территорию Северо-Кавказского региона и принимает участие в контртеррористических операциях. Сотрудники успешно выполняли боевые задачи в горных районах Чеченской Республики, Кабардино-Балкарской Республики, Ингушетии и Республики Дагестан. Высокая профессиональная подготовка, личная собранность и самоотверженность сотрудников Отряда позволяют им быстро адаптироваться в сложной, постоянно меняющейся боевой и оперативной обстановке.</p>
+  <!-- WP: цикл по партнёрам — ссылка и логотип из полей -->
+  <div class="partners-grid" aria-label="Логотипы партнёров">
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-1.png" alt="Партнёр 1" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+1'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-2.png" alt="Партнёр 2" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+2'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-3.png" alt="Партнёр 3" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+3'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-4.png" alt="Партнёр 4" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+4'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-5.png" alt="Партнёр 5" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+5'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-6.png" alt="Партнёр 6" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+6'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-7.png" alt="Партнёр 7" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+7'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-8.png" alt="Партнёр 8" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+8'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-9.png" alt="Партнёр 9" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+9'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-10.png" alt="Партнёр 10" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+10'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-11.png" alt="Партнёр 11" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+11'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-12.png" alt="Партнёр 12" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+12'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-13.png" alt="Партнёр 13" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+13'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-14.png" alt="Партнёр 14" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+14'"></a></div>
+    <div class="partner-cell"><a href="#" target="_blank" rel="noopener"><img src="images/partners/partner-15.png" alt="Партнёр 15" onerror="this.onerror=null;this.src='https://via.placeholder.com/240x100/f5f5f5/8b0000?text=Logo+15'"></a></div>
   </div>
 </div>
 
