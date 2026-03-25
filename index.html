@@ -1,19 +1,30 @@
 <!DOCTYPE html>
+<!-- 
+ГОТОВА К ПЕРЕНОСУ НА WORDPRESS
+Структура и классы сохранены. Фото будут добавлены через медиабиблиотеку WP.
+-->
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>БРОФ «Твардовского, 2» — Благотворительный фонд</title>
+<title>БРОФ «Твардовского, 2» — Благотворительный фонд поддержки ОМОН «Авангард» и ветеранов</title>
+<meta name="description" content="Благотворительный фонд «БРОФ «Твардовского, 2»» оказывает поддержку сотрудникам ОМОН «Авангард», ветеранам и их семьям. Только помощь от юридических лиц.">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<!--
+  Swiper 11 (CDN) — слайдер главного экрана.
+  Стили: https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+  Скрипт подключается перед закрытием </body> (см. swiper-bundle.min.js).
+-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <style>
+html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
 .topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
-.topbar a{color:rgba(255,255,255,.85);font-size:.72rem;text-decoration:none}
-.topbar a:hover{color:#fff}
 .topbar-search{position:relative;display:inline-flex;align-items:center}
-.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);font-size:.72rem;cursor:pointer;font-family:'PT Sans',sans-serif;padding:0}
+.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
 .topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
+.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
 .search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
 .search-panel[hidden]{display:none!important}
 .search-form{display:flex;gap:.35rem;align-items:center}
@@ -38,22 +49,37 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .dropdown a:hover{color:#8b0000;background:#fdf5f5}
 .nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-family:'PT Sans',sans-serif;font-size:.78rem;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;display:flex;align-items:center}
 .nbtn:hover{background:#a00000}
-.hero{background:#1a1a2e;display:grid;grid-template-columns:1fr 280px}
-.hero-text{padding:3rem 2rem 2.5rem 2rem;position:relative}
-.hero-text::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#8b0000}
-.hero-eyebrow{color:rgba(255,255,255,.5);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem}
-.hero h1{color:#fff;font-family:'PT Serif',serif;font-size:2rem;line-height:1.3;margin-bottom:1rem;font-weight:700}
-.hero p{color:rgba(255,255,255,.8);font-size:.92rem;line-height:1.75;margin-bottom:1.8rem}
-.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
-.hbp{background:#8b0000;color:#fff;border:2px solid #8b0000;padding:.65rem 1.5rem;font-family:'PT Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
-.hbp:hover{background:#a50000}
-.hbo{background:transparent;color:#fff;border:2px solid #8b0000;padding:.65rem 1.5rem;font-family:'PT Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer}
-.hbo:hover{background:rgba(139,0,0,.2)}
-.hero-aside{background:#111128;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem}
-.hero-stat{text-align:center;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.08);width:100%}
-.hero-stat:last-child{border-bottom:none}
-.hs-n{color:#fff;font-family:'PT Serif',serif;font-size:2rem;font-weight:700}
-.hs-l{color:rgba(255,255,255,.45);font-size:.68rem;margin-top:.15rem}
+/* ========= Hero: полноэкранный слайдер (Swiper) — см. комментарии в разметке ========= */
+.hero-slider{position:relative;width:100%;height:100vh;min-height:100vh;overflow:hidden;background:#1a1a2e}
+.hero-swiper{height:100%;width:100%}
+.hero-swiper .swiper-slide{position:relative;height:100%;overflow:hidden}
+.hero-slide-media{position:absolute;inset:0;z-index:0;background:#1a1a2e}
+.hero-slide-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#1a1a2e}
+/* Затемнение: градиент сверху вниз + дополнительный тёмный слой (::after) */
+.hero-slider__overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.65))}
+.hero-slider__overlay::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.hero-slider__inner{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;padding:2rem 1.5rem;padding-bottom:max(2rem,env(safe-area-inset-bottom));text-align:center;pointer-events:none}
+@keyframes hero-text-fadein{from{opacity:.2;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.hero-slider__inner.hero-slider__inner--fade{animation:hero-text-fadein .52s ease-out forwards}
+@media(prefers-reduced-motion:reduce){.hero-slider__inner.hero-slider__inner--fade{animation:none!important}}
+.hero-slider__box{max-width:960px;pointer-events:auto}
+.hero-slider h1{color:#fff;font-family:'PT Serif',serif;font-weight:700;font-size:clamp(1.45rem,4.2vw,4rem);line-height:1.2;margin-bottom:1rem;letter-spacing:-.01em;text-shadow:0 2px 4px rgba(0,0,0,.5),0 4px 24px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.8)}
+.hero-slider .hero-sub{color:#fff;font-size:clamp(1rem,2.4vw,1.55rem);line-height:1.55;margin-bottom:1.85rem;max-width:52ch;margin-left:auto;margin-right:auto;text-shadow:0 1px 3px rgba(0,0,0,.55),0 2px 16px rgba(0,0,0,.45)}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;align-items:stretch}
+.hero-btns a{text-decoration:none;font-family:'PT Sans',sans-serif;font-size:clamp(.85rem,1.6vw,.95rem);font-weight:700;padding:.85rem 1.4rem;min-height:48px;min-width:min(100%,11rem);box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:4px;transition:background .2s,border-color .2s,transform .15s}
+.hero-btns a:active{transform:translateY(1px)}
+.hbp{background:#8b0000;color:#fff;border:2px solid #8b0000}
+.hbp:hover{background:#a00000;border-color:#a00000}
+.hbo{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.9)}
+.hbo:hover{background:rgba(139,0,0,.4);border-color:#fff}
+.hero-swiper .swiper-button-prev,.hero-swiper .swiper-button-next{z-index:4;width:44px;height:44px;margin-top:0;top:50%;transform:translateY(-50%);color:#fff;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);border-radius:50%;transition:background .2s}
+.hero-swiper .swiper-button-prev:hover,.hero-swiper .swiper-button-next:hover{background:rgba(139,0,0,.8);border-color:rgba(255,255,255,.6)}
+.hero-swiper .swiper-button-prev:after,.hero-swiper .swiper-button-next:after{font-size:1rem;font-weight:700}
+.hero-swiper .swiper-pagination{z-index:4;bottom:1.35rem!important;left:0;right:0}
+.hero-swiper .swiper-pagination-bullet{width:9px;height:9px;background:rgba(255,255,255,.55);opacity:1;transition:background .2s,transform .2s}
+.hero-swiper .swiper-pagination-bullet-active{background:#8b0000;transform:scale(1.15)}
+@media(min-width:1024px){.hero-slider h1{font-size:clamp(3.5rem,4.2vw,4.25rem)}.hero-slider .hero-sub{font-size:clamp(1.4rem,1.8vw,1.55rem)}}
+@media(max-width:768px){.hero-slider h1{font-size:clamp(1.35rem,6vw,1.85rem)}.hero-slider .hero-sub{font-size:clamp(.95rem,3.8vw,1.15rem);line-height:1.5}.hero-btns{flex-direction:column;align-items:stretch;gap:12px}.hero-btns a{min-width:0;width:100%;max-width:22rem;min-height:52px;margin-left:auto;margin-right:auto}.hero-swiper .swiper-button-prev,.hero-swiper .swiper-button-next{width:40px;height:40px}.hero-swiper .swiper-button-prev{left:6px}.hero-swiper .swiper-button-next{right:6px}}
 .nav-tiles{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #e8e8e8;border-left:1px solid #e8e8e8}
 .nav-tile{padding:.9rem .5rem;text-align:center;border-right:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;cursor:pointer;transition:.15s;text-decoration:none;display:block;background:#fff}
 .nav-tile:hover{background:#fdf5f5}
@@ -118,22 +144,26 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
 .footer-logo img{width:40px;height:40px;object-fit:contain}
 .footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;line-height:1.3;font-weight:700}
-.fbot{background:#111;padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
-.fbot span{font-size:.7rem;color:rgba(255,255,255,.2)}
-.fbot button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
-.fbot button:hover{background:#a00000}
-@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-aside{display:none}.about-inner{grid-template-columns:repeat(2,1fr)}footer{grid-template-columns:repeat(2,1fr)}}
+.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
+.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
+.fbot-nav a:hover{color:rgba(255,255,255,.85)}
+.fbot-row{display:flex;justify-content:space-between;align-items:center}
+.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot-row button:hover{background:#a00000}
+@media(max-width:1024px){.about-inner{grid-template-columns:repeat(2,1fr)}footer{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto;padding:.8rem}.nav-links{flex-wrap:wrap;justify-content:center}.nav-links > li > a{padding:0 .5rem;height:44px}.main-grid{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
+<!-- WP: topbar — глобальная область поиска (виджет) -->
 <div class="topbar">
-  <a href="media.html">Для СМИ</a>
-  <a href="help.html">Хочу помочь</a>
-  <a href="contacts.html">Контакты</a>
   <div class="topbar-search">
-    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel">Поиск</button>
+    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel" aria-label="Поиск по сайту">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
     <div class="search-panel" id="topbarSearchPanel" hidden>
       <form class="search-form" action="search.html" method="get" role="search">
         <input type="search" name="q" placeholder="Поиск по сайту…" autocomplete="off" aria-label="Запрос">
@@ -154,78 +184,154 @@ footer a:hover{color:rgba(255,255,255,.85)}
         </div>
       </a>
     </div>
+    <!-- WP: главное меню — шаблон header или блок «Навигация» -->
     <ul class="nav-links">
-  <li><a href="index.html">Главная</a></li>
-  <li>
-    <a href="#" class="has-sub">О фонде</a>
-    <div class="dropdown">
-      <a href="history.html">История отряда</a>
-      <a href="geography.html">Наша география</a>
-      <a href="management.html">Руководство фонда</a>
-      <a href="memory.html">Навечно в строю</a>
-      <a href="wards.html">Подопечные фонда</a>
-      <a href="veterans.html">Ветераны</a>
-      <a href="reports.html">Финансовые отчеты</a>
-      <a href="reviews.html">Отзывы и благодарности</a>
-    </div>
-  </li>
-  <li><a href="projects.html">Деятельность фонда</a></li>
-  <li><a href="documents.html">Документы</a></li>
-  <li><a href="requisites.html">Реквизиты</a></li>
-  <li><a href="contacts.html">Контакты</a></li>
-</ul>
-    <button class="nbtn" type="button" onclick="location.href='help.html'">Хочу помочь</button>
+      <li><a href="index.html">Главная</a></li>
+      <li>
+        <a href="#" class="has-sub">О фонде</a>
+        <div class="dropdown">
+          <a href="history.html">История фонда</a>
+          <a href="geography.html">География деятельности</a>
+          <a href="management.html">Руководство</a>
+          <a href="documents.html">Документы</a>
+        </div>
+      </li>
+      <li><a href="projects.html">Деятельность фонда</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="media.html">Для СМИ</a></li>
+      <li><a href="requisites.html">Реквизиты для юрлиц</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow">Москва · Основан в августе 1995 года</div>
-    <h1>Поддержка тех, кто служит и служил Отечеству</h1>
-    <p>Адресная помощь сотрудникам ОМОН, ветеранам и их семьям. Благотворительные программы для детей и многодетных семей.</p>
-    <div class="hero-btns">
-      <button class="hbp" type="button" onclick="location.href='help.html'">Хочу помочь фонду</button>
-      <button class="hbo" onclick="location.href='help.html'">Узнать больше</button>
-    </div>
-  </div>
-  <div class="hero-aside">
-    <div class="hero-stat"><div class="hs-n">30</div><div class="hs-l">лет работы</div></div>
-    <div class="hero-stat"><div class="hs-n">1995</div><div class="hs-l">год основания</div></div>
-    <div class="hero-stat"><div class="hs-n">ОМОН</div><div class="hs-l">«Авангард»</div></div>
-  </div>
-</div>
+<!--
+  ========== HERO: полноэкранный слайдер (Swiper), высота 100vh ==========
+  Изображения: images/hero-1.jpg … hero-4.jpg (от корня сайта, рядом с index.html).
+  Lazy отключён: у каждого <img> обязателен явный src (иначе при Swiper lazy первый кадр мог не показаться).
+  Если файла нет — onerror подставляет плейсхолдер (ожидаемо 404 в консоли для локальных hero-*.jpg до загрузки фото).
 
-<div class="nav-tiles">
+  WordPress: замените src на <?php echo esc_url( wp_get_attachment_image_url( $id, 'full' ) ); ?>
+-->
+<section class="hero-slider" aria-label="Главный экран: слайдер фонда">
+  <div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="hero-slide-media">
+          <img
+            src="images/hero-1.jpg"
+            width="1920"
+            height="1080"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            alt="Поддержка ОМОН «Авангард» — мероприятия и помощь фонда БРОФ «Твардовского, 2»"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/1a1a2e/dcdcdc?text=Hero+1'">
+        </div>
+        <div class="hero-slider__overlay" aria-hidden="true"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hero-slide-media">
+          <img
+            src="images/hero-2.jpg"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            alt="Ветераны и торжественные мероприятия"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/1a1a2e/dcdcdc?text=Hero+2'">
+        </div>
+        <div class="hero-slider__overlay" aria-hidden="true"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hero-slide-media">
+          <img
+            src="images/hero-3.jpg"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            alt="Дети и семьи сотрудников ОМОН"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/1a1a2e/dcdcdc?text=Hero+3'">
+        </div>
+        <div class="hero-slider__overlay" aria-hidden="true"></div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hero-slide-media">
+          <img
+            src="images/hero-4.jpg"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
+            alt="Сотрудники ОМОН «Авангард» и фонд"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/1920x1080/1a1a2e/dcdcdc?text=Hero+4'">
+        </div>
+        <div class="hero-slider__overlay" aria-hidden="true"></div>
+      </div>
+    </div>
+    <!-- Текст и кнопки — общий слой (не дублируется по слайдам) -->
+    <div class="hero-slider__inner">
+      <div class="hero-slider__box">
+        <h1>Поддержка тех, кто служит и служил Отечеству</h1>
+        <p class="hero-sub">Благотворительный фонд «БРОФ «Твардовского, 2»» помогает сотрудникам ОМОН «Авангард», ветеранам и их семьям</p>
+        <div class="hero-btns">
+          <!-- Локальный тест: requisites.html -->
+          <!-- WordPress: <?php echo esc_url( home_url( '/rekvizity-dlya-yurlits/' ) ); ?> -->
+          <a class="hbp" href="requisites.html">Реквизиты для юридических лиц</a>
+          <a class="hbo" href="#nav-tiles-anchor">Узнать больше</a>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination hero-swiper-pagination" aria-label="Номера слайдов"></div>
+    <div class="swiper-button-prev hero-swiper-prev" aria-label="Предыдущий слайд"></div>
+    <div class="swiper-button-next hero-swiper-next" aria-label="Следующий слайд"></div>
+  </div>
+</section>
+
+<!-- Блок: плитки быстрых ссылок -->
+<div class="nav-tiles" id="nav-tiles-anchor">
+  <!-- Блок: История фонда (плитка) -->
   <a class="nav-tile" href="history.html"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="nt-title">История отряда</div></a>
+  <!-- Блок: География (плитка) -->
   <a class="nav-tile" href="geography.html"><div class="nt-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="nt-title">Наша география</div></a>
+  <!-- Блок: Навечно в строю -->
   <a class="nav-tile" href="memory.html"><div class="nt-ic"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="nt-title">Навечно в строю</div></a>
+  <!-- Блок: Подопечные фонда -->
   <a class="nav-tile" href="wards.html"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="nt-title">Подопечные фонда</div></a>
+  <!-- Блок: Ветераны -->
   <a class="nav-tile" href="veterans.html"><div class="nt-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="nt-title">Ветераны</div></a>
 </div>
 
+<!-- Блок: основной контент (деятельность + сайдбар) -->
 <div style="background:#fff">
   <div class="content-wrap">
     <div class="main-grid">
       <div>
-        <div class="sec-header"><h2>Деятельность фонда</h2><a href="#">Все события →</a></div>
+        <div class="sec-header"><h2>Деятельность фонда</h2><a href="projects.html">Все события →</a></div>
         <div class="sec-rule"></div>
+        <!-- WP: блок «Лента событий» — цикл записей (post type) или ручной список -->
         <div class="news-list">
-          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">07 марта 2026</div><a class="news-title" href="#">В преддверии 8 Марта сотрудники ОМОН «Авангард» встретились с вдовами и матерями погибших бойцов</a></div></div>
-          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">01 марта 2026</div><a class="news-title" href="#">В столичном главке Росгвардии состоялся детско-юношеский турнир по самбо</a></div></div>
-          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">23 февраля 2026</div><a class="news-title" href="#">Сотрудники ОМОН «Авангард» приняли участие в мероприятии ко Дню защитника Отечества</a></div></div>
-          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">22 февраля 2026</div><a class="news-title" href="#">Поздравление ветеранов ВОВ и отцов погибших боевых товарищей с Днём защитника Отечества</a></div></div>
-          <div class="news-item"><div class="news-ph"></div><div><div class="news-date">16 февраля 2026</div><a class="news-title" href="#">Поздравление вдов сотрудников, погибших при исполнении служебного долга, с днём рождения</a></div></div>
+          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">07 марта 2026</div><a class="news-title" href="#">В преддверии 8 Марта сотрудники ОМОН «Авангард» встретились с вдовами и матерями погибших бойцов</a></div></div>
+          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">01 марта 2026</div><a class="news-title" href="#">В столичном главке Росгвардии состоялся детско-юношеский турнир по самбо</a></div></div>
+          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">23 февраля 2026</div><a class="news-title" href="#">Сотрудники ОМОН «Авангард» приняли участие в мероприятии ко Дню защитника Отечества</a></div></div>
+          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">22 февраля 2026</div><a class="news-title" href="#">Поздравление ветеранов ВОВ и отцов погибших боевых товарищей с Днём защитника Отечества</a></div></div>
+          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">16 февраля 2026</div><a class="news-title" href="#">Поздравление вдов сотрудников, погибших при исполнении служебного долга, с днём рождения</a></div></div>
         </div>
       </div>
       <div>
+        <!-- Блок: Новости -->
+        <!-- WP: виджет «Новости фонда» — последние записи рубрики «Новости» -->
         <div class="sidebar-block"><h3>Новости фонда</h3><div class="sb-rule"></div><a class="sb-item" href="#">БРОФ подвёл итоги работы за 2025 год<div class="sb-date">19 января 2026</div></a><a class="sb-item" href="#">БРОФ «Твардовского, 2» отметил 30-летний юбилей<div class="sb-date">03 октября 2025</div></a><a class="sb-item" href="#">Итоги служебно-боевой деятельности ОМОН за 2024 год<div class="sb-date">28 января 2025</div></a><a class="sb-item" href="#">Круглый стол по спортивным мероприятиям ветеранской организации<div class="sb-date">22 января 2025</div></a></div>
         <div class="sidebar-block"><h3>Контакты</h3><div class="sb-rule"></div><div style="font-size:.8rem;color:#333;line-height:1.9"><p>г. Москва, ул. Николоямская, д. 40, стр. 1</p><a href="tel:74959682311" style="color:#8b0000;text-decoration:none;display:block">(495) 968-23-11</a><a href="tel:74952236598" style="color:#8b0000;text-decoration:none;display:block">(495) 223-65-98</a><a href="tel:74959429451" style="color:#8b0000;text-decoration:none;display:block">(495) 942-94-51</a><a href="mailto:info@fond-omon.com" style="color:#8b0000;text-decoration:none;display:block;margin-top:.3rem">info@fond-omon.com</a><a href="mailto:fond-omon@mail.ru" style="color:#8b0000;text-decoration:none;display:block">fond-omon@mail.ru</a></div></div>
-        <div class="sidebar-block"><h3>Хочу помочь</h3><div class="sb-rule"></div><p style="font-size:.8rem;color:#555;line-height:1.7;margin-bottom:.8rem">Вы можете поддержать деятельность фонда, сделав добровольное пожертвование.</p><a href="help.html" style="display:inline-block;background:#8b0000;color:#fff;padding:.5rem 1.2rem;font-size:.8rem;font-weight:700;text-decoration:none">Сделать пожертвование →</a></div>
+        <div class="sidebar-block"><h3>Реквизиты для юрлиц</h3><div class="sb-rule"></div><p style="font-size:.8rem;color:#555;line-height:1.7;margin-bottom:.8rem">Сотрудничество и помощь со стороны организаций — по реквизитам на отдельной странице.</p><a href="requisites.html" style="display:inline-block;background:#8b0000;color:#fff;padding:.5rem 1.2rem;font-size:.8rem;font-weight:700;text-decoration:none">Открыть реквизиты →</a></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Блок: Направления помощи -->
+<!-- WP: блок «Направления помощи» — статичный или повторяемый блок -->
 <div class="about-strip">
   <div class="sec-header"><h2>Направления помощи</h2></div>
   <div class="sec-rule"></div>
@@ -236,7 +342,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ac-title">Помогаем ветеранам</div><div class="ac-text">Адресная помощь ветеранам боевых действий и ВОВ</div></div>
   </div>
     
-</div><div class="testi">
+</div>
+<!-- Блок: Отзывы -->
+<div class="testi">
   <div class="sec-header"><h2>Отзывы о нашей работе</h2></div>
   <div class="sec-rule"></div>
   <div class="testi-grid">
@@ -259,6 +367,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <div class="testi-more"><a href="reviews.html">Все отзывы и благодарности →</a></div>
 </div>
 
+<!-- Блок: Подвал сайта -->
 <footer>
   <div>
     <div class="footer-logo">
@@ -271,7 +380,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <p style="margin-top:.4rem;font-size:.67rem">© 1995 — 2026</p>
   </div>
   <div>
-    <h4>О фонде</h4>
+    <h4><a href="index.html" style="color:inherit;text-decoration:none">О фонде</a></h4>
     <a href="history.html">История отряда</a>
     <a href="geography.html">Наша география</a>
     <a href="management.html">Руководство фонда</a>
@@ -285,9 +394,8 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <h4>Разделы</h4>
     <a href="projects.html">Деятельность фонда</a>
     <a href="documents.html">Документы</a>
-    <a href="requisites.html">Реквизиты</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
     <a href="contacts.html">Контакты</a>
-    <a href="help.html">Хочу помочь</a>
   </div>
   <div>
     <h4>Контакты</h4>
@@ -300,8 +408,22 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 </footer>
 <div class="fbot">
-  <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  <nav class="fbot-nav" aria-label="Основное меню в подвале">
+    <a href="index.html">Главная</a>
+    <a href="history.html">История фонда</a>
+    <a href="geography.html">География деятельности</a>
+    <a href="management.html">Руководство</a>
+    <a href="documents.html">Документы</a>
+    <a href="projects.html">Деятельность фонда</a>
+    <a href="news.html">Новости</a>
+    <a href="media.html">Для СМИ</a>
+    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <div class="fbot-row">
+    <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
+    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  </div>
 </div>
 
 <div id="lb" class="lb" hidden>
@@ -328,6 +450,8 @@ footer a:hover{color:rgba(255,255,255,.85)}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lb').hidden=true;});
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/hero-swiper.js" defer></script>
 <script src="js/topbar.js" defer></script>
 </body>
 </html>
