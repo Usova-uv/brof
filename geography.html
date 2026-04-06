@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -52,6 +52,8 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .regions-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:1.75rem}
 .regions-section{margin-top:.5rem;width:100%;min-width:0}
 .regions-section h2{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:0 0 1.25rem;padding-bottom:.45rem;border-bottom:2px solid rgba(139,0,0,.2)}
+#regions-heading{scroll-margin-top:76px}
+#region-details-title{scroll-margin-top:76px}
 /* Сетка: мобильный 1 колонка → планшет 2 → десктоп 3 (3+2 карточки) */
 .regions-grid{
   display:grid;
@@ -79,6 +81,21 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 @media(min-width:1025px){
   .regions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+.region-details{margin-top:3.25rem;padding-top:2.5rem;border-top:1px solid #ebebeb}
+.region-details-heading{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:0 0 .65rem;padding-bottom:.45rem;border-bottom:2px solid rgba(139,0,0,.2)}
+.region-details-lead{font-size:.9rem;color:#666;margin-bottom:2rem;line-height:1.6}
+.region-detail{padding:2rem 0;border-bottom:1px solid #ebebeb;scroll-margin-top:76px}
+.region-detail:last-child{border-bottom:none}
+.region-detail h2{font-family:'PT Serif',serif;font-size:1.3rem;color:#8b0000;margin:0 0 1rem;line-height:1.3}
+.region-detail-map{
+  width:100%;min-height:280px;border-radius:12px;border:1px dashed #ccc;background:#faf8f8;
+  display:flex;align-items:center;justify-content:center;color:#777;font-size:.88rem;line-height:1.45;text-align:center;padding:1.25rem 1rem;
+  margin-bottom:1.25rem;
+}
+.region-detail-text{font-size:.95rem;line-height:1.75;color:#333}
+.region-detail-text p{margin:0}
+.region-detail-back{display:inline-block;margin-top:1.15rem;color:#8b0000;font-size:.85rem;font-weight:700;text-decoration:none}
+.region-detail-back:hover{text-decoration:underline}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -162,7 +179,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
           </div>
           <h3 class="region-title">г. Москва</h3>
           <p class="region-desc">Координация программ фонда, работа с подопечными и партнёрами, проведение мероприятий и адресная помощь на территории столицы.</p>
-          <a class="region-more" href="#">Подробнее</a>
+          <a class="region-more" href="#region-moscow">Подробнее</a>
         </article>
         <article class="region-card">
           <div class="region-logo-wrap">
@@ -170,7 +187,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
           </div>
           <h3 class="region-title">Московская область</h3>
           <p class="region-desc">Поддержка семей сотрудников и ветеранов, социальные и образовательные инициативы в городах и районах области.</p>
-          <a class="region-more" href="#">Подробнее</a>
+          <a class="region-more" href="#region-mo">Подробнее</a>
         </article>
         <article class="region-card">
           <div class="region-logo-wrap">
@@ -178,7 +195,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
           </div>
           <h3 class="region-title">Ярославская область</h3>
           <p class="region-desc">Развитие региональных контактов и оказание помощи в рамках согласованных направлений благотворительных программ.</p>
-          <a class="region-more" href="#">Подробнее</a>
+          <a class="region-more" href="#region-yaroslavl">Подробнее</a>
         </article>
         <article class="region-card">
           <div class="region-logo-wrap">
@@ -186,7 +203,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
           </div>
           <h3 class="region-title">Луганская Народная Республика</h3>
           <p class="region-desc">Участие в гуманитарных и социальных проектах по согласованию с партнёрами; текст уточняется при публикации материалов.</p>
-          <a class="region-more" href="#">Подробнее</a>
+          <a class="region-more" href="#region-lnr">Подробнее</a>
         </article>
         <article class="region-card">
           <div class="region-logo-wrap">
@@ -194,9 +211,59 @@ footer a:hover{color:rgba(255,255,255,.85)}
           </div>
           <h3 class="region-title">Донецкая Народная Республика</h3>
           <p class="region-desc">Поддержка инициатив фонда на территории республики; подробности будут добавлены по мере размещения контента на сайте.</p>
-          <a class="region-more" href="#">Подробнее</a>
+          <a class="region-more" href="#region-dnr">Подробнее</a>
         </article>
       </div>
+    </section>
+
+    <section class="region-details" aria-labelledby="region-details-title">
+      <h2 id="region-details-title" class="region-details-heading">Карты и подробные описания</h2>
+      <p class="region-details-lead">По кнопке «Подробнее» в карточке региона открывается соответствующий блок ниже. Здесь можно разместить встроенную карту (Яндекс, OSM) и полный текст о работе фонда в регионе.</p>
+
+      <article id="region-moscow" class="region-detail" tabindex="-1">
+        <h2>г. Москва</h2>
+        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
+        <div class="region-detail-text">
+          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
+        </div>
+        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
+      </article>
+
+      <article id="region-mo" class="region-detail" tabindex="-1">
+        <h2>Московская область</h2>
+        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
+        <div class="region-detail-text">
+          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
+        </div>
+        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
+      </article>
+
+      <article id="region-yaroslavl" class="region-detail" tabindex="-1">
+        <h2>Ярославская область</h2>
+        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
+        <div class="region-detail-text">
+          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
+        </div>
+        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
+      </article>
+
+      <article id="region-lnr" class="region-detail" tabindex="-1">
+        <h2>Луганская Народная Республика</h2>
+        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
+        <div class="region-detail-text">
+          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
+        </div>
+        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
+      </article>
+
+      <article id="region-dnr" class="region-detail" tabindex="-1">
+        <h2>Донецкая Народная Республика</h2>
+        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
+        <div class="region-detail-text">
+          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
+        </div>
+        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
+      </article>
     </section>
   </div>
 </div>
@@ -234,9 +301,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <div>
     <h4>Контакты</h4>
     <p>г. Москва, ул. Николоямская, д. 40, стр. 1</p>
-    <a href="tel:74959682311">(495) 968-23-11</a>
-    <a href="tel:74952236598">(495) 223-65-98</a>
-    <a href="tel:74959429451">(495) 942-94-51</a>
+    <a href="tel:+74959682311">+7 (495) 968-23-11</a>
+    <a href="tel:+74952236598">+7 (495) 223-65-98</a>
+    <a href="tel:+74959429451">+7 (495) 942-94-51</a>
     <a href="mailto:info@fond-omon.com">info@fond-omon.com</a>
     <a href="mailto:fond-omon@mail.ru">fond-omon@mail.ru</a>
   </div>

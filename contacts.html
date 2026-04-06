@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -55,7 +55,6 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .map-legend span{display:inline-block;margin-right:1rem}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.35rem;vertical-align:middle}
 .dot--fond{background:#c00}
-.dot--omon{background:#06c}
 .hours-box{background:#fff;border:1px solid #e8e0e0;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem;max-width:720px}
 .hours-box h3{font-family:'PT Serif',serif;font-size:1.05rem;color:#8b0000;margin-bottom:.65rem}
 .hours-box p{font-size:.95rem;color:#333;line-height:1.65;margin:.25rem 0}
@@ -137,9 +136,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
   <div class="phones-box">
     <h3>Телефоны и email</h3>
-    <a href="tel:74959682311">(495) 968-23-11</a>
-    <a href="tel:74952236598">(495) 223-65-98</a>
-    <a href="tel:74959429451">(495) 942-94-51</a>
+    <a href="tel:+74959682311">+7 (495) 968-23-11</a>
+    <a href="tel:+74952236598">+7 (495) 223-65-98</a>
+    <a href="tel:+74959429451">+7 (495) 942-94-51</a>
     <div class="em">
       <a href="mailto:info@fond-omon.com">info@fond-omon.com</a>
       <a href="mailto:fond-omon@mail.ru">fond-omon@mail.ru</a>
@@ -153,12 +152,12 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 
   <div class="contact-block">
-    <h2>Карта: адреса фонда и ОМОН</h2>
-    <p class="sub">На карте: <span class="dot dot--fond"></span>офис БРОФ «Твардовского, 2» (г.&nbsp;Москва, ул.&nbsp;Николоямская, д.&nbsp;40, стр.&nbsp;1) и <span class="dot dot--omon"></span>дислокация Московского ОМОН (г.&nbsp;Москва, ул.&nbsp;Твардовского, д.&nbsp;2).</p>
+    <h2>Карта: офис БРОФ «Твардовского, 2»</h2>
+    <p class="sub">На карте: <span class="dot dot--fond"></span>офис БРОФ «Твардовского, 2» (г.&nbsp;Москва, ул.&nbsp;Николоямская, д.&nbsp;40, стр.&nbsp;1).</p>
     <div class="map-wrap">
-      <div id="contactsYandexMap" role="application" aria-label="Интерактивная карта: офис БРОФ и дислокация ОМОН"></div>
+      <div id="contactsYandexMap" role="application" aria-label="Интерактивная карта: офис БРОФ «Твардовского, 2»"></div>
     </div>
-    <p class="map-legend"><span><span class="dot dot--fond"></span>г. Москва, ул. Николоямская, д. 40, стр. 1 — БРОФ «Твардовского, 2»</span><br><span><span class="dot dot--omon"></span>г. Москва, ул. Твардовского, д. 2 — Московский ОМОН</span></p>
+    <p class="map-legend"><span class="dot dot--fond"></span>г. Москва, ул. Николоямская, д. 40, стр. 1 — БРОФ «Твардовского, 2»</p>
   </div>
 
   <div class="contact-block">
@@ -171,7 +170,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <h2>Московский ОМОН Федеральной Службы Войск Национальной Гвардии РФ</h2>
     <p class="sub">Дислокация подразделения.</p>
     <p class="addr"><strong>Адрес:</strong> г. Москва, ул. Твардовского, д. 2</p>
-    <p class="tel" style="margin-bottom:0"><strong>Дежурная часть:</strong> <a href="tel:74959423601">(495) 942-36-01</a></p>
+    <p class="tel" style="margin-bottom:0"><strong>Дежурная часть:</strong> <a href="tel:+74959423601">+7 (495) 942-36-01</a></p>
   </div>
 </div>
 
@@ -208,9 +207,9 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <div>
     <h4>Контакты</h4>
     <p>г. Москва, ул. Николоямская, д. 40, стр. 1</p>
-    <a href="tel:74959682311">(495) 968-23-11</a>
-    <a href="tel:74952236598">(495) 223-65-98</a>
-    <a href="tel:74959429451">(495) 942-94-51</a>
+    <a href="tel:+74959682311">+7 (495) 968-23-11</a>
+    <a href="tel:+74952236598">+7 (495) 223-65-98</a>
+    <a href="tel:+74959429451">+7 (495) 942-94-51</a>
     <a href="mailto:info@fond-omon.com">info@fond-omon.com</a>
     <a href="mailto:fond-omon@mail.ru">fond-omon@mail.ru</a>
   </div>
@@ -240,15 +239,13 @@ footer a:hover{color:rgba(255,255,255,.85)}
 <script>
 (function () {
   var ADDR_BR = 'г. Москва, ул. Николоямская, д. 40, стр. 1';
-  var ADDR_OMON = 'г. Москва, ул. Твардовского, д. 2';
-  /* Координаты [широта, долгота]: Николоямская 40 стр. 1; ул. Твардовского, 2 (комплекс в Строгино) */
+  /* Координаты [широта, долгота]: Николоямская 40 стр. 1 */
   var COORD_BR = [55.7470376, 37.6594920];
-  var COORD_OMON = [55.7974986, 37.3882570];
 
   ymaps.ready(function () {
     var map = new ymaps.Map('contactsYandexMap', {
-      center: [55.772, 37.524],
-      zoom: 10,
+      center: COORD_BR,
+      zoom: 16,
       controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
     }, { suppressMapOpenBlock: true });
 
@@ -258,17 +255,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
       hintContent: 'Офис БРОФ «Твардовского, 2»'
     }, { preset: 'islands#redCircleDotIcon' });
 
-    var placemarkOmon = new ymaps.Placemark(COORD_OMON, {
-      balloonContentHeader: 'Дислокация Московского ОМОН «Авангард»',
-      balloonContentBody: ADDR_OMON,
-      hintContent: 'Дислокация Московского ОМОН «Авангард»'
-    }, { preset: 'islands#blueCircleDotIcon' });
-
-    map.geoObjects.add(placemarkBr).add(placemarkOmon);
-    map.setBounds(map.geoObjects.getBounds(), {
-      checkZoomRange: true,
-      zoomMargin: [48, 48, 48, 48]
-    });
+    map.geoObjects.add(placemarkBr);
   });
 })();
 </script>
