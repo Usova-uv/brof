@@ -20,6 +20,17 @@ body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
 .search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
 .search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
 .search-form button:hover{background:#a00000}
+.nav-menu{display:flex;list-style:none;flex-shrink:0;position:relative;margin:0;padding:0}
+.nav-menu > li{position:relative}
+.nav-menu > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
+.nav-menu > li:first-child > a{border-left:none}
+.nav-menu > li > a:hover{color:#8b0000;background:#fafafa}
+.menu-item-has-children > a::after{content:'▾';margin-left:.3rem;font-size:.6rem}
+.sub-menu{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:220px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);list-style:none;padding:0;margin:0}
+.nav-menu > li.menu-item-has-children:hover .sub-menu{display:block}
+.sub-menu > li{margin:0}
+.sub-menu a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
+.sub-menu a:hover{color:#8b0000;background:#fdf5f5}
 nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
 .nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
@@ -70,7 +81,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
 .fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
 .fbot-row button:hover{background:#a00000}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-links{flex-wrap:wrap;justify-content:center}}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-menu{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
@@ -100,21 +111,31 @@ footer a:hover{color:rgba(255,255,255,.85)}
         </div>
       </a>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-menu">
       <li><a href="index.html">Главная</a></li>
-      <li>
-        <a href="#" class="has-sub">О фонде</a>
-        <div class="dropdown">
-          <a href="history.html">История фонда</a>
-          <a href="geography.html">География деятельности</a>
-          <a href="management.html">Руководство</a>
-          <a href="documents.html">Документы</a>
-        </div>
+      <li class="menu-item-has-children">
+        <a href="#">О фонде</a>
+        <ul class="sub-menu">
+          <li><a href="history.html">История фонда</a></li>
+          <li><a href="management.html">Руководство</a></li>
+          <li><a href="documents.html">Документы</a></li>
+          <li><a href="reports.html">Отчёты</a></li>
+        </ul>
       </li>
-      <li><a href="projects.html">Деятельность фонда</a></li>
+      <li class="menu-item-has-children">
+        <a href="deti.html">Деятельность фонда</a>
+        <ul class="sub-menu">
+          <li><a href="deti.html">Поддержка детей</a></li>
+          <li><a href="vdovy.html">Вдовы и матери</a></li>
+          <li><a href="veterany-vov.html">Ветераны ВОВ</a></li>
+          <li><a href="veterany-boevyh.html">Ветераны боевых действий</a></li>
+          <li><a href="sportivnye-sobytiya.html">Спортивные события</a></li>
+          <li><a href="omon.html">Сотрудники ОМОН</a></li>
+        </ul>
+      </li>
+      <li><a href="memory.html">Навечно в строю</a></li>
+      <li><a href="wards.html">Подопечные фонда</a></li>
       <li><a href="news.html">Новости</a></li>
-      <li><a href="media.html">Для СМИ</a></li>
-      <li><a href="requisites.html">Реквизиты для юрлиц</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
   </div>
@@ -153,10 +174,10 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
   <div>
     <h4>Разделы</h4>
-    <a href="projects.html">Деятельность фонда</a>
+    <a href="deti.html">Деятельность фонда</a>
     <a href="partners.html">Партнёры фонда</a>
     <a href="documents.html">Документы</a>
-    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="requisites.html">Реквизиты</a>
     <a href="contacts.html">Контакты</a>
   </div>
   <div>
@@ -176,11 +197,11 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <a href="geography.html">География деятельности</a>
     <a href="management.html">Руководство</a>
     <a href="documents.html">Документы</a>
-    <a href="projects.html">Деятельность фонда</a>
+    <a href="deti.html">Деятельность фонда</a>
     <a href="partners.html">Партнёры</a>
     <a href="news.html">Новости</a>
     <a href="media.html">Для СМИ</a>
-    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="requisites.html">Реквизиты</a>
     <a href="contacts.html">Контакты</a>
   </nav>
   <div class="fbot-row">

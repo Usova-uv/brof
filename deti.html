@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поддержка детей — БРОФ «Твардовского, 2»</title>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
+.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
+.topbar-search{position:relative;display:inline-flex;align-items:center}
+.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
+.topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
+.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
+.search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
+.search-panel[hidden]{display:none!important}
+.search-form{display:flex;gap:.35rem;align-items:center}
+.search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
+.search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
+.search-form button:hover{background:#a00000}
+.nav-menu{display:flex;list-style:none;flex-shrink:0;position:relative;margin:0;padding:0}
+.nav-menu > li{position:relative}
+.nav-menu > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
+.nav-menu > li:first-child > a{border-left:none}
+.nav-menu > li > a:hover{color:#8b0000;background:#fafafa}
+.menu-item-has-children > a::after{content:'▾';margin-left:.3rem;font-size:.6rem}
+.sub-menu{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:220px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);list-style:none;padding:0;margin:0}
+.nav-menu > li.menu-item-has-children:hover .sub-menu{display:block}
+.sub-menu > li{margin:0}
+.sub-menu a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
+.sub-menu a:hover{color:#8b0000;background:#fdf5f5}
+nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
+.nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.logo-img{width:44px;height:44px;object-fit:contain}
+.logo-name{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;font-weight:700}
+.logo-sub{color:#8b0000;font-size:.56rem;margin-top:1px}
+.nav-links{display:flex;list-style:none;position:relative}
+.nav-links > li{position:relative}
+.nav-links > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;border-left:1px solid #e8e8e8}
+.nav-links > li:first-child > a{border-left:none}
+.nav-links > li > a:hover{color:#8b0000}
+.nav-links > li > a.has-sub::after{content:'▾';margin-left:.3rem;font-size:.6rem}
+.dropdown{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:200px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.nav-links > li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
+.dropdown a:hover{color:#8b0000;background:#fdf5f5}
+.nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-size:.78rem;font-weight:700;cursor:pointer}
+.nbtn:hover{background:#a00000}
+.content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
+.page-header{margin-bottom:2rem}
+.page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
+.page-header p{color:#666;font-size:.9rem}
+.activities-container{margin-top:2.5rem}
+.activities-container > section{margin-bottom:2.75rem}
+.activities-container > section:last-of-type{margin-bottom:0}
+.activities-container h2{font-family:'PT Serif',serif;font-size:1.35rem;color:#8b0000;margin-bottom:1rem;font-weight:700}
+a.event-card{text-decoration:none;color:inherit;cursor:pointer}
+.event-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);display:flex;flex-direction:column}
+.event-image{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:#f5f5f5}
+.event-content{padding:1rem 1.05rem 1.15rem;flex:1;display:flex;flex-direction:column}
+.event-date{font-size:.72rem;color:#8b0000;font-weight:700;margin-bottom:.4rem;letter-spacing:.02em}
+.event-title{font-family:'PT Serif',serif;font-size:.95rem;font-weight:700;color:#1a1a1a;line-height:1.35;margin-bottom:.45rem}
+.event-text{font-size:.82rem;color:#555;line-height:1.55;margin:0;flex:1}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;min-height:0}
+.deti-section-note{font-size:.88rem;color:#555;line-height:1.55;margin-bottom:1.15rem;max-width:52rem}
+a.event-card[data-gallery]:focus-visible{outline:2px solid #8b0000;outline-offset:2px}
+.deti-modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.88);display:none;align-items:flex-start;justify-content:center;padding:1rem;padding-top:2.5rem;overflow:auto}
+.deti-modal-overlay.is-open{display:flex}
+.deti-modal-dialog{position:relative;width:100%;max-width:min(920px,96vw);background:#1a1a1a;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);padding:1.35rem 1.25rem 1.5rem;margin-bottom:2rem}
+.deti-modal-close{position:absolute;top:.65rem;right:.65rem;width:42px;height:42px;border:none;border-radius:50%;background:#fff;color:#222;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
+.deti-modal-close:hover{color:#8b0000}
+.deti-modal-date{font-size:.72rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
+.deti-modal-title{font-family:'PT Serif',serif;font-size:clamp(1rem,2.2vw,1.35rem);color:#fff;line-height:1.35;font-weight:700;margin-bottom:.5rem;padding-right:2.5rem}
+.deti-modal-text{font-size:.86rem;color:rgba(255,255,255,.72);line-height:1.55;margin-bottom:1rem;max-width:48rem}
+.deti-modal-stage{position:relative;background:#0d0d0d;border-radius:10px;min-height:min(52vh,420px);display:flex;align-items:center;justify-content:center;margin-bottom:.5rem}
+.deti-modal-img-wrap{position:relative;z-index:0;flex:1;display:flex;align-items:center;justify-content:center;min-height:min(52vh,420px);width:100%;min-width:0}
+.deti-modal-img-wrap img{width:100%;max-width:100%;aspect-ratio:16/9;max-height:min(52vh,420px);object-fit:contain;display:block;background:#f5f5f5}
+.deti-modal-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:none;border-radius:50%;background:#fff;color:#1a1a1a;font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);z-index:10}
+.deti-modal-nav:hover{color:#8b0000}
+.deti-modal-nav:disabled{opacity:.35;cursor:default}
+.deti-modal-nav--prev{left:.6rem}
+.deti-modal-nav--next{right:.6rem}
+.deti-modal-counter{text-align:center;font-size:.9rem;font-weight:700;color:#fff;font-family:'PT Serif',serif;margin-bottom:.5rem}
+.deti-modal-thumbs{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;align-items:center;margin-bottom:1rem;max-height:104px;overflow-y:auto;padding:.2rem 0}
+.deti-modal-thumb{padding:0;border:2px solid transparent;border-radius:6px;background:none;cursor:pointer;opacity:.72;transition:opacity .15s,border-color .15s;flex-shrink:0;width:56px;height:56px;overflow:hidden;line-height:0}
+.deti-modal-thumb:hover{opacity:1}
+.deti-modal-thumb.is-active{border-color:#fff;opacity:1}
+.deti-modal-thumb img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:4px}
+.deti-modal-related-label{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.55rem}
+.deti-modal-related{display:flex;gap:.65rem;justify-content:center;flex-wrap:wrap;align-items:stretch}
+.deti-related-card{flex:1;min-width:140px;max-width:180px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(255,255,255,.06);padding:.45rem;cursor:pointer;text-align:left;color:inherit;font-family:'PT Sans',sans-serif;transition:background .2s,border-color .2s}
+.deti-related-card:hover,.deti-related-card:focus-visible{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);outline:none}
+.deti-related-card.is-active{border-color:#8b0000;background:rgba(139,0,0,.25)}
+.deti-related-card img{width:100%;height:72px;object-fit:cover;border-radius:6px;display:block;margin-bottom:.35rem;background:#333}
+.deti-related-card .deti-related-date{font-size:.65rem;color:#8b0000;font-weight:700}
+.deti-related-card .deti-related-title{font-size:.68rem;color:rgba(255,255,255,.9);line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:.15rem}
+footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
+footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
+footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
+footer a:hover{color:rgba(255,255,255,.85)}
+.footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
+.footer-logo img{width:40px;height:40px;object-fit:contain}
+.footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
+.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
+.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
+.fbot-nav a:hover{color:rgba(255,255,255,.85)}
+.fbot-row{display:flex;justify-content:space-between;align-items:center}
+.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
+.fbot-row button:hover{background:#a00000}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-menu{flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-search">
+    <button type="button" class="topbar-search-btn" id="topbarSearchToggle" aria-expanded="false" aria-controls="topbarSearchPanel" aria-label="Поиск по сайту">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
+    <div class="search-panel" id="topbarSearchPanel" hidden>
+      <form class="search-form" action="search.html" method="get" role="search">
+        <input type="search" name="q" placeholder="Поиск по сайту…" autocomplete="off" aria-label="Запрос">
+        <button type="submit">Найти</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:.7rem;">
+        <img class="logo-img" src="images/logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/44x44?text=LOGO'">
+        <div>
+          <div class="logo-name">БРОФ «Твардовского, 2»</div>
+          <div class="logo-sub">Благотворительный фонд социальных программ</div>
+        </div>
+      </a>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="index.html">Главная</a></li>
+      <li class="menu-item-has-children">
+        <a href="#">О фонде</a>
+        <ul class="sub-menu">
+          <li><a href="history.html">История фонда</a></li>
+          <li><a href="management.html">Руководство</a></li>
+          <li><a href="documents.html">Документы</a></li>
+          <li><a href="reports.html">Отчёты</a></li>
+        </ul>
+      </li>
+      <li class="menu-item-has-children">
+        <a href="deti.html">Деятельность фонда</a>
+        <ul class="sub-menu">
+          <li><a href="deti.html">Поддержка детей</a></li>
+          <li><a href="vdovy.html">Вдовы и матери</a></li>
+          <li><a href="veterany-vov.html">Ветераны ВОВ</a></li>
+          <li><a href="veterany-boevyh.html">Ветераны боевых действий</a></li>
+          <li><a href="sportivnye-sobytiya.html">Спортивные события</a></li>
+          <li><a href="omon.html">Сотрудники ОМОН</a></li>
+        </ul>
+      </li>
+      <li><a href="memory.html">Навечно в строю</a></li>
+      <li><a href="wards.html">Подопечные фонда</a></li>
+      <li><a href="news.html">Новости</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="content-wrap">
+  <div class="page-header">
+    <h1>Поддержка детей</h1>
+    <p>Мероприятия и программы поддержки детей из семей сотрудников ОМОН и подопечных фонда.</p>
+  </div>
+
+  <div class="activities-container">
+
+    <section id="deti">
+      <h2>Поддержка детей</h2>
+      <p class="deti-section-note">Ниже — отчёты о мероприятиях с фотогалереей (клик по карточке открывает окно с до 15 снимков-заглушек). Ниже по сетке — архивные карточки со ссылками на отдельные страницы.</p>
+      <div class="events-grid">
+        <a href="#" class="event-card" data-gallery="gallery-1" data-title="БРОФ организовал для детей сотрудников ОМОН «Авангард» посещение развлекательного центра" data-date="20.03.2026"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">20.03.2026</div><h3 class="event-title">Посещение развлекательного центра</h3><p class="event-text">Для детей сотрудников ОМОН «Авангард»</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-2" data-title="Новогодний праздник для детей росгвардейцев прошёл в Москве" data-date="23.12.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">23.12.2025</div><h3 class="event-title">Новогодний праздник в Москве</h3><p class="event-text">Праздник для детей росгвардейцев</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-3" data-title="Сотрудники ОМОН «Авангард» организовали для детей экскурсию в парк «Патриот»" data-date="07.12.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">07.12.2025</div><h3 class="event-title">Экскурсия в парк «Патриот»</h3><p class="event-text">Организована для детей сотрудников</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-4" data-title="Экскурсия на фабрику мороженого «Чистая линия» для детей сотрудников ОМОН" data-date="01.11.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">01.11.2025</div><h3 class="event-title">Фабрика «Чистая линия»</h3><p class="event-text">Экскурсия для детей сотрудников ОМОН</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-5" data-title="БРОФ организовал экскурсию для детей сотрудников ОМОН" data-date="11.10.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">11.10.2025</div><h3 class="event-title">Экскурсия для детей</h3><p class="event-text">Организована БРОФ для детей сотрудников ОМОН</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-6" data-title="Сотрудники ОМОН поздравили будущих первоклассников с Днём знаний" data-date="31.08.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">31.08.2025</div><h3 class="event-title">День знаний</h3><p class="event-text">Поздравление будущих первоклассников</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-7" data-title="Столичные спецназовцы организовали праздник в честь Дня защиты детей" data-date="01.06.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">01.06.2025</div><h3 class="event-title">День защиты детей</h3><p class="event-text">Праздник от спецназовцев</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-8" data-title="БРОФ оказал благотворительную помощь детскому боксерскому клубу «Ахиллес»" data-date="17.04.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">17.04.2025</div><h3 class="event-title">Помощь клубу «Ахиллес»</h3><p class="event-text">Благотворительная поддержка детского бокса</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-9" data-title="Детско-юношеский турнир по самбо, посвящённый 80-летию Победы" data-date="04.03.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">04.03.2025</div><h3 class="event-title">Турнир по самбо к 80-летию Победы</h3><p class="event-text">Детско-юношеские соревнования</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-10" data-title="Дети сотрудников Росгвардии стали лауреатами премии «Щелкунчик»" data-date="13.01.2025"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">13.01.2025</div><h3 class="event-title">Премия «Щелкунчик»</h3><p class="event-text">Лауреаты среди детей сотрудников</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-11" data-title="Новогодний праздник для детей росгвардейцев" data-date="28.12.2024"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">28.12.2024</div><h3 class="event-title">Новогодний праздник 2024</h3><p class="event-text">Для детей росгвардейцев</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-12" data-title="Сотрудники ОМОН поздравили будущих первоклассников" data-date="01.09.2024"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">01.09.2024</div><h3 class="event-title">1 сентября</h3><p class="event-text">Поздравление будущих первоклассников</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-13" data-title="В Парке кованых фигур Донецка открыли детскую площадку" data-date="12.08.2024"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">12.08.2024</div><h3 class="event-title">Детская площадка в Донецке</h3><p class="event-text">Парк кованых фигур</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-14" data-title="В ОМОН «Авангард» отпраздновали День защиты детей" data-date="31.05.2024"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">31.05.2024</div><h3 class="event-title">День защиты детей в ОМОН</h3><p class="event-text">Праздник в «Авангарде»</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-15" data-title="Детско-юношеский турнир по самбо прошёл в столичном главке Росгвардии" data-date="27.02.2024"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">27.02.2024</div><h3 class="event-title">Турнир по самбо</h3><p class="event-text">В главке Росгвардии по г. Москве</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-16" data-title="Поздравление воспитанников детсада и школ в ЛНР с Новым годом" data-date="30.12.2023"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">30.12.2023</div><h3 class="event-title">Новый год для детей в ЛНР</h3><p class="event-text">Детсады и школы</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-17" data-title="Новогодняя ёлка для детей сотрудников ОМОН «Авангард»" data-date="30.12.2023"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">30.12.2023</div><h3 class="event-title">Новогодняя ёлка</h3><p class="event-text">Для детей сотрудников ОМОН «Авангард»</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-18" data-title="Праздничное мероприятие ко Дню знаний в ОМОН" data-date="31.08.2023"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">31.08.2023</div><h3 class="event-title">День знаний в ОМОН</h3><p class="event-text">Праздничное мероприятие</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-19" data-title="Торжественные мероприятия в честь Дня защиты детей" data-date="01.06.2023"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">01.06.2023</div><h3 class="event-title">День защиты детей 2023</h3><p class="event-text">Торжественная программа</p></div></a>
+        <a href="#" class="event-card" data-gallery="gallery-20" data-title="Вручение новогодних подарков для детей сотрудников ОМОН" data-date="28.12.2022"><img src="images/no-image.jpg" alt="" class="event-image"><div class="event-content"><div class="event-date">28.12.2022</div><h3 class="event-title">Новогодние подарки</h3><p class="event-text">Для детей сотрудников ОМОН</p></div></a>
+        <a href="events/prazdnik-dlya-detey.html" class="event-card"><img src="images/deti-prazdnik.jpg" alt="Праздник для детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">25.05.2026</div>
+            <h3 class="event-title">Праздник для детей</h3>
+            <p class="event-text">Благотворительное мероприятие с подарками и аниматорами</p>
+          </div>
+        </a>
+        <a href="events/novogodnyaya-yolka-fonda.html" class="event-card"><img src="images/novogodnaya-elka.jpg" alt="Новогодняя ёлка фонда" class="event-image">
+          <div class="event-content">
+            <div class="event-date">12.12.2025</div>
+            <h3 class="event-title">Новогодняя ёлка фонда</h3>
+            <p class="event-text">Поздравление детей из многодетных семей</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey.html" class="event-card"><img src="images/den-zashchity-detei.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2025</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Спортивный праздник на стадионе</p>
+          </div>
+        </a>
+        <a href="events/sbor-shkolnyh-prinadlezhnostey.html" class="event-card"><img src="images/sbor-shkola.jpg" alt="Сбор школьных принадлежностей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">15.09.2024</div>
+            <h3 class="event-title">Сбор школьных принадлежностей</h3>
+            <p class="event-text">Передача канцелярии детям из малообеспеченных семей</p>
+          </div>
+        </a>
+        <a href="events/zimnyaya-skazka.html" class="event-card"><img src="images/zimnyaya-skazka.jpg" alt="Зимняя сказка" class="event-image">
+          <div class="event-content">
+            <div class="event-date">20.12.2023</div>
+            <h3 class="event-title">Зимняя сказка</h3>
+            <p class="event-text">Театрализованное представление для детей</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey-20230601.html" class="event-card"><img src="images/turnir-deti.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2023</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Турнир по мини-футболу</p>
+          </div>
+        </a>
+        <a href="events/novogodniy-utrennik.html" class="event-card"><img src="images/utrennik-2022.jpg" alt="Новогодний утренник" class="event-image">
+          <div class="event-content">
+            <div class="event-date">25.12.2022</div>
+            <h3 class="event-title">Новогодний утренник</h3>
+            <p class="event-text">Поздравление детей сотрудников ОМОН</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey-20220601.html" class="event-card"><img src="images/prazdnik-dvor.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2022</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Праздник во дворе фонда</p>
+          </div>
+        </a>
+        <a href="events/novogodnie-podarki.html" class="event-card"><img src="images/podarki-2021.jpg" alt="Новогодние подарки" class="event-image">
+          <div class="event-content">
+            <div class="event-date">20.12.2021</div>
+            <h3 class="event-title">Новогодние подарки</h3>
+            <p class="event-text">Вручение подарков детям из семей сотрудников</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey-20210601.html" class="event-card"><img src="images/risunki-asfalt.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2021</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Конкурс рисунков на асфальте</p>
+          </div>
+        </a>
+        <a href="events/novogodnee-chudo.html" class="event-card"><img src="images/online-chudo.jpg" alt="Новогоднее чудо" class="event-image">
+          <div class="event-content">
+            <div class="event-date">25.12.2020</div>
+            <h3 class="event-title">Новогоднее чудо</h3>
+            <p class="event-text">Онлайн-поздравление детей</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey-20200601.html" class="event-card"><img src="images/ulybka.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2020</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Акция «Подари улыбку»</p>
+          </div>
+        </a>
+        <a href="events/novogodniy-ogonyok.html" class="event-card"><img src="images/ogonek-2019.jpg" alt="Новогодний огонёк" class="event-image">
+          <div class="event-content">
+            <div class="event-date">28.12.2019</div>
+            <h3 class="event-title">Новогодний огонёк</h3>
+            <p class="event-text">Праздник для детей ветеранов</p>
+          </div>
+        </a>
+        <a href="events/den-zashchity-detey-20190601.html" class="event-card"><img src="images/sorevnovaniya-2019.jpg" alt="День защиты детей" class="event-image">
+          <div class="event-content">
+            <div class="event-date">01.06.2019</div>
+            <h3 class="event-title">День защиты детей</h3>
+            <p class="event-text">Спортивные соревнования</p>
+          </div>
+        </a>
+        <a href="events/novogodniy-vecher.html" class="event-card"><img src="images/vecher-2018.jpg" alt="Новогодний вечер" class="event-image">
+          <div class="event-content">
+            <div class="event-date">30.12.2018</div>
+            <h3 class="event-title">Новогодний вечер</h3>
+            <p class="event-text">Детский праздник с Дедом Морозом</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div id="detiEventModal" class="deti-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="detiModalTitle" hidden>
+  <div class="deti-modal-dialog">
+    <button type="button" class="deti-modal-close" id="detiModalClose" aria-label="Закрыть">×</button>
+    <div class="deti-modal-date" id="detiModalDate"></div>
+    <h2 class="deti-modal-title" id="detiModalTitle"></h2>
+    <p class="deti-modal-text" id="detiModalText"></p>
+    <div class="deti-modal-stage">
+      <button type="button" class="deti-modal-nav deti-modal-nav--prev" id="detiModalPrevPh" aria-label="Предыдущее фото">‹</button>
+      <div class="deti-modal-img-wrap">
+        <img id="detiModalImg" src="" alt="">
+      </div>
+      <button type="button" class="deti-modal-nav deti-modal-nav--next" id="detiModalNextPh" aria-label="Следующее фото">›</button>
+    </div>
+    <div class="deti-modal-counter" id="detiModalPhCounter"></div>
+    <div class="deti-modal-thumbs" id="detiModalThumbs" role="tablist" aria-label="Миниатюры фотогалереи"></div>
+    <div class="deti-modal-related-label">Другие мероприятия</div>
+    <div class="deti-modal-related" id="detiModalRelated"></div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:.7rem;text-decoration:none;color:inherit">
+        <img src="images/logo.png" alt="Логотип" onerror="this.src='https://via.placeholder.com/40x40?text=LOGO'">
+        <span>БРОФ «Твардовского, 2»</span>
+      </a>
+    </div>
+    <p>Благотворительный региональный общественный фонд социальных программ</p>
+    <p style="margin-top:.4rem;font-size:.67rem">© 1995 — 2026</p>
+  </div>
+  <div>
+    <h4><a href="index.html" style="color:inherit;text-decoration:none">О фонде</a></h4>
+    <a href="history.html">История отряда</a>
+    <a href="geography.html">Наша география</a>
+    <a href="management.html">Руководство фонда</a>
+    <a href="memory.html">Навечно в строю</a>
+    <a href="wards.html">Подопечные фонда</a>
+    <a href="veterans.html">Ветераны</a>
+    <a href="reports.html">Финансовые отчеты</a>
+    <a href="reviews.html">Отзывы и благодарности</a>
+  </div>
+  <div>
+    <h4>Разделы</h4>
+    <a href="deti.html">Деятельность фонда</a>
+    <a href="partners.html">Партнёры фонда</a>
+    <a href="documents.html">Документы</a>
+    <a href="requisites.html">Реквизиты</a>
+    <a href="contacts.html">Контакты</a>
+  </div>
+  <div>
+    <h4>Контакты</h4>
+    <p>г. Москва, ул. Николоямская, д. 40, стр. 1</p>
+    <a href="tel:+74959682311">+7 (495) 968-23-11</a>
+    <a href="tel:+74952236598">+7 (495) 223-65-98</a>
+    <a href="tel:+74959429451">+7 (495) 942-94-51</a>
+    <a href="mailto:info@fond-omon.com">info@fond-omon.com</a>
+    <a href="mailto:fond-omon@mail.ru">fond-omon@mail.ru</a>
+  </div>
+</footer>
+<div class="fbot">
+  <nav class="fbot-nav" aria-label="Основное меню в подвале">
+    <a href="index.html">Главная</a>
+    <a href="history.html">История фонда</a>
+    <a href="geography.html">География деятельности</a>
+    <a href="management.html">Руководство</a>
+    <a href="documents.html">Документы</a>
+    <a href="deti.html">Деятельность фонда</a>
+    <a href="partners.html">Партнёры</a>
+    <a href="news.html">Новости</a>
+    <a href="media.html">Для СМИ</a>
+    <a href="requisites.html">Реквизиты</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+  <div class="fbot-row">
+    <span>БРОФ «Твардовского, 2» — помощь тем, кто служит и служил Отечеству</span>
+    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Наверх</button>
+  </div>
+</div>
+
+<script src="js/deti-activity-modal.js"></script>
+<script src="js/topbar.js" defer></script>
+</body>
+</html>

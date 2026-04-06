@@ -31,6 +31,17 @@ body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
 .search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
 .search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
 .search-form button:hover{background:#a00000}
+.nav-menu{display:flex;list-style:none;flex-shrink:0;position:relative;margin:0;padding:0}
+.nav-menu > li{position:relative}
+.nav-menu > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
+.nav-menu > li:first-child > a{border-left:none}
+.nav-menu > li > a:hover{color:#8b0000;background:#fafafa}
+.menu-item-has-children > a::after{content:'▾';margin-left:.3rem;font-size:.6rem}
+.sub-menu{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:220px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);list-style:none;padding:0;margin:0}
+.nav-menu > li.menu-item-has-children:hover .sub-menu{display:block}
+.sub-menu > li{margin:0}
+.sub-menu a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
+.sub-menu a:hover{color:#8b0000;background:#fdf5f5}
 nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
 .nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
@@ -98,10 +109,13 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .news-list{display:flex;flex-direction:column}
 .news-item{display:grid;grid-template-columns:110px 1fr;gap:.85rem;padding:.9rem 0;border-bottom:1px solid #ebebeb}
 .news-item:first-child{padding-top:0}
-.news-ph{width:110px;height:74px;background:#dde3ee;object-fit:cover;display:block}
+.news-ph{width:100%;max-width:110px;aspect-ratio:3/2;object-fit:cover;display:block;background:#f5f5f5}
 .news-date{font-size:.66rem;color:#8b0000;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.06em}
 .news-title{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;line-height:1.45;font-weight:700;text-decoration:none;display:block}
 .news-title:hover{color:#8b0000}
+a.news-card-link{text-decoration:none;color:inherit;display:block}
+a.news-card-link:hover .news-item{background-color:rgba(0,0,0,0.02);transition:.2s}
+a.news-card-link:hover .news-title{color:#8b0000}
 .sidebar-block{margin-bottom:1.6rem}
 .sidebar-block h3{font-family:'PT Serif',serif;font-size:1rem;color:#1a1a1a;font-weight:700;margin-bottom:.2rem}
 .sb-rule{height:2px;background:#8b0000;margin-bottom:.85rem}
@@ -112,6 +126,9 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .about-strip .sec-header h2{font-family:'PT Serif',serif;font-size:1.25rem;color:#1a1a1a;font-weight:700}
 .about-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;margin-top:1rem}
 .about-cell{background:#f7f7f7;padding:1.2rem 1rem}
+a.about-cell{text-decoration:none;color:inherit;display:block;transition:background .2s}
+a.about-cell:hover{background:#eee}
+a.about-cell:focus-visible{outline:2px solid #8b0000;outline-offset:-2px;position:relative;z-index:1}
 .ac-icon{width:34px;height:34px;background:#8b0000;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem}
 .ac-icon svg{width:18px;height:18px;stroke:#fff;stroke-width:1.6;fill:none}
 .ac-title{font-family:'PT Serif',serif;font-size:.9rem;font-weight:700;color:#1a1a1a;margin-bottom:.3rem}
@@ -153,7 +170,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
 .fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
 .fbot-row button:hover{background:#a00000}
 @media(max-width:1024px){.about-inner{grid-template-columns:repeat(2,1fr)}footer{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto;padding:.8rem}.nav-links{flex-wrap:wrap;justify-content:center}.nav-links > li > a{padding:0 .5rem;height:44px}.main-grid{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto;padding:.8rem}.nav-menu{flex-wrap:wrap;justify-content:center}.nav-menu > li > a{padding:0 .5rem;height:44px}.main-grid{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -185,21 +202,31 @@ footer a:hover{color:rgba(255,255,255,.85)}
       </a>
     </div>
     <!-- WP: главное меню — шаблон header или блок «Навигация» -->
-    <ul class="nav-links">
+    <ul class="nav-menu">
       <li><a href="index.html">Главная</a></li>
-      <li>
-        <a href="#" class="has-sub">О фонде</a>
-        <div class="dropdown">
-          <a href="history.html">История фонда</a>
-          <a href="geography.html">География деятельности</a>
-          <a href="management.html">Руководство</a>
-          <a href="documents.html">Документы</a>
-        </div>
+      <li class="menu-item-has-children">
+        <a href="#">О фонде</a>
+        <ul class="sub-menu">
+          <li><a href="history.html">История фонда</a></li>
+          <li><a href="management.html">Руководство</a></li>
+          <li><a href="documents.html">Документы</a></li>
+          <li><a href="reports.html">Отчёты</a></li>
+        </ul>
       </li>
-      <li><a href="projects.html">Деятельность фонда</a></li>
+      <li class="menu-item-has-children">
+        <a href="deti.html">Деятельность фонда</a>
+        <ul class="sub-menu">
+          <li><a href="deti.html">Поддержка детей</a></li>
+          <li><a href="vdovy.html">Вдовы и матери</a></li>
+          <li><a href="veterany-vov.html">Ветераны ВОВ</a></li>
+          <li><a href="veterany-boevyh.html">Ветераны боевых действий</a></li>
+          <li><a href="sportivnye-sobytiya.html">Спортивные события</a></li>
+          <li><a href="omon.html">Сотрудники ОМОН</a></li>
+        </ul>
+      </li>
+      <li><a href="memory.html">Навечно в строю</a></li>
+      <li><a href="wards.html">Подопечные фонда</a></li>
       <li><a href="news.html">Новости</a></li>
-      <li><a href="media.html">Для СМИ</a></li>
-      <li><a href="requisites.html">Реквизиты для юрлиц</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
   </div>
@@ -308,23 +335,24 @@ footer a:hover{color:rgba(255,255,255,.85)}
   <div class="content-wrap">
     <div class="main-grid">
       <div>
-        <div class="sec-header"><h2>Деятельность фонда</h2><a href="projects.html">Все события →</a></div>
+        <div class="sec-header"><h2>Деятельность фонда</h2><a href="deti.html">Все события →</a></div>
         <div class="sec-rule"></div>
         <!-- WP: блок «Лента событий» — цикл записей (post type) или ручной список -->
         <div class="news-list">
-          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">07 марта 2026</div><a class="news-title" href="news/2026-03-07.html">В преддверии 8 Марта сотрудники ОМОН «Авангард» встретились с вдовами и матерями погибших бойцов</a></div></div>
-          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">01 марта 2026</div><a class="news-title" href="news/2026-03-01.html">В столичном главке Росгвардии состоялся детско-юношеский турнир по самбо</a></div></div>
-          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">23 февраля 2026</div><a class="news-title" href="news/2026-02-23.html">Сотрудники ОМОН «Авангард» приняли участие в мероприятии ко Дню защитника Отечества</a></div></div>
-          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">22 февраля 2026</div><a class="news-title" href="news/2026-02-22.html">Поздравление ветеранов ВОВ и отцов погибших боевых товарищей с Днём защитника Отечества</a></div></div>
-          <div class="news-item"><img class="news-ph" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" width="110" height="74" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">16 февраля 2026</div><a class="news-title" href="news/2026-02-16.html">Поздравление вдов сотрудников, погибших при исполнении служебного долга, с днём рождения</a></div></div>
+          <a class="news-card-link" href="news/2026-03-07-vstrecha-s-vdovami.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">07 марта 2026</div><span class="news-title">В преддверии 8 Марта сотрудники ОМОН «Авангард» встретились с вдовами и матерями погибших бойцов</span></div></div></a>
+          <a class="news-card-link" href="news/2026-03-01-turnir-po-sambo.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">01 марта 2026</div><span class="news-title">В столичном главке Росгвардии состоялся детско-юношеский турнир по самбо</span></div></div></a>
+          <a class="news-card-link" href="news/2026-02-23-den-zashchitnika-otechestva.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">23 февраля 2026</div><span class="news-title">Сотрудники ОМОН «Авангард» приняли участие в мероприятии ко Дню защитника Отечества</span></div></div></a>
+          <a class="news-card-link" href="news/2026-01-19-itogi-2025.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">19 января 2026</div><span class="news-title">БРОФ подвёл итоги работы за 2025 год</span></div></div></a>
+          <a class="news-card-link" href="news/2026-02-22-pozdravlenie-veteranov-vov.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">22 февраля 2026</div><span class="news-title">Поздравление ветеранов ВОВ и отцов погибших боевых товарищей с Днём защитника Отечества</span></div></div></a>
+          <a class="news-card-link" href="news/2026-02-16-pozdravlenie-vdovy-den-rozhdeniya.html"><div class="news-item"><img class="news-ph event-image" src="https://via.placeholder.com/110x74/dde3ee/666?text=+" loading="lazy" alt="Иллюстрация к материалу (заглушка для WordPress)"><div><div class="news-date">16 февраля 2026</div><span class="news-title">Поздравление вдов сотрудников, погибших при исполнении служебного долга, с днём рождения</span></div></div></a>
         </div>
       </div>
       <div>
         <!-- Блок: Новости -->
         <!-- WP: виджет «Новости фонда» — последние записи рубрики «Новости» -->
-        <div class="sidebar-block"><h3>Новости фонда</h3><div class="sb-rule"></div><a class="sb-item" href="news/2026-01-19.html">БРОФ подвёл итоги работы за 2025 год<div class="sb-date">19 января 2026</div></a><a class="sb-item" href="news/2025-10-03.html">БРОФ «Твардовского, 2» отметил 30-летний юбилей<div class="sb-date">03 октября 2025</div></a><a class="sb-item" href="news/2025-01-28.html">Итоги служебно-боевой деятельности ОМОН за 2024 год<div class="sb-date">28 января 2025</div></a><a class="sb-item" href="news/2025-01-22.html">Круглый стол по спортивным мероприятиям ветеранской организации<div class="sb-date">22 января 2025</div></a></div>
+        <div class="sidebar-block"><h3>Новости фонда</h3><div class="sb-rule"></div><a class="sb-item" href="news/2026-01-19-itogi-2025.html">БРОФ подвёл итоги работы за 2025 год<div class="sb-date">19 января 2026</div></a><a class="sb-item" href="events/30-let-brof-20251003.html">БРОФ «Твардовского, 2» отметил 30-летний юбилей<div class="sb-date">03 октября 2025</div></a><a class="sb-item" href="events/den-omon.html">Итоги служебно-боевой деятельности ОМОН за 2024 год<div class="sb-date">28 января 2025</div></a><a class="sb-item" href="veterans.html?vet=8">Круглый стол по спортивным мероприятиям ветеранской организации<div class="sb-date">22 января 2025</div></a></div>
         <div class="sidebar-block"><h3>Контакты</h3><div class="sb-rule"></div><div style="font-size:.8rem;color:#333;line-height:1.9"><p>г. Москва, ул. Николоямская, д. 40, стр. 1</p><a href="tel:+74959682311" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 968-23-11</a><a href="tel:+74952236598" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 223-65-98</a><a href="tel:+74959429451" style="color:#8b0000;text-decoration:none;display:block">+7 (495) 942-94-51</a><a href="mailto:info@fond-omon.com" style="color:#8b0000;text-decoration:none;display:block;margin-top:.3rem">info@fond-omon.com</a><a href="mailto:fond-omon@mail.ru" style="color:#8b0000;text-decoration:none;display:block">fond-omon@mail.ru</a></div></div>
-        <div class="sidebar-block"><h3>Реквизиты для юрлиц</h3><div class="sb-rule"></div><p style="font-size:.8rem;color:#555;line-height:1.7;margin-bottom:.8rem">Сотрудничество и помощь со стороны организаций — по реквизитам на отдельной странице.</p><a href="requisites.html" style="display:inline-block;background:#8b0000;color:#fff;padding:.5rem 1.2rem;font-size:.8rem;font-weight:700;text-decoration:none">Открыть реквизиты →</a></div>
+        <div class="sidebar-block"><h3>Реквизиты</h3><div class="sb-rule"></div><p style="font-size:.8rem;color:#555;line-height:1.7;margin-bottom:.8rem">Сотрудничество и помощь со стороны организаций — по реквизитам на отдельной странице.</p><a href="requisites.html" style="display:inline-block;background:#8b0000;color:#fff;padding:.5rem 1.2rem;font-size:.8rem;font-weight:700;text-decoration:none">Открыть реквизиты →</a></div>
       </div>
     </div>
   </div>
@@ -332,14 +360,14 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <!-- Блок: Направления помощи -->
 <!-- WP: блок «Направления помощи» — статичный или повторяемый блок -->
-<div class="about-strip">
+<div class="about-strip" id="about-directions">
   <div class="sec-header"><h2>Направления помощи</h2></div>
   <div class="sec-rule"></div>
   <div class="about-inner">
-    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ac-title">Помогаем детям</div><div class="ac-text">Многодетные семьи и семьи с детьми-инвалидами</div></div>
-    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="ac-title">Помогаем сотрудникам</div><div class="ac-text">Материальная и социальная поддержка нуждающихся</div></div>
-    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="ac-title">Мероприятия</div><div class="ac-text">Праздники, памятные события, спортивные турниры</div></div>
-    <div class="about-cell"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ac-title">Помогаем ветеранам</div><div class="ac-text">Адресная помощь ветеранам боевых действий и ВОВ</div></div>
+    <a class="about-cell" href="pomoshch-detyam.html"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="ac-title">Помогаем детям</div><div class="ac-text">Многодетные семьи и семьи с детьми-инвалидами</div></a>
+    <a class="about-cell" href="podderzhka-sotrudnikov.html"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="ac-title">Помогаем сотрудникам</div><div class="ac-text">Материальная и социальная поддержка нуждающихся</div></a>
+    <a class="about-cell" href="meropriyatiya.html"><div class="ac-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="ac-title">Мероприятия</div><div class="ac-text">Праздники, памятные события, спортивные турниры</div></a>
+    <a class="about-cell" href="pomoshch-veteranam.html"><div class="ac-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ac-title">Помогаем ветеранам</div><div class="ac-text">Адресная помощь ветеранам боевых действий и ВОВ</div></a>
   </div>
     
 </div>
@@ -392,10 +420,10 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
   <div>
     <h4>Разделы</h4>
-    <a href="projects.html">Деятельность фонда</a>
+    <a href="deti.html">Деятельность фонда</a>
     <a href="partners.html">Партнёры фонда</a>
     <a href="documents.html">Документы</a>
-    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="requisites.html">Реквизиты</a>
     <a href="contacts.html">Контакты</a>
   </div>
   <div>
@@ -415,11 +443,11 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <a href="geography.html">География деятельности</a>
     <a href="management.html">Руководство</a>
     <a href="documents.html">Документы</a>
-    <a href="projects.html">Деятельность фонда</a>
+    <a href="deti.html">Деятельность фонда</a>
     <a href="partners.html">Партнёры</a>
     <a href="news.html">Новости</a>
     <a href="media.html">Для СМИ</a>
-    <a href="requisites.html">Реквизиты для юрлиц</a>
+    <a href="requisites.html">Реквизиты</a>
     <a href="contacts.html">Контакты</a>
   </nav>
   <div class="fbot-row">
