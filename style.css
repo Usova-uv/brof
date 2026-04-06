@@ -587,18 +587,3 @@ a.news-card-link:hover .news-title {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
-
-/* Подвал: Росгвардия */
-.rosgvardiya-footer {
-  border: 2px solid #8b0000;
-  padding: 12px 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  background-color: #fef5f5;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-footer .rosgvardiya-footer {
-  grid-column: 1 / -1;
-}
