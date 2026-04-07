@@ -168,7 +168,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
 <div class="content-wrap">
   <div class="page-header">
     <h1>Отзывы и благодарности</h1>
-    <p>Материалы разделены по тематике. Перейдите к нужному блоку по ссылкам ниже или прокрутите страницу к заголовку раздела. В модальном окне стрелки листают только карточки выбранного блока (по 10 штук в каждом).</p>
+    <p>Мы благодарны всем, кто поддерживает наш фонд. Здесь собраны отзывы и слова благодарности от ветеранов, семей сотрудников и партнёров.</p>
     <p class="review-toc">
       <a href="#block-letters">Благодарственные письма</a> ·
       <a href="#block-wards">Отзывы подопечных</a> ·
@@ -292,7 +292,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     var sec=SECTIONS[catIdx];
     certEl.innerHTML=PHOTO_ICON;
     titleEl.textContent=sec.title;
-    subEl.textContent=sec.cardLabel+(idx+1)+' (заглушка)';
+    subEl.textContent=sec.cardLabel+(idx+1);
     countEl.textContent=(idx+1)+' из '+PER+' в разделе';
   }
   function openModal(c,i){
