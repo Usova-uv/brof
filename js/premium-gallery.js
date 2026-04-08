@@ -279,18 +279,26 @@
     moreBtn.setAttribute("aria-expanded", "false");
   }
 
-  /** Текст и кнопка «Подробнее» на всех слайдах с описанием (в т.ч. без фото). */
+  /** Текст и кнопка «Подробнее» только на первом слайде (index 0). */
   function updateLightboxInfo(i) {
     ensureModal();
     var infoEl = root.querySelector("#lightbox-info");
     if (!infoEl) return;
     clearTimeout(infoHideTimer);
 
-    var block = slides[i] && slides[i].info;
+    var block0 = slides[0] && slides[0].info;
     var hasText =
-      block &&
-      ((block.lead && block.lead.trim()) ||
-        (block.full && block.full.trim()));
+      block0 &&
+      ((block0.lead && block0.lead.trim()) ||
+        (block0.full && block0.full.trim()));
+
+    if (i > 0) {
+      infoEl.classList.remove("is-visible");
+      infoHideTimer = setTimeout(function () {
+        if (idx > 0) infoEl.style.display = "none";
+      }, 300);
+      return;
+    }
 
     if (!hasText) {
       infoEl.classList.remove("is-visible");
@@ -298,7 +306,7 @@
       return;
     }
 
-    fillInfoPanel(infoEl, block);
+    fillInfoPanel(infoEl, block0);
     infoEl.style.display = "flex";
     infoEl.classList.remove("is-visible");
     void infoEl.offsetHeight;
