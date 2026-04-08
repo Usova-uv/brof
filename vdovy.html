@@ -1,87 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Вдовы и матери — БРОФ «Твардовского, 2»</title>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-<style>
-html{scroll-behavior:smooth}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
-.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
-.topbar-search{position:relative;display:inline-flex;align-items:center}
-.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
-.topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
-.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
-.search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
-.search-panel[hidden]{display:none!important}
-.search-form{display:flex;gap:.35rem;align-items:center}
-.search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
-.search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
-.search-form button:hover{background:#a00000}
-.nav-menu{display:flex;list-style:none;flex-shrink:0;position:relative;margin:0;padding:0}
-.nav-menu > li{position:relative}
-.nav-menu > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
-.nav-menu > li:first-child > a{border-left:none}
-.nav-menu > li > a:hover{color:#8b0000;background:#fafafa}
-.menu-item-has-children > a::after{content:'▾';margin-left:.3rem;font-size:.6rem}
-.sub-menu{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:220px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);list-style:none;padding:0;margin:0}
-.nav-menu > li.menu-item-has-children:hover .sub-menu{display:block}
-.sub-menu > li{margin:0}
-.sub-menu a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
-.sub-menu a:hover{color:#8b0000;background:#fdf5f5}
-nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
-.nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
-.logo-img{width:44px;height:44px;object-fit:contain}
-.logo-name{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;font-weight:700}
-.logo-sub{color:#8b0000;font-size:.56rem;margin-top:1px}
-.nav-links{display:flex;list-style:none;position:relative}
-.nav-links > li{position:relative}
-.nav-links > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;border-left:1px solid #e8e8e8}
-.nav-links > li:first-child > a{border-left:none}
-.nav-links > li > a:hover{color:#8b0000}
-.nav-links > li > a.has-sub::after{content:'▾';margin-left:.3rem;font-size:.6rem}
-.dropdown{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:200px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.nav-links > li:hover .dropdown{display:block}
-.dropdown a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
-.dropdown a:hover{color:#8b0000;background:#fdf5f5}
-.nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-size:.78rem;font-weight:700;cursor:pointer}
-.nbtn:hover{background:#a00000}
-.content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
-.page-header{margin-bottom:2rem}
-.page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
-.page-header p{color:#666;font-size:.9rem}
-.activities-container{margin-top:2.5rem}
-.activities-container > section{margin-bottom:2.75rem}
-.activities-container > section:last-of-type{margin-bottom:0}
-.activities-container h2{font-family:'PT Serif',serif;font-size:1.35rem;color:#8b0000;margin-bottom:1rem;font-weight:700}
-a.event-card{text-decoration:none;color:inherit;cursor:pointer}
-.event-card{background:#fff;border:1px solid #ebebeb;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.06);display:flex;flex-direction:column}
-.event-image{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:#f5f5f5}
-.event-content{padding:1rem 1.05rem 1.15rem;flex:1;display:flex;flex-direction:column}
-.event-date{font-size:.72rem;color:#8b0000;font-weight:700;margin-bottom:.4rem;letter-spacing:.02em}
-.event-title{font-family:'PT Serif',serif;font-size:.95rem;font-weight:700;color:#1a1a1a;line-height:1.35;margin-bottom:.45rem}
-.event-text{font-size:.82rem;color:#555;line-height:1.55;margin:0;flex:1}
-.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;min-height:0}
-footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
-footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
-footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
-footer a:hover{color:rgba(255,255,255,.85)}
-.footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
-.footer-logo img{width:40px;height:40px;object-fit:contain}
-.footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
-.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
-.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
-.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
-.fbot-nav a:hover{color:rgba(255,255,255,.85)}
-.fbot-row{display:flex;justify-content:space-between;align-items:center}
-.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
-.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
-.fbot-row button:hover{background:#a00000}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-menu{flex-wrap:wrap;justify-content:center}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -145,121 +68,7 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <h1>Вдовы и матери</h1>
     <p>Поддержка вдов и матерей погибших сотрудников: торжественные встречи, концерты и адресная помощь.</p>
   </div>
-
-  <div class="activities-container">
-
-    <section id="vdovy">
-      <h2>Вдовы и матери</h2>
-      <div class="events-grid">
-        <a href="events/mezhdunarodnyy-zhenskiy-den.html" class="event-card"><img src="images/zhenskiy-den-2026.jpg" alt="Международный женский день" class="event-image">
-          <div class="event-content">
-            <div class="event-date">10.03.2026</div>
-            <h3 class="event-title">Международный женский день</h3>
-            <p class="event-text">Поздравление вдов и матерей погибших сотрудников</p>
-          </div>
-        </a>
-        <a href="events/den-materi.html" class="event-card"><img src="images/den-materi-2025.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">30.11.2025</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Концерт и чаепитие для матерей</p>
-          </div>
-        </a>
-        <a href="events/vesna-v-podarok.html" class="event-card"><img src="images/vesna-podarok.jpg" alt="Весна в подарок" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2025</div>
-            <h3 class="event-title">Весна в подарок</h3>
-            <p class="event-text">Вручение цветов и подарков вдовам</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20241124.html" class="event-card"><img src="images/poezdka-moskva.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">24.11.2024</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Поездка в Подмосковье для семей</p>
-          </div>
-        </a>
-        <a href="events/zhenskiy-den.html" class="event-card"><img src="images/vecher-8marta.jpg" alt="Женский день" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2024</div>
-            <h3 class="event-title">Женский день</h3>
-            <p class="event-text">Торжественный вечер в ресторане</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20231126.html" class="event-card"><img src="images/master-klass.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">26.11.2023</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Мастер-класс для детей и матерей</p>
-          </div>
-        </a>
-        <a href="events/s-prazdnikom-vesny.html" class="event-card"><img src="images/pozdravlenie-doma.jpg" alt="С праздником весны" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2023</div>
-            <h3 class="event-title">С праздником весны</h3>
-            <p class="event-text">Поздравление на дому</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20221127.html" class="event-card"><img src="images/online-koncert.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">27.11.2022</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Онлайн-концерт</p>
-          </div>
-        </a>
-        <a href="events/8-marta.html" class="event-card"><img src="images/nabory-2022.jpg" alt="8 Марта" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2022</div>
-            <h3 class="event-title">8 Марта</h3>
-            <p class="event-text">Вручение подарочных наборов</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20211128.html" class="event-card"><img src="images/obed-2021.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">28.11.2021</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Благотворительный обед</p>
-          </div>
-        </a>
-        <a href="events/zhenskiy-den-20210308.html" class="event-card"><img src="images/vdovy-vov.jpg" alt="Женский день" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2021</div>
-            <h3 class="event-title">Женский день</h3>
-            <p class="event-text">Поздравление вдов ветеранов ВОВ</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20201129.html" class="event-card"><img src="images/pisma.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">29.11.2020</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Акция «Связка писем»</p>
-          </div>
-        </a>
-        <a href="events/8-marta-20200308.html" class="event-card"><img src="images/cvety-2020.jpg" alt="8 Марта" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2020</div>
-            <h3 class="event-title">8 Марта</h3>
-            <p class="event-text">Цветы и открытки</p>
-          </div>
-        </a>
-        <a href="events/den-materi-20191124.html" class="event-card"><img src="images/koncert-2019.jpg" alt="День матери" class="event-image">
-          <div class="event-content">
-            <div class="event-date">24.11.2019</div>
-            <h3 class="event-title">День матери</h3>
-            <p class="event-text">Праздничный концерт в ДК</p>
-          </div>
-        </a>
-        <a href="events/zhenskiy-den-20190308.html" class="event-card"><img src="images/vstrecha-2019.jpg" alt="Женский день" class="event-image">
-          <div class="event-content">
-            <div class="event-date">08.03.2019</div>
-            <h3 class="event-title">Женский день</h3>
-            <p class="event-text">Встреча в кафе</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-  </div>
+  <div id="widowsGrid" class="mem-grid" aria-live="polite"></div>
 </div>
 
 
@@ -323,6 +132,57 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 </div>
 
+<script>
+(function(){
+  function pad2(n){return n<10?'0'+n:''+n;}
+  var WIDOWS_EVENTS=[
+    {d:'07.03.2026',t:'Встреча с вдовами и матерями к 8 Марта',lead:'В преддверии 8 Марта состоялась встреча с вдовами и матерями погибших бойцов. Фонд вручил подарки и оказал поддержку.',full:'В преддверии Международного женского дня БРОФ «Твардовского, 2» и ОМОН «Авангард» организовали тёплую встречу с вдовами и матерями погибших сотрудников. Участницам вручили подарки и цветы, поблагодарили за силу духа. Фонд подтвердил готовность продолжать адресную поддержку семей героев.'},
+    {d:'16.02.2026',t:'Поздравление вдов с днём рождения',lead:'Фонд поздравил вдов сотрудников с днём рождения.',full:'БРОФ «Твардовского, 2» направил персональные поздравления и подарки вдовам сотрудников, отмечавшим день рождения. Такие жесты помогают сохранять связь семей с коллективом отряда и напоминают: память о службе близких жива.'},
+    {d:'02.02.2026',t:'Поздравление матери и вдов с днём рождения',lead:'Поздравление матери и вдов погибших боевых товарищей.',full:'Фонд поздравил мать и вдов погибших с днём рождения, вручив цветы и памятные подарки. Мероприятие прошло в уважительной, доверительной атмосфере; сотрудники отряда выразили признательность за сохранение памяти о погибших.'},
+    {d:'30.11.2025',t:'День матери',lead:'Поздравление матерей сотрудников с праздником.',full:'Ко Дню матери БРОФ «Твардовского, 2» поздравил матерей сотрудников ОМОН «Авангард» и семьи погибших бойцов. Участницам вручили подарки и тёплые слова благодарности за воспитание детей и поддержку служащих.'},
+    {d:'07.03.2025',t:'Встреча к 8 Марта',lead:'Встреча с вдовами и матерями погибших боевых товарищей.',full:'Накануне 8 Марта состоялась встреча с вдовами и матерями погибших сотрудников. Фонд и руководство отряда обсудили вопросы поддержки, вручили подарки и выразили глубокую признательность семьям за стойкость.'},
+    {d:'24.11.2024',t:'День матери',lead:'Поздравление матерей сотрудников.',full:'В День матери фонд организовал поздравления для матерей действующих и погибших сотрудников спецподразделения. Подарки и совместное общение создали праздничное настроение и укрепили связь между семьями и коллективом.'},
+    {d:'07.10.2024',t:'Встреча в день образования ОМОН',lead:'Встреча с родственниками погибших сотрудников.',full:'В день образования ОМОН в столичном спецподразделении прошла встреча с родственниками погибших сотрудников. Присутствующие почтили память героев; фонд и бойцы заверили семьи в постоянной поддержке.'},
+    {d:'10.12.2023',t:'Праздничный концерт',lead:'Посещение концерта для родственников погибших и многодетных семей.',full:'БРОФ «Твардовского, 2» организовал для родственников погибших сотрудников и многодетных семей посещение праздничного концерта. Вечер подарил отдых и позитивные эмоции в преддверии новогодних праздников.'},
+    {d:'29.05.2023',t:'Спектакль для семей',lead:'Посещение спектакля для родственников погибших и многодетных семей.',full:'Семьи погибших сотрудников и многодетные приглашены на спектакль при поддержке фонда. Культурная программа стала знаком внимания к тем, кто несёт особую нагрузку и нуждается в заботе общества.'},
+    {d:'21.04.2023',t:'Концерты для семей',lead:'Посещение концертов для родственников погибших и многодетных семей.',full:'Фонд обеспечил посещение концертов для родственников погибших бойцов и многодетных семей сотрудников. Мероприятия укрепляют чувство общности и дают семьям возможность провести время вне повседневных забот.'},
+    {d:'08.03.2023',t:'Театральное представление',lead:'Театральное представление для вдов и матерей сотрудников к 8 Марта.',full:'К 8 Марта для вдов и матерей сотрудников ОМОН был организован выезд в театр. Зрители получили яркие впечатления; фонд и отряд поздравили женщин с праздником и вручили цветы.'},
+    {d:'23.06.2022',t:'Спектакль для семей',lead:'Посещение спектакля для семей сотрудников ОМОН.',full:'Семьи сотрудников столичного ОМОН, включая родственников погибших, посетили спектакль при поддержке БРОФ «Твардовского, 2». Вечер прошёл в дружеской атмосфере и стал частью программы социальной поддержки личного состава.'},
+    {d:'27.11.2022',t:'Театральное представление',lead:'Представление для вдов и матерей сотрудников.',full:'Вдовы и матери сотрудников приглашены на театральное представление. Фонд выразил признательность женщинам за силу и преданность памяти о погибших; после спектакля состоялось неформальное общение.'},
+    {d:'17.12.2021',t:'Поздравление семей с детьми-инвалидами',lead:'Поздравление семей, воспитывающих детей-инвалидов.',full:'Перед новогодними праздниками фонд поздравил семьи сотрудников, воспитывающих детей с инвалидностью. Детям и родителям вручили подарки; специалисты фонда уточнили потребности в дальнейшей помощи.'},
+    {d:'20.02.2020',t:'Концерт в Рахманиновском зале',lead:'Праздничный концерт для вдов и семей погибших сотрудников.',full:'В Рахманиновском зале состоялся праздничный концерт для вдов и семей погибших сотрудников ОМОН. Высокое искусство и торжественная обстановка стали знаком глубокого уважения к памяти героев.'},
+    {d:'03.03.2020',t:'Встреча к 8 Марта',lead:'Встреча с вдовами и матерями погибших бойцов.',full:'Накануне 8 Марта прошла встреча с вдовами и матерями погибших бойцов. Участницам вручили подарки; руководство отряда и фонда поблагодарило их за самоотверженность и сохранение семейных традиций.'},
+    {d:'13.11.2019',t:'Спектакль в Кремлёвском дворце',lead:'Для семей погибших сотрудников.',full:'Семьи погибших сотрудников посетили спектакль в Государственном Кремлёвском дворце при поддержке фонда. Мероприятие подчеркнуло особый статус семей правоохранителей, отдавших жизнь за Отечество.'},
+    {d:'12.03.2019',t:'Встреча к 8 Марта',lead:'С вдовами и матерями погибших бойцов.',full:'Традиционная весенняя встреча с вдовами и матерями погибших сотрудников прошла в тёплой обстановке. Фонд вручил цветы и подарки, обсудил дальнейшие шаги по социальному сопровождению.'},
+    {d:'25.10.2018',t:'Помощь семьям с детьми-инвалидами',lead:'Материальная помощь семьям.',full:'БРОФ «Твардовского, 2» оказал материальную помощь семьям сотрудников, воспитывающим детей с инвалидностью. Средства направлены на облегчение бытовых и медицинских расходов; с семьями сохраняется контакт для дальнейшей поддержки.'}
+  ];
+  var grid=document.getElementById('widowsGrid');
+  WIDOWS_EVENTS.forEach(function(it,n){
+    var a=document.createElement('a');
+    a.className='mem-card';
+    a.href='#';
+    a.setAttribute('data-article-href','events/widows-'+pad2(n+1)+'.html');
+    a.setAttribute('aria-label',it.d+'. '+it.t+' — фотогалерея');
+    a.setAttribute('data-description',JSON.stringify({lead:it.lead,full:it.full}));
+    var mainPh=document.createElement('div');
+    mainPh.className='mem-main-photo mem-main-photo--placeholder';
+    var ph=document.createElement('span');
+    ph.className='mem-photo-placeholder-text';
+    ph.textContent='Фото будет добавлено';
+    mainPh.appendChild(ph);
+    var body=document.createElement('div');
+    body.className='mem-body';
+    body.innerHTML='<div class="mem-date"></div><div class="mem-title"></div><div class="mem-lead"></div>';
+    body.querySelector('.mem-date').textContent=it.d;
+    body.querySelector('.mem-title').textContent=it.t;
+    body.querySelector('.mem-lead').textContent=it.lead;
+    a.appendChild(mainPh);
+    a.appendChild(body);
+    grid.appendChild(a);
+  });
+})();
+</script>
+<script src="js/premium-gallery.js" defer></script>
 <script src="js/topbar.js" defer></script>
 </body>
 </html>

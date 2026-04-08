@@ -208,6 +208,108 @@ nav {
   padding: 3rem 2rem;
 }
 
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-family: "PT Serif", serif;
+  font-size: 2rem;
+  color: #8b0000;
+  margin-bottom: 0.5rem;
+}
+.page-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.mem-intro {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 1.15rem;
+  max-width: 52rem;
+}
+
+/* Страница veterans.html — таблица ВОВ и вводные блоки */
+.vov-section {
+  margin-bottom: 2.75rem;
+}
+.sec-title {
+  font-family: "PT Serif", serif;
+  font-size: 1.45rem;
+  color: #8b0000;
+  margin: 2.25rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba(139, 0, 0, 0.2);
+}
+.sec-title--first {
+  margin-top: 0;
+}
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 0.35rem;
+  border: 1px solid rgba(139, 0, 0, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+  background: #fff;
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.data-table th,
+.data-table td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid #ece8e8;
+  vertical-align: middle;
+}
+.data-table thead th {
+  background: linear-gradient(180deg, #8b0000 0%, #6d0000 100%);
+  color: #fff;
+  font-weight: 700;
+  font-family: "PT Serif", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  border-bottom: none;
+}
+.data-table thead th:first-child {
+  border-radius: 11px 0 0 0;
+  width: 3rem;
+}
+.data-table thead th:last-child {
+  border-radius: 0 11px 0 0;
+}
+.data-table tbody tr:nth-child(even) {
+  background: #faf8f8;
+}
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.data-table tbody tr:hover {
+  background: #fff5f5;
+}
+.data-table td:first-child {
+  font-weight: 700;
+  color: #8b0000;
+  text-align: center;
+}
+.table-note {
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 0.85rem;
+  line-height: 1.5;
+  max-width: 52rem;
+}
+.vet-squad-intro {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.15rem;
+  line-height: 1.65;
+  max-width: 52rem;
+}
+
 footer {
   background: #1a1a1a;
   padding: 2rem;
@@ -311,6 +413,26 @@ footer a:hover {
 .event-detail-page .event-back:hover {
   text-decoration: underline;
 }
+
+.event-detail-page .back-to-news {
+  margin: 30px 0 20px;
+}
+.event-detail-page .back-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f0f0f0;
+  color: #8b0000;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.event-detail-page .back-btn:hover {
+  background: #e0e0e0;
+  text-decoration: underline;
+}
+
 .event-detail-page .event-detail h1 {
   font-family: "PT Serif", serif;
   font-size: clamp(1.35rem, 3vw, 1.75rem);
@@ -586,4 +708,718 @@ a.news-card-link:hover .news-title {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+/* ========== Наша география: карточки регионов ========== */
+.regions-section .regions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+  justify-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .regions-section .regions-grid {
+    grid-template-columns: repeat(2, 280px);
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .regions-section .regions-grid {
+    grid-template-columns: repeat(3, 280px);
+  }
+}
+
+/* 4×280px + 3×30px gap + 40px padding = 1250px */
+@media (min-width: 1280px) {
+  .regions-section .regions-grid {
+    grid-template-columns: repeat(4, 280px);
+    max-width: 1250px;
+  }
+}
+
+.regions-section .region-card {
+  width: 100%;
+  max-width: 280px;
+  min-height: 320px;
+  height: 320px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.regions-section .region-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.regions-section .region-card:focus {
+  outline: none;
+}
+
+.regions-section .region-card:focus-visible {
+  outline: 2px solid #8b0000;
+  outline-offset: 3px;
+}
+
+.regions-section .region-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.regions-section .region-title {
+  font-family: "PT Serif", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.regions-section .region-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+  margin: 0 0 16px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  text-align: center;
+}
+
+.regions-section .region-link {
+  display: inline-block;
+  margin-top: auto;
+  color: #8b0000;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.regions-section .region-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .regions-section .regions-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .regions-section .region-card {
+    max-width: 280px;
+    width: 100%;
+  }
+}
+
+/* Модальное окно региона (geography.html) */
+.region-modal[hidden] {
+  display: none !important;
+}
+
+.region-modal:not([hidden]) {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.region-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.region-modal-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.region-modal-title {
+  font-family: "PT Serif", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+.region-modal-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+.region-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  padding: 0.25rem;
+  font-family: inherit;
+}
+
+.region-modal-close:hover {
+  color: #8b0000;
+}
+
+/* Премиум-лайтбокс галереи (js/premium-gallery.js, #premiumGalleryRoot) */
+#premiumGalleryRoot.premium-lightbox.event-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 3.5rem 4.5rem 2rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#premiumGalleryRoot.premium-lightbox.event-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#premiumGalleryRoot.premium-lightbox.event-modal.is-closing {
+  opacity: 0;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#premiumGalleryRoot .premium-lightbox-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1002;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  font-family: system-ui, sans-serif;
+  padding: 0;
+}
+
+#premiumGalleryRoot .premium-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.15);
+}
+
+#premiumGalleryRoot .premium-lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 2.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.25s ease, box-shadow 0.25s ease, color 0.2s ease;
+}
+
+#premiumGalleryRoot .premium-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+#premiumGalleryRoot .premium-lightbox-nav--prev {
+  left: max(12px, env(safe-area-inset-left));
+}
+
+#premiumGalleryRoot .premium-lightbox-nav--next {
+  right: max(12px, env(safe-area-inset-right));
+}
+
+#premiumGalleryRoot .premium-lightbox-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 92vw;
+  position: relative;
+  z-index: 1;
+  transform: scale(0.96);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+#premiumGalleryRoot.premium-lightbox.event-modal.is-open .premium-lightbox-inner {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#premiumGalleryRoot.premium-lightbox.event-modal.is-closing .premium-lightbox-inner {
+  transform: scale(0.98);
+  opacity: 0.85;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+#premiumGalleryRoot .premium-lightbox-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+}
+
+#premiumGalleryRoot .premium-lightbox-img-wrap {
+  max-width: 85vw;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#premiumGalleryRoot .premium-lightbox-img-wrap img {
+  max-width: 85vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  display: block;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+#premiumGalleryRoot .premium-lightbox-img-wrap img.fade-out {
+  opacity: 0;
+  transform: scale(0.985);
+}
+
+#premiumGalleryRoot .premium-lightbox-img-wrap img.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Текстовый блок лайтбокса: единая вёрстка на всех слайдах */
+#premiumGalleryRoot #lightbox-info.premium-lightbox-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: min(720px, 92vw);
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 24px 16px 16px;
+  color: #fff;
+  background: rgba(22, 22, 22, 0.75);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+#premiumGalleryRoot #lightbox-info.premium-lightbox-info.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#premiumGalleryRoot #lightbox-info .lightbox-meta {
+  width: 100%;
+}
+
+#premiumGalleryRoot .lightbox-date {
+  font-size: 13px;
+  opacity: 0.7;
+  display: block;
+  margin-bottom: 6px;
+  font-family: "PT Sans", sans-serif;
+}
+
+#premiumGalleryRoot .lightbox-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px;
+  line-height: 1.3;
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+}
+
+#premiumGalleryRoot .lightbox-lead {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto 16px;
+  font-family: "PT Sans", sans-serif;
+}
+
+#premiumGalleryRoot .btn-more {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "PT Sans", sans-serif;
+  transition: 0.3s;
+}
+
+#premiumGalleryRoot .btn-more:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#premiumGalleryRoot .lightbox-full {
+  width: 100%;
+  max-width: 700px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  text-align: left;
+  transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+#premiumGalleryRoot .lightbox-full.is-expanded {
+  max-height: min(45vh, 360px);
+  overflow-y: auto;
+  opacity: 1;
+}
+
+#premiumGalleryRoot .lightbox-full::-webkit-scrollbar {
+  width: 4px;
+}
+
+#premiumGalleryRoot .lightbox-full::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+#premiumGalleryRoot .lightbox-full::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+body.modal-open .content-wrap {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  #premiumGalleryRoot.premium-lightbox.event-modal {
+    padding: 3.25rem 0.75rem 1.25rem;
+  }
+
+  #premiumGalleryRoot .premium-lightbox-nav {
+    width: 44px;
+    height: 44px;
+    font-size: 1.75rem;
+  }
+
+  #premiumGalleryRoot .lightbox-title {
+    font-size: 1.1rem;
+  }
+
+  #premiumGalleryRoot .lightbox-lead,
+  #premiumGalleryRoot .lightbox-full {
+    font-size: 0.88rem;
+  }
+
+  #premiumGalleryRoot .premium-lightbox-img-wrap img {
+    max-width: 90vw;
+    max-height: 70vh;
+  }
+
+  #premiumGalleryRoot .premium-lightbox-img-wrap {
+    max-width: 90vw;
+    max-height: 70vh;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Карточки сетки «Деятельности» (единый стандарт)
+   -------------------------------------------------------------------------- */
+.mem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.mem-card,
+a.mem-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+  text-align: left;
+}
+
+a.mem-card {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+article.mem-card {
+  cursor: pointer;
+}
+
+.mem-card:hover {
+  transform: translateY(-4px);
+}
+
+.mem-card:focus-visible {
+  outline: 2px solid #8b0000;
+  outline-offset: 2px;
+}
+
+.mem-main-photo {
+  height: 280px;
+  min-height: 280px;
+  max-height: 280px;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.mem-main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mem-main-photo--placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.mem-main-photo--placeholder > img {
+  display: none !important;
+}
+
+.mem-photo-placeholder-text {
+  padding: 1rem;
+  text-align: center;
+  line-height: 1.4;
+  max-width: 13rem;
+}
+
+.mem-body {
+  flex-grow: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mem-date {
+  font-size: 14px;
+  color: #8b0000;
+  font-weight: 600;
+}
+
+.mem-title {
+  font-family: "PT Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.mem-lead,
+.mem-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Карточки event-card: ВОВ, боевые действия, спорт, ОМОН (не deti-grid)
+   -------------------------------------------------------------------------- */
+.activities-container .events-grid:not(.deti-grid) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.35rem;
+  margin-bottom: 0.5rem;
+  align-items: stretch;
+  min-height: 0;
+}
+
+@media (max-width: 1024px) {
+  .activities-container .events-grid:not(.deti-grid) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .activities-container .events-grid:not(.deti-grid) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.activities-container .events-grid:not(.deti-grid) a.event-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-card {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-card:hover {
+  box-shadow: 0 10px 28px rgba(139, 0, 0, 0.14);
+  transform: translateY(-3px);
+  border-color: rgba(139, 0, 0, 0.15);
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(145deg, #e8e0e0, #d4cccc);
+  flex-shrink: 0;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-content {
+  padding: 1rem 1.05rem 1.15rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-date {
+  font-size: 0.875rem;
+  color: #8b0000;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+  letter-spacing: normal;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-title {
+  font-family: "PT Serif", serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.45;
+  margin-bottom: 0.45rem;
+}
+
+.activities-container .events-grid:not(.deti-grid) .event-text {
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
 }

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Наша география — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
 html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -64,49 +65,6 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .regions-section{margin-top:.5rem;width:100%;min-width:0}
 .regions-section h2{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:0 0 1.25rem;padding-bottom:.45rem;border-bottom:2px solid rgba(139,0,0,.2)}
 #regions-heading{scroll-margin-top:76px}
-#region-details-title{scroll-margin-top:76px}
-/* Сетка: мобильный 1 колонка → планшет 2 → десктоп 3 (3+2 карточки) */
-.regions-grid{
-  display:grid;
-  width:100%;
-  min-width:0;
-  gap:1.35rem;
-  grid-template-columns:1fr;
-  align-items:stretch;
-}
-.region-card{
-  background:#fff;border:1px solid #ebebeb;border-radius:14px;padding:1.35rem 1.25rem 1.25rem;
-  box-shadow:0 4px 18px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;
-  display:flex;flex-direction:column;min-width:0;height:100%;
-}
-.region-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.1)}
-.region-logo-wrap{height:88px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;background:#f7f5f5;border-radius:10px;border:1px dashed #ddd;flex-shrink:0}
-.region-logo{width:72px;height:72px;object-fit:contain}
-.region-title{font-family:'PT Serif',serif;font-size:1.08rem;color:#1a1a1a;font-weight:700;margin:0 0 .65rem;line-height:1.35}
-.region-desc{font-size:.84rem;color:#555;line-height:1.6;margin-bottom:1.1rem;flex:1;min-height:0}
-.region-more{display:inline-block;align-self:flex-start;background:#8b0000;color:#fff!important;text-decoration:none;font-size:.8rem;font-weight:700;padding:.5rem 1.15rem;border-radius:6px;transition:background .2s;margin-top:auto;flex-shrink:0}
-.region-more:hover{background:#a00000}
-@media(min-width:641px){
-  .regions-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media(min-width:1025px){
-  .regions-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-.region-details{margin-top:3.25rem;padding-top:2.5rem;border-top:1px solid #ebebeb}
-.region-details-heading{font-family:'PT Serif',serif;font-size:1.45rem;color:#8b0000;margin:0 0 .65rem;padding-bottom:.45rem;border-bottom:2px solid rgba(139,0,0,.2)}
-.region-details-lead{font-size:.9rem;color:#666;margin-bottom:2rem;line-height:1.6}
-.region-detail{padding:2rem 0;border-bottom:1px solid #ebebeb;scroll-margin-top:76px}
-.region-detail:last-child{border-bottom:none}
-.region-detail h2{font-family:'PT Serif',serif;font-size:1.3rem;color:#8b0000;margin:0 0 1rem;line-height:1.3}
-.region-detail-map{
-  width:100%;min-height:280px;border-radius:12px;border:1px dashed #ccc;background:#faf8f8;
-  display:flex;align-items:center;justify-content:center;color:#777;font-size:.88rem;line-height:1.45;text-align:center;padding:1.25rem 1rem;
-  margin-bottom:1.25rem;
-}
-.region-detail-text{font-size:.95rem;line-height:1.75;color:#333}
-.region-detail-text p{margin:0}
-.region-detail-back{display:inline-block;margin-top:1.15rem;color:#8b0000;font-size:.85rem;font-weight:700;text-decoration:none}
-.region-detail-back:hover{text-decoration:underline}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -194,97 +152,37 @@ footer a:hover{color:rgba(255,255,255,.85)}
     <section class="regions-section" aria-labelledby="regions-heading">
       <h2 id="regions-heading">Регионы работы</h2>
       <div class="regions-grid">
-        <article class="region-card">
-          <div class="region-logo-wrap">
-            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0" alt="Логотип региона (заглушка)">
-          </div>
+        <div class="region-card" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее: г. Москва">
+          <img class="region-logo" src="images/logo-moscow.png" alt="" width="80" height="80" onerror="this.onerror=null;this.src='https://via.placeholder.com/160x160/f5f0f0/8b0000?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0';">
           <h3 class="region-title">г. Москва</h3>
-          <p class="region-desc">Координация программ фонда, работа с подопечными и партнёрами, проведение мероприятий и адресная помощь на территории столицы.</p>
-          <a class="region-more" href="#region-moscow">Подробнее</a>
-        </article>
-        <article class="region-card">
-          <div class="region-logo-wrap">
-            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9C%D0%9E" alt="">
-          </div>
+          <p class="region-desc">Фонд оказывает помощь семьям сотрудников ОМОН, ветеранам и детям. Координирует программы, проводит мероприятия и обеспечивает адресную поддержку на территории столицы.</p>
+          <span class="region-link">Подробнее →</span>
+        </div>
+        <div class="region-card" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее: Московская область">
+          <img class="region-logo" src="images/logo-mo.png" alt="" width="80" height="80" onerror="this.onerror=null;this.src='https://via.placeholder.com/160x160/f5f0f0/8b0000?text=%D0%9C%D0%9E';">
           <h3 class="region-title">Московская область</h3>
-          <p class="region-desc">Поддержка семей сотрудников и ветеранов, социальные и образовательные инициативы в городах и районах области.</p>
-          <a class="region-more" href="#region-mo">Подробнее</a>
-        </article>
-        <article class="region-card">
-          <div class="region-logo-wrap">
-            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%AF%D0%9E" alt="">
-          </div>
+          <p class="region-desc">Поддержка семей сотрудников и ветеранов, социальные и образовательные инициативы в городах и районах Московской области.</p>
+          <span class="region-link">Подробнее →</span>
+        </div>
+        <div class="region-card" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее: Ярославская область">
+          <img class="region-logo" src="images/logo-yaroslavl.png" alt="" width="80" height="80" onerror="this.onerror=null;this.src='https://via.placeholder.com/160x160/f5f0f0/8b0000?text=%D0%AF%D0%9E';">
           <h3 class="region-title">Ярославская область</h3>
           <p class="region-desc">Развитие региональных контактов и оказание помощи в рамках согласованных направлений благотворительных программ.</p>
-          <a class="region-more" href="#region-yaroslavl">Подробнее</a>
-        </article>
-        <article class="region-card">
-          <div class="region-logo-wrap">
-            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%9B%D0%9D%D0%A0" alt="">
-          </div>
+          <span class="region-link">Подробнее →</span>
+        </div>
+        <div class="region-card" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее: Луганская Народная Республика">
+          <img class="region-logo" src="images/logo-lnr.png" alt="" width="80" height="80" onerror="this.onerror=null;this.src='https://via.placeholder.com/160x160/f5f0f0/8b0000?text=%D0%9B%D0%9D%D0%A0';">
           <h3 class="region-title">Луганская Народная Республика</h3>
-          <p class="region-desc">Участие в гуманитарных и социальных проектах по согласованию с партнёрами; текст уточняется при публикации материалов.</p>
-          <a class="region-more" href="#region-lnr">Подробнее</a>
-        </article>
-        <article class="region-card">
-          <div class="region-logo-wrap">
-            <img class="region-logo" src="https://via.placeholder.com/120x120/f5f0f0/8b0000?text=%D0%94%D0%9D%D0%A0" alt="">
-          </div>
+          <p class="region-desc">Участие в гуманитарных и социальных проектах по согласованию с партнёрами. Помощь детям и семьям.</p>
+          <span class="region-link">Подробнее →</span>
+        </div>
+        <div class="region-card" tabindex="0" aria-haspopup="dialog" aria-label="Подробнее: Донецкая Народная Республика">
+          <img class="region-logo" src="images/logo-dnr.png" alt="" width="80" height="80" onerror="this.onerror=null;this.src='https://via.placeholder.com/160x160/f5f0f0/8b0000?text=%D0%94%D0%9D%D0%A0';">
           <h3 class="region-title">Донецкая Народная Республика</h3>
-          <p class="region-desc">Поддержка инициатив фонда на территории республики; подробности будут добавлены по мере размещения контента на сайте.</p>
-          <a class="region-more" href="#region-dnr">Подробнее</a>
-        </article>
+          <p class="region-desc">Поддержка инициатив фонда на территории республики. Адресная помощь и социальные программы.</p>
+          <span class="region-link">Подробнее →</span>
+        </div>
       </div>
-    </section>
-
-    <section class="region-details" aria-labelledby="region-details-title">
-      <h2 id="region-details-title" class="region-details-heading">Карты и подробные описания</h2>
-      <p class="region-details-lead">По кнопке «Подробнее» в карточке региона открывается соответствующий блок ниже. Здесь можно разместить встроенную карту (Яндекс, OSM) и полный текст о работе фонда в регионе.</p>
-
-      <article id="region-moscow" class="region-detail" tabindex="-1">
-        <h2>г. Москва</h2>
-        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
-        <div class="region-detail-text">
-          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
-        </div>
-        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
-      </article>
-
-      <article id="region-mo" class="region-detail" tabindex="-1">
-        <h2>Московская область</h2>
-        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
-        <div class="region-detail-text">
-          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
-        </div>
-        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
-      </article>
-
-      <article id="region-yaroslavl" class="region-detail" tabindex="-1">
-        <h2>Ярославская область</h2>
-        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
-        <div class="region-detail-text">
-          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
-        </div>
-        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
-      </article>
-
-      <article id="region-lnr" class="region-detail" tabindex="-1">
-        <h2>Луганская Народная Республика</h2>
-        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
-        <div class="region-detail-text">
-          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
-        </div>
-        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
-      </article>
-
-      <article id="region-dnr" class="region-detail" tabindex="-1">
-        <h2>Донецкая Народная Республика</h2>
-        <div class="region-detail-map" role="img" aria-label="Карта региона, заглушка">Карта региона: заглушка. Замените этот блок на iframe Яндекс.Карт или другой виджет.</div>
-        <div class="region-detail-text">
-          <p>Подробное описание деятельности фонда в регионе будет добавлено здесь.</p>
-        </div>
-        <a class="region-detail-back" href="#regions-heading">↑ К списку регионов</a>
-      </article>
     </section>
   </div>
 </div>
@@ -349,6 +247,81 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </div>
 </div>
 
+<div id="regionModal" class="region-modal" role="dialog" aria-modal="true" aria-labelledby="regionModalTitle" hidden>
+  <div class="region-modal-content">
+    <button type="button" class="region-modal-close" aria-label="Закрыть">&times;</button>
+    <img id="regionModalLogo" alt="" class="region-modal-logo" width="100" height="100">
+    <h3 id="regionModalTitle" class="region-modal-title"></h3>
+    <p id="regionModalText" class="region-modal-text"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var regions = [
+    { name: 'г. Москва', logo: 'images/logo-moscow.png', text: 'Фонд оказывает помощь семьям сотрудников ОМОН, ветеранам и детям. Координирует программы, проводит мероприятия и обеспечивает адресную поддержку на территории столицы.', fallback: 'https://via.placeholder.com/200x200/f5f0f0/8b0000?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0' },
+    { name: 'Московская область', logo: 'images/logo-mo.png', text: 'Поддержка семей сотрудников и ветеранов, социальные и образовательные инициативы в городах и районах Московской области.', fallback: 'https://via.placeholder.com/200x200/f5f0f0/8b0000?text=%D0%9C%D0%9E' },
+    { name: 'Ярославская область', logo: 'images/logo-yaroslavl.png', text: 'Развитие региональных контактов и оказание помощи в рамках согласованных направлений благотворительных программ.', fallback: 'https://via.placeholder.com/200x200/f5f0f0/8b0000?text=%D0%AF%D0%9E' },
+    { name: 'Луганская Народная Республика', logo: 'images/logo-lnr.png', text: 'Участие в гуманитарных и социальных проектах по согласованию с партнёрами. Помощь детям и семьям.', fallback: 'https://via.placeholder.com/200x200/f5f0f0/8b0000?text=%D0%9B%D0%9D%D0%A0' },
+    { name: 'Донецкая Народная Республика', logo: 'images/logo-dnr.png', text: 'Поддержка инициатив фонда на территории республики. Адресная помощь и социальные программы.', fallback: 'https://via.placeholder.com/200x200/f5f0f0/8b0000?text=%D0%94%D0%9D%D0%A0' }
+  ];
+
+  var modal = document.getElementById('regionModal');
+  var modalLogo = document.getElementById('regionModalLogo');
+  var modalTitle = document.getElementById('regionModalTitle');
+  var modalText = document.getElementById('regionModalText');
+  var closeBtn = modal.querySelector('.region-modal-close');
+  function openRegionModal(index) {
+    var r = regions[index];
+    if (!r) return;
+    modalTitle.textContent = r.name;
+    modalText.textContent = r.text;
+    modalLogo.alt = 'Логотип: ' + r.name;
+    modalLogo.onerror = function () {
+      modalLogo.onerror = null;
+      modalLogo.src = r.fallback;
+    };
+    modalLogo.src = r.logo;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeRegionModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    modalLogo.removeAttribute('src');
+    modalLogo.alt = '';
+  }
+
+  function isOpen() {
+    return !modal.hidden;
+  }
+
+  document.querySelectorAll('.region-card').forEach(function (card, index) {
+    card.addEventListener('click', function (e) {
+      e.preventDefault();
+      openRegionModal(index);
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openRegionModal(index);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeRegionModal);
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeRegionModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && isOpen()) closeRegionModal();
+  });
+})();
+</script>
 <script src="js/topbar.js" defer></script>
 </body>
 </html>

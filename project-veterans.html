@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Помощь ветеранам — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
 html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -54,18 +55,6 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
 .page-header p{color:#666;font-size:.9rem}
 .mem-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:1.15rem;max-width:52rem}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;margin-bottom:.5rem}
-@media(max-width:1024px){.mem-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.mem-grid{grid-template-columns:1fr}}
-.mem-card{background:#fff;border:1px solid #ebebeb;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:box-shadow .2s,transform .2s,border-color .2s;text-align:left;padding-top:0}
-a.mem-card{display:block;color:inherit;text-decoration:none;cursor:pointer}
-.mem-card:hover{box-shadow:0 10px 28px rgba(139,0,0,.14);transform:translateY(-3px);border-color:rgba(139,0,0,.15)}
-.mem-card:focus-visible{outline:2px solid #8b0000;outline-offset:2px}
-.mem-main-photo{width:100%;height:200px;overflow:hidden;background:linear-gradient(145deg,#e8e0e0,#d4cccc);flex-shrink:0}
-.mem-main-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.mem-body{padding:1rem 1.05rem 1.15rem}
-.mem-date{font-size:.8rem;color:#8b0000;font-weight:700;margin-bottom:.4rem;line-height:1.35}
-.mem-title{font-family:'PT Serif',serif;font-size:.88rem;font-weight:700;color:#1a1a1a;line-height:1.45;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -211,9 +200,6 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <script>
 (function(){
-  function previewUrl(n){
-    return 'https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Помощь ветеранам '+(n+1)+' · 1/5');
-  }
   function pad2(n){return n<10?'0'+n:''+n;}
   var PVT_EVENTS=[
     {d:'05.04.2025',t:'Санаторно-курортное лечение и реабилитация ветеранов'},
@@ -242,12 +228,11 @@ footer a:hover{color:rgba(255,255,255,.85)}
     a.href='events/veterans-'+pad2(n+1)+'.html';
     a.setAttribute('aria-label',it.d+'. '+it.t+' — подробнее и фотогалерея');
     var mainPh=document.createElement('div');
-    mainPh.className='mem-main-photo';
-    var img=document.createElement('img');
-    img.src=previewUrl(n);
-    img.alt='Превью: '+it.d;
-    img.loading='lazy';
-    mainPh.appendChild(img);
+    mainPh.className='mem-main-photo mem-main-photo--placeholder';
+    var ph=document.createElement('span');
+    ph.className='mem-photo-placeholder-text';
+    ph.textContent='Фото будет добавлено';
+    mainPh.appendChild(ph);
     var body=document.createElement('div');
     body.className='mem-body';
     body.innerHTML='<div class="mem-date"></div><div class="mem-title"></div>';

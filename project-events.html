@@ -4,85 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Мероприятия — БРОФ «Твардовского, 2»</title>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-<style>
-html{scroll-behavior:smooth}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'PT Sans',sans-serif;background:#fff;color:#1a1a1a}
-.topbar{background:#8b0000;padding:.32rem 1.5rem;display:flex;justify-content:flex-end;align-items:center;gap:1.5rem;position:relative;z-index:250}
-.topbar-search{position:relative;display:inline-flex;align-items:center}
-.topbar-search-btn{background:none;border:none;color:rgba(255,255,255,.85);cursor:pointer;font-family:'PT Sans',sans-serif;padding:.25rem;display:inline-flex;align-items:center;justify-content:center}
-.topbar-search-btn:hover,.topbar-search-btn[aria-expanded="true"]{color:#fff}
-.topbar-search-btn svg{flex-shrink:0;vertical-align:middle}
-.search-panel{position:absolute;top:100%;right:0;margin-top:.5rem;background:#fff;border:1px solid #ddd;border-radius:8px;padding:.65rem;box-shadow:0 8px 24px rgba(0,0,0,.15);min-width:280px}
-.search-panel[hidden]{display:none!important}
-.search-form{display:flex;gap:.35rem;align-items:center}
-.search-form input{flex:1;min-width:0;padding:.45rem .6rem;border:1px solid #ccc;border-radius:6px;font-size:.85rem;font-family:'PT Sans',sans-serif}
-.search-form button{background:#8b0000;color:#fff;border:none;padding:.45rem .85rem;border-radius:6px;cursor:pointer;font-weight:700;font-size:.78rem;font-family:'PT Sans',sans-serif}
-.search-form button:hover{background:#a00000}
-.nav-menu{display:flex;list-style:none;flex-shrink:0;position:relative;margin:0;padding:0}
-.nav-menu > li{position:relative}
-.nav-menu > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;white-space:nowrap;border-left:1px solid #e8e8e8;transition:.15s}
-.nav-menu > li:first-child > a{border-left:none}
-.nav-menu > li > a:hover{color:#8b0000;background:#fafafa}
-.menu-item-has-children > a::after{content:'▾';margin-left:.3rem;font-size:.6rem}
-.sub-menu{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:220px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);list-style:none;padding:0;margin:0}
-.nav-menu > li.menu-item-has-children:hover .sub-menu{display:block}
-.sub-menu > li{margin:0}
-.sub-menu a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
-.sub-menu a:hover{color:#8b0000;background:#fdf5f5}
-nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-index:100}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 1.5rem;gap:.8rem;max-width:1200px;margin:0 auto}
-.nav-left{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
-.logo-img{width:44px;height:44px;object-fit:contain}
-.logo-name{font-family:'PT Serif',serif;font-size:.9rem;color:#1a1a1a;font-weight:700}
-.logo-sub{color:#8b0000;font-size:.56rem;margin-top:1px}
-.nav-links{display:flex;list-style:none;position:relative}
-.nav-links > li{position:relative}
-.nav-links > li > a{color:#1a1a1a;text-decoration:none;font-size:.8rem;padding:0 .75rem;height:60px;display:flex;align-items:center;border-left:1px solid #e8e8e8}
-.nav-links > li:first-child > a{border-left:none}
-.nav-links > li > a:hover{color:#8b0000}
-.nav-links > li > a.has-sub::after{content:'▾';margin-left:.3rem;font-size:.6rem}
-.dropdown{display:none;position:absolute;top:60px;left:0;background:#fff;border-top:2px solid #8b0000;min-width:200px;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.nav-links > li:hover .dropdown{display:block}
-.dropdown a{display:block;padding:.65rem 1rem;font-size:.78rem;color:#1a1a1a;text-decoration:none;border-bottom:1px solid #f0f0f0}
-.dropdown a:hover{color:#8b0000;background:#fdf5f5}
-.nbtn{background:#8b0000;color:#fff;border:none;padding:0 1rem;height:38px;font-size:.78rem;font-weight:700;cursor:pointer}
-.nbtn:hover{background:#a00000}
-.content-wrap{max-width:1200px;margin:0 auto;padding:3rem 2rem}
-.page-header{margin-bottom:2rem}
-.page-header h1{font-family:'PT Serif',serif;font-size:2rem;color:#8b0000;margin-bottom:.5rem}
-.page-header p{color:#666;font-size:.9rem}
-.mem-intro{font-size:.95rem;line-height:1.75;color:#333;margin-bottom:1.15rem;max-width:52rem}
-.mem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;margin-bottom:.5rem}
-@media(max-width:1024px){.mem-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.mem-grid{grid-template-columns:1fr}}
-.mem-card{background:#fff;border:1px solid #ebebeb;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:box-shadow .2s,transform .2s,border-color .2s;text-align:left;padding-top:0}
-a.mem-card{display:block;color:inherit;text-decoration:none;cursor:pointer}
-.mem-card:hover{box-shadow:0 10px 28px rgba(139,0,0,.14);transform:translateY(-3px);border-color:rgba(139,0,0,.15)}
-.mem-card:focus-visible{outline:2px solid #8b0000;outline-offset:2px}
-.mem-main-photo{width:100%;height:200px;overflow:hidden;background:linear-gradient(145deg,#e8e0e0,#d4cccc);flex-shrink:0}
-.mem-main-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.mem-body{padding:1rem 1.05rem 1.15rem}
-.mem-date{font-size:.8rem;color:#8b0000;font-weight:700;margin-bottom:.4rem;line-height:1.35}
-.mem-title{font-family:'PT Serif',serif;font-size:.88rem;font-weight:700;color:#1a1a1a;line-height:1.45;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
-footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
-footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
-footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
-footer a:hover{color:rgba(255,255,255,.85)}
-.footer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
-.footer-logo img{width:40px;height:40px;object-fit:contain}
-.footer-logo span{color:#fff;font-family:'PT Serif',serif;font-size:.85rem;font-weight:700}
-.fbot{background:#111;padding:.7rem 2rem;display:flex;flex-direction:column;align-items:stretch;gap:0}
-.fbot-nav{display:flex;flex-wrap:wrap;gap:.45rem .85rem;justify-content:center;padding-bottom:.75rem;border-bottom:1px solid #2a2a2a;margin-bottom:.75rem}
-.fbot-nav a{font-size:.68rem;color:rgba(255,255,255,.45);text-decoration:none;white-space:nowrap}
-.fbot-nav a:hover{color:rgba(255,255,255,.85)}
-.fbot-row{display:flex;justify-content:space-between;align-items:center}
-.fbot-row span{font-size:.7rem;color:rgba(255,255,255,.2)}
-.fbot-row button{background:#8b0000;color:#fff;border:none;padding:.38rem 1rem;font-size:.74rem;font-weight:700;cursor:pointer}
-.fbot-row button:hover{background:#a00000}
-@media(max-width:768px){.nav-inner{flex-wrap:wrap;height:auto}.nav-menu{flex-wrap:wrap;justify-content:center}}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -211,54 +133,51 @@ footer a:hover{color:rgba(255,255,255,.85)}
 
 <script>
 (function(){
-  function previewUrl(n){
-    return 'https://via.placeholder.com/1200x800/d8d8d8/666666?text='+encodeURIComponent('Мероприятия '+(n+1)+' · 1/5');
-  }
   function pad2(n){return n<10?'0'+n:''+n;}
-  var PEV_EVENTS=[
-    {d:'23.02.2026',t:'Торжественное мероприятие ко Дню защитника Отечества совместно с ОМОН «Авангард»'},
-    {d:'09.05.2025',t:'Возложение цветов и встреча с ветеранами — мероприятия ко Дню Победы'},
-    {d:'15.03.2025',t:'Ежеквартальный спортивный турнир для сотрудников и детей'},
-    {d:'12.04.2025',t:'День памяти погибших — памятная церемония и митинг'},
-    {d:'20.12.2025',t:'Предновогодняя встреча с концертной программой'},
-    {d:'18.07.2025',t:'Семейный пикник для сотрудников и родственников'},
-    {d:'05.10.2025',t:'Торжества по случаю годовщины создания ОМОН'},
-    {d:'08.03.2025',t:'Детско-юношеский турнир по самбо при поддержке фонда'},
-    {d:'22.11.2025',t:'Регулярная встреча с ветеранами — круглый стол'},
-    {d:'14.02.2026',t:'Экскурсия и познавательная программа для детей сотрудников'},
-    {d:'01.11.2025',t:'Экскурсия на фабрику мороженого «Чистая линия» для семей'},
-    {d:'19.06.2025',t:'Мероприятия ко Дню России и Дню города'},
-    {d:'03.09.2025',t:'Праздничная линейка и праздник ко Дню знаний'},
-    {d:'27.01.2025',t:'День полного освобождения Ленинграда — памятная дата'},
-    {d:'24.02.2025',t:'Мероприятия ко Дню защитника Отечества в части подразделения'},
-    {d:'31.08.2025',t:'Спортивный праздник на стадионе'},
-    {d:'10.12.2025',t:'Благотворительный концерт в поддержку семей сотрудников'},
-    {d:'16.05.2025',t:'Встреча поколений: ветераны и молодые сотрудники'}
+  var SPORT_EVENTS=[
+    {d:'22.03.2026',t:'Турнир памяти Дмитрия Маркелова',lead:'Турнир по самбо в Сергиевом Посаде памяти первого командира ОМОН Дмитрия Маркелова',full:'В Сергиевом Посаде состоялся турнир по самбо памяти первого командира ОМОН Дмитрия Маркелова.'},
+    {d:'01.03.2026',t:'Детско-юношеский турнир по самбо',lead:'Детско-юношеский турнир по самбо в столичном главке Росгвардии',full:'В столичном главке Росгвардии прошел детско-юношеский турнир по самбо.'},
+    {d:'04.11.2025',t:'Всероссийские соревнования по самбо',lead:'Всероссийские соревнования по самбо среди юношей',full:'Всероссийские соревнования по самбо среди юношей.'},
+    {d:'22.03.2025',t:'Всероссийский турнир по самбо',lead:'Всероссийский турнир по самбо памяти полковника милиции Дмитрия Маркелова',full:'Всероссийский турнир по самбо памяти полковника милиции Дмитрия Маркелова.'},
+    {d:'04.03.2025',t:'Турнир по самбо к 80-летию Победы',lead:'Детско-юношеский турнир по самбо, посвященный 80-летию Победы',full:'Детско-юношеский турнир по самбо, посвященный 80-летию Великой Победы.'},
+    {d:'18.04.2025',t:'Спортивный праздник для ветеранов',lead:'Спортивный праздник для ветеранов в столичном главке Росгвардии',full:'В столичном главке Росгвардии прошел спортивный праздник для ветеранов.'},
+    {d:'17.04.2025',t:'Помощь клубу «Ахиллес»',lead:'Благотворительная помощь детскому боксерскому клубу «Ахиллес»',full:'Фонд передал спортивный инвентарь и экипировку детскому боксерскому клубу «Ахиллес».'},
+    {d:'22.01.2025',t:'Круглый стол по спортивным мероприятиям',lead:'Круглый стол по спортивным мероприятиям ветеранской организации',full:'Состоялся круглый стол по спортивным мероприятиям ветеранской организации.'},
+    {d:'27.02.2024',t:'Детско-юношеский турнир по самбо',lead:'Детско-юношеский турнир по самбо в столичном главке Росгвардии',full:'В столичном главке Росгвардии прошел детско-юношеский турнир по самбо.'},
+    {d:'18.02.2023',t:'Турнир на кубок ОМОН «Авангард»',lead:'Турнир по самбо на кубок ОМОН «Авангард»',full:'Турнир по самбо на кубок ОМОН «Авангард».'},
+    {d:'25.12.2022',t:'Турнир по боевому самбо',lead:'Турнир по боевому самбо на кубок командира ОМОН «Авангард»',full:'Турнир по боевому самбо на кубок командира ОМОН «Авангард».'},
+    {d:'30.04.2022',t:'Турнир «Русский богатырь»',lead:'Детско-юношеский турнир по самбо «Русский богатырь» на Кубок ГУ Росгвардии',full:'Детско-юношеский турнир по самбо «Русский богатырь» на Кубок ГУ Росгвардии.'},
+    {d:'23.04.2022',t:'Турнир по смешанным единоборствам',lead:'Ежегодный общероссийский турнир по смешанным единоборствам',full:'Ежегодный общероссийский турнир по смешанным единоборствам.'},
+    {d:'24.04.2021',t:'Турнир памяти бойцов спецназа',lead:'Турнир по смешанным единоборствам памяти бойцов спецназа МВД России',full:'Турнир по смешанным единоборствам памяти бойцов спецназа МВД России.'},
+    {d:'22.02.2020',t:'Турнир по САМБО',lead:'Детско-юношеский турнир по САМБО на кубок ОМОН ГУ Росгвардии',full:'Детско-юношеский турнир по САМБО на кубок ОМОН ГУ Росгвардии.'}
   ];
   var grid=document.getElementById('pevGrid');
-  PEV_EVENTS.forEach(function(it,n){
+  SPORT_EVENTS.forEach(function(it,n){
     var a=document.createElement('a');
     a.className='mem-card';
-    a.href='events/programs-'+pad2(n+1)+'.html';
-    a.setAttribute('aria-label',it.d+'. '+it.t+' — подробнее и фотогалерея');
+    a.href='#';
+    a.setAttribute('data-article-href','events/sport-'+pad2(n+1)+'.html');
+    a.setAttribute('aria-label',it.d+'. '+it.t+' — фотогалерея');
+    a.setAttribute('data-description',JSON.stringify({lead:it.lead,full:it.full}));
     var mainPh=document.createElement('div');
-    mainPh.className='mem-main-photo';
-    var img=document.createElement('img');
-    img.src=previewUrl(n);
-    img.alt='Превью: '+it.d;
-    img.loading='lazy';
-    mainPh.appendChild(img);
+    mainPh.className='mem-main-photo mem-main-photo--placeholder';
+    var ph=document.createElement('span');
+    ph.className='mem-photo-placeholder-text';
+    ph.textContent='Фото будет добавлено';
+    mainPh.appendChild(ph);
     var body=document.createElement('div');
     body.className='mem-body';
-    body.innerHTML='<div class="mem-date"></div><div class="mem-title"></div>';
+    body.innerHTML='<div class="mem-date"></div><div class="mem-title"></div><div class="mem-lead"></div>';
     body.querySelector('.mem-date').textContent=it.d;
     body.querySelector('.mem-title').textContent=it.t;
+    body.querySelector('.mem-lead').textContent=it.lead;
     a.appendChild(mainPh);
     a.appendChild(body);
     grid.appendChild(a);
   });
 })();
 </script>
+<script src="js/premium-gallery.js" defer></script>
 <script src="js/topbar.js" defer></script>
 </body>
 </html>

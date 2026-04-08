@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Отзывы и благодарности — БРОФ «Твардовского, 2»</title>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
 html{scroll-behavior:smooth}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -69,26 +70,6 @@ nav{background:#fff;border-bottom:2px solid #8b0000;position:sticky;top:0;z-inde
 .rc-thumb{width:100%;aspect-ratio:210/297;background:linear-gradient(145deg,#e4e4e4,#d0d0d0);border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .rc-thumb svg{width:clamp(40px,18%,56px);height:auto;opacity:.55;color:#666}
 .rc-caption{margin-top:.85rem;font-size:.82rem;color:#444;line-height:1.45;text-align:center;font-family:'PT Serif',serif}
-.rev-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:1rem .75rem;background:rgba(0,0,0,.78)}
-.rev-modal.open{display:flex}
-.rev-modal-wrap{position:relative;width:100%;max-width:min(92vw,620px);margin:0 auto}
-.rev-modal-inner{position:relative;width:100%}
-.rev-modal-row{display:flex;align-items:center;gap:.35rem;width:100%}
-.rev-modal-col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center}
-.rev-modal-cert{width:100%;aspect-ratio:210/297;max-height:min(82vh,760px);background:linear-gradient(145deg,#e4e4e4,#cfcfcf);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 20px 50px rgba(0,0,0,.45)}
-.rev-modal-cert svg{width:clamp(64px,22%,100px);height:auto;opacity:.5;color:#555}
-.rev-modal-caption{margin-top:1rem;color:#fff;font-family:'PT Serif',serif;font-size:1.05rem;text-align:center;text-shadow:0 1px 4px rgba(0,0,0,.5);padding:0 .25rem;line-height:1.35}
-.rev-modal-sub{font-size:.88rem;color:rgba(255,255,255,.88);margin-top:.35rem;font-weight:400}
-.rev-modal-counter{margin-top:.5rem;font-size:.82rem;color:rgba(255,255,255,.75)}
-.rev-close{position:absolute;top:-2.5rem;right:0;width:42px;height:42px;border:none;border-radius:50%;background:#fff;color:#333;font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.2);z-index:3}
-.rev-close:hover{color:#8b0000}
-.rev-nav{flex-shrink:0;width:46px;height:46px;border:none;border-radius:50%;background:#8b0000;color:#fff;font-size:1.35rem;line-height:1;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
-.rev-nav:hover{background:#a00000}
-@media(max-width:768px){
-  .rev-modal-row{gap:.15rem}
-  .rev-nav{width:40px;height:40px;font-size:1.2rem}
-  .rev-close{top:-2.75rem}
-}
 footer{background:#1a1a1a;padding:2rem;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.5rem;border-top:3px solid #8b0000}
 footer h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;margin-bottom:.7rem}
 footer p,footer a{display:block;font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.85;text-decoration:none}
@@ -193,24 +174,6 @@ footer a:hover{color:rgba(255,255,255,.85)}
   </section>
 </div>
 
-<div id="revModal" class="rev-modal" role="dialog" aria-modal="true" aria-labelledby="revModalTitle" hidden>
-  <div class="rev-modal-wrap">
-    <div class="rev-modal-inner">
-      <button type="button" class="rev-close" id="revClose" aria-label="Закрыть">×</button>
-      <div class="rev-modal-row">
-        <button type="button" class="rev-nav prev" id="revPrev" aria-label="Предыдущее в этом разделе">‹</button>
-        <div class="rev-modal-col">
-          <div class="rev-modal-cert" id="revModalCert" aria-hidden="true"></div>
-          <div class="rev-modal-caption" id="revModalTitle">Заголовок</div>
-          <div class="rev-modal-sub" id="revModalSub"></div>
-          <div class="rev-modal-counter" id="revModalCount">1 из 10</div>
-        </div>
-        <button type="button" class="rev-nav next" id="revNext" aria-label="Следующее в этом разделе">›</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer>
   <div>
     <div class="footer-logo">
@@ -280,72 +243,21 @@ footer a:hover{color:rgba(255,255,255,.85)}
     {gridId:'grid-wards',title:'Отзывы подопечных',cardLabel:'Отзыв №'},
     {gridId:'grid-awards',title:'Грамоты и награды',cardLabel:'Грамота №'}
   ];
-  var modal=document.getElementById('revModal');
-  var certEl=document.getElementById('revModalCert');
-  var titleEl=document.getElementById('revModalTitle');
-  var subEl=document.getElementById('revModalSub');
-  var countEl=document.getElementById('revModalCount');
-  var catIdx=0;
-  var idx=0;
-
-  function updateModalView(){
-    var sec=SECTIONS[catIdx];
-    certEl.innerHTML=PHOTO_ICON;
-    titleEl.textContent=sec.title;
-    subEl.textContent=sec.cardLabel+(idx+1);
-    countEl.textContent=(idx+1)+' из '+PER+' в разделе';
-  }
-  function openModal(c,i){
-    catIdx=c;
-    idx=i;
-    updateModalView();
-    modal.hidden=false;
-    modal.classList.add('open');
-    document.body.style.overflow='hidden';
-  }
-  function closeModal(){
-    modal.classList.remove('open');
-    modal.hidden=true;
-    document.body.style.overflow='';
-  }
-  function step(d){
-    idx=(idx+d+PER)%PER;
-    updateModalView();
-  }
-
-  SECTIONS.forEach(function(sec,c){
+  SECTIONS.forEach(function(sec){
     var grid=document.getElementById(sec.gridId);
     for(var n=0;n<PER;n++){
       var art=document.createElement('article');
       art.className='review-card';
       art.setAttribute('role','listitem');
       art.setAttribute('tabindex','0');
-      art.setAttribute('aria-label',sec.title+': '+sec.cardLabel+(n+1)+'. Открыть увеличенное изображение');
+      art.setAttribute('aria-label',sec.title+': '+sec.cardLabel+(n+1)+'. Открыть галерею');
       art.innerHTML='<div class="rc-thumb">'+PHOTO_ICON+'</div><div class="rc-caption">'+sec.cardLabel+(n+1)+'</div>';
-      (function(cat,item){
-        art.addEventListener('click',function(){openModal(cat,item);});
-        art.addEventListener('keydown',function(e){
-          if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(cat,item);}
-        });
-      })(c,n);
       grid.appendChild(art);
     }
   });
-
-  document.getElementById('revClose').addEventListener('click',closeModal);
-  document.getElementById('revPrev').addEventListener('click',function(e){e.stopPropagation();step(-1);});
-  document.getElementById('revNext').addEventListener('click',function(e){e.stopPropagation();step(1);});
-  modal.addEventListener('click',function(e){
-    if(e.target===modal)closeModal();
-  });
-  document.addEventListener('keydown',function(e){
-    if(!modal.classList.contains('open'))return;
-    if(e.key==='Escape')closeModal();
-    if(e.key==='ArrowLeft')step(-1);
-    if(e.key==='ArrowRight')step(1);
-  });
 })();
 </script>
+<script src="js/premium-gallery.js" defer></script>
 <script src="js/topbar.js" defer></script>
 </body>
 </html>
